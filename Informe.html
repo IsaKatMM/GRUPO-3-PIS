@@ -8,58 +8,52 @@
 <body>
     <div id="informe-container">
         <h1>Generador de Informe</h1>
-        
         <form id="informe-form">
             <label for="contenido">Contenido:</label>
             <textarea id="contenido" name="contenido" rows="2" cols="50" required></textarea><br>
-            
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required>
-            
-            <label for="hora">Hora (HH:MM):</label>
-            <input type="text" id="hora" name="hora" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM" required>
-
 
             <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" required>
+            <input type="text" id="autor" name="autor" placeholder="Nombre y Apellido" required><br>
 
             <label for="destinatario">Destinatario:</label>
-            <input type="text" id="destinatario" name="destinatario" required>
-            
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" name="ubicacion" required>
+            <input type="text" id="destinatario" name="destinatario" placeholder="Nombre y Apellido" required><br>
 
-            <label for="datosSensor">Datos del Sensor:</label>             
-            <input type="text" id="amperios" name="amperios" placeholder="Amperios" required>             
-            <input type="text" id="horas" name="horas" placeholder="Horas" required> 
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ubicación específica"><br>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required><br>
             
-            <label for="piso">Datos del Piso:</label>
-            <select id="piso" name="piso" style="width: 100%;" required>
+           <label for="hora">Hora (HH:MM):</label>
+            <input type="text" id="hora" name="hora" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM" required><br>
+
+            <label for="piso">Piso:</label>
+            <select id="piso" name="piso" required>
                 <option value="Piso 1">Piso 1</option>
                 <option value="Piso 2">Piso 2</option>
                 <option value="Piso 3">Piso 3</option>
-            </select>
+            </select><br>
 
-            <label for="datosEdificio">Datos del Edificio:</label>
-            <input type="text" id="datosEdificio" name="datosEdificio" required>
-
+            <label for="datosSensor">Datos del Sensor:</label>
+            <input type="text" id="amperios" name="amperios" placeholder="Amperios" required>
+            <input type="text" id="horas" name="horas" placeholder="Horas" required><br>
 
             <button type="button" onclick="generarInforme()">Generar Informe</button>
         </form>
 
-        <div id="opciones-generar-informe" style="display: none;">
-            <button type="button" onclick="enviarInforme()">Enviar Informe </button>
+        <div id="informe-result" style="margin-top: 20px;"></div>
+
+        <div id="opciones-generar-informe" style="display: none; margin-top: 20px;">
+            <button type="button" onclick="enviarInforme()">Enviar Informe</button>
             <button type="button" onclick="archivarInforme()">Archivar Informe</button>
             <button type="button" onclick="descargarInforme()">Descargar Informe</button>
             <button type="button" onclick="generarInformePiso()">Generar Informe del Piso</button>
             <button type="button" onclick="generarInformeEdificio()">Generar Informe del Edificio</button>
         </div>
-
-        <div id="informe-result"></div>
     </div>
 
     <script>
-         function generarInforme() {
+        function generarInforme() {
             var fechaActual = new Date();
             var hora = fechaActual.getHours();
             var minutos = fechaActual.getMinutes();
@@ -82,7 +76,7 @@
                 + "Ubicación: " + ubicacion + "<br>"
                 + "Fecha: " + fecha + "<br>"
                 + "Hora: " + hora + "<br>"
-                + "Datos del Piso: " + piso + "<br>"
+                + "Piso: " + piso + "<br>"
                 + "Datos del Sensor: " + amperios + " Amperios cada " + horas + " horas" + "<br>"
                 + datosActuador;
 
@@ -93,7 +87,7 @@
         }
 
         function enviarInforme() {
-            alert("Enviando informe...");
+            alert("Enviando informe por correo electrónico...");
         }
 
         function archivarInforme() {
