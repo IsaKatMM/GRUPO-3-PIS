@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Generator</title>
+</head>
+<body>
+    <div id="informe-container">
+        <h1>Generador de Informe</h1>
+        <form id="informe-form">
+            <label for="contenido">Contenido:</label>
+            <input type="text" id="contenido" name="contenido" required>
+
+            <label for="fecha">Fecha:</label>
+            <input type="text" id="fecha" name="fecha" required>
+
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
+
+            <label for="destinatario">Destinatario:</label>
+            <input type="text" id="destinatario" name="destinatario" required>
+
+            <label for="hora">Hora:</label>
+            <input type="text" id="hora" name="hora" required>
+
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" required>
+
+            <label for="datosSensor">Datos del Sensor:</label>
+            <input type="text" id="datosSensor" name="datosSensor" required>
+
+            <label for="datosPiso">Datos del Piso:</label>
+            <input type="text" id="datosPiso" name="datosPiso" required>
+
+            <label for="datosActuador">Datos del Actuador:</label>
+            <input type="text" id="datosActuador" name="datosActuador" required>
+
+            <label for="datosEdificio">Datos del Edificio:</label>
+            <input type="text" id="datosEdificio" name="datosEdificio" required>
+
+            <button type="button" onclick="generarInforme()">Generar Informe</button>
+        </form>
+
+        <div id="informe-result"></div>
+    </div>
+
+    <script>
+        function generarInforme() {
+            var contenido = document.getElementById("contenido").value;
+            var fecha = document.getElementById("fecha").value;
+            var autor = document.getElementById("autor").value;
+            var destinatario = document.getElementById("destinatario").value;
+            var hora = document.getElementById("hora").value;
+            var ubicacion = document.getElementById("ubicacion").value;
+            var datosSensor = document.getElementById("datosSensor").value;
+            var datosPiso = document.getElementById("datosPiso").value;
+            var datosActuador = document.getElementById("datosActuador").value;
+            var datosEdificio = document.getElementById("datosEdificio").value;
+
+            var informe = `
+                <h2>Informe Generado</h2>
+                <p><strong>Contenido:</strong> ${contenido}</p>
+                <p><strong>Fecha:</strong> ${fecha}</p>
+                <p><strong>Autor:</strong> ${autor}</p>
+                <p><strong>Destinatario:</strong> ${destinatario}</p>
+                <p><strong>Hora:</strong> ${hora}</p>
+                <p><strong>Ubicación:</strong> ${ubicacion}</p>
+                <p><strong>Datos del Sensor:</strong> ${datosSensor}</p>
+                <p><strong>Datos del Piso:</strong> ${datosPiso}</p>
+                <p><strong>Datos del Actuador:</strong> ${datosActuador}</p>
+                <p><strong>Datos del Edificio:</strong> ${datosEdificio}</p>
+            `;
+
+            document.getElementById("informe-result").innerHTML = informe;
+        }
+    </script>
+</body>
+</html>
+
