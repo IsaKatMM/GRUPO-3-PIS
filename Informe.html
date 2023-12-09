@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe Generator</title>
+    <title>Generador de Informe</title>
 </head>
 <body>
     <div id="informe-container">
         <h1>Generador de Informe</h1>
         <form id="informe-form">
+            <label for="contenido">Contenido:</label>
+            <input type="text" id="contenido" name="contenido" required>
+
             <label for="contenido">Contenido:</label>
             <input type="text" id="contenido" name="contenido" required>
 
@@ -39,15 +42,24 @@
             <label for="datosEdificio">Datos del Edificio:</label>
             <input type="text" id="datosEdificio" name="datosEdificio" required>
 
+
             <button type="button" onclick="generarInforme()">Generar Informe</button>
         </form>
+
+        <div id="opciones-generar-informe" style="display: none;">
+            <button type="button" onclick="enviarInforme()">Enviar Informe </button>
+            <button type="button" onclick="archivarInforme()">Archivar Informe</button>
+            <button type="button" onclick="descargarInforme()">Descargar Informe</button>
+            <button type="button" onclick="generarInformePiso()">Generar Informe del Piso</button>
+            <button type="button" onclick="generarInformeEdificio()">Generar Informe del Edificio</button>
+        </div>
 
         <div id="informe-result"></div>
     </div>
 
     <script>
         function generarInforme() {
-            var contenido = document.getElementById("contenido").value;
+             var contenido = document.getElementById("contenido").value;
             var fecha = document.getElementById("fecha").value;
             var autor = document.getElementById("autor").value;
             var destinatario = document.getElementById("destinatario").value;
@@ -74,7 +86,31 @@
 
             document.getElementById("informe-result").innerHTML = informe;
         }
+{        
+            var informeResult = document.getElementById("informe-result");
+            informeResult.innerHTML = "Informe generado con éxito.";
+            document.getElementById("opciones-generar-informe").style.display = "block";
+        }
+
+        function enviarInforme() {
+            alert("Enviando informe...");
+        }
+
+        function archivarInforme() {
+            alert("Archivando informe...");
+        }
+
+        function descargarInforme() {
+            alert("Descargando informe como PDF...");
+        }
+
+        function generarInformePiso() {
+            alert("Generando informe del piso...");
+        }
+
+        function generarInformeEdificio() {
+            alert("Generando informe del edificio...");
+        }
     </script>
 </body>
 </html>
-
