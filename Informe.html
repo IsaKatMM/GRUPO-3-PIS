@@ -11,33 +11,33 @@
         <form id="informe-form">
             <label for="contenido">Contenido:</label>
             <input type="text" id="contenido" name="contenido" required>
-
-            <label for="contenido">Contenido:</label>
-            <input type="text" id="contenido" name="contenido" required>
-
+            
             <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha" required>
-3
+            
+            <label for="hora">Hora (HH:MM):</label>
+            <input type="text" id="hora" name="hora" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM" required>
+
+
             <label for="autor">Autor:</label>
             <input type="text" id="autor" name="autor" required>
 
             <label for="destinatario">Destinatario:</label>
             <input type="text" id="destinatario" name="destinatario" required>
-
-            <label for="hora">Hora:</label>
-            <input type="text" id="hora" name="hora" required>
-
+            
             <label for="ubicacion">Ubicación:</label>
             <input type="text" id="ubicacion" name="ubicacion" required>
 
-            <label for="datosSensor">Datos del Sensor:</label>
-            <input type="text" id="datosSensor" name="datosSensor" required>
-
-            <label for="datosPiso">Datos del Piso:</label>
-            <input type="text" id="datosPiso" name="datosPiso" required>
-
-            <label for="datosActuador">Datos del Actuador:</label>
-            <input type="text" id="datosActuador" name="datosActuador" required>
+            <label for="datosSensor">Datos del Sensor:</label>             
+            <input type="text" id="amperios" name="amperios" placeholder="Amperios" required>             
+            <input type="text" id="horas" name="horas" placeholder="Horas" required> 
+            
+            <label for="piso">Datos del Piso:</label>
+            <select id="piso" name="piso" style="width: 100%;" required>
+                <option value="Piso 1">Piso 1</option>
+                <option value="Piso 2">Piso 2</option>
+                <option value="Piso 3">Piso 3</option>
+            </select>
 
             <label for="datosEdificio">Datos del Edificio:</label>
             <input type="text" id="datosEdificio" name="datosEdificio" required>
@@ -58,37 +58,36 @@
     </div>
 
     <script>
-        function generarInforme() {
-             var contenido = document.getElementById("contenido").value;
-            var fecha = document.getElementById("fecha").value;
+         function generarInforme() {
+            var fechaActual = new Date();
+            var hora = fechaActual.getHours();
+            var minutos = fechaActual.getMinutes();
+
+            var contenido = document.getElementById("contenido").value;
             var autor = document.getElementById("autor").value;
             var destinatario = document.getElementById("destinatario").value;
-            var hora = document.getElementById("hora").value;
             var ubicacion = document.getElementById("ubicacion").value;
-            var datosSensor = document.getElementById("datosSensor").value;
-            var datosPiso = document.getElementById("datosPiso").value;
-            var datosActuador = document.getElementById("datosActuador").value;
-            var datosEdificio = document.getElementById("datosEdificio").value;
+            var fecha = document.getElementById("fecha").value;
+            var hora = document.getElementById("hora").value;
+            var piso = document.getElementById("piso").value;
+            var amperios = document.getElementById("amperios").value;
+            var horas = document.getElementById("horas").value;
 
-            var informe = `
-                <h2>Informe Generado</h2>
-                <p><strong>Contenido:</strong> ${contenido}</p>
-                <p><strong>Fecha:</strong> ${fecha}</p>
-                <p><strong>Autor:</strong> ${autor}</p>
-                <p><strong>Destinatario:</strong> ${destinatario}</p>
-                <p><strong>Hora:</strong> ${hora}</p>
-                <p><strong>Ubicación:</strong> ${ubicacion}</p>
-                <p><strong>Datos del Sensor:</strong> ${datosSensor}</p>
-                <p><strong>Datos del Piso:</strong> ${datosPiso}</p>
-                <p><strong>Datos del Actuador:</strong> ${datosActuador}</p>
-                <p><strong>Datos del Edificio:</strong> ${datosEdificio}</p>
-            `;
+            var datosActuador = "Datos del Actuador: " + (amperios * horas) + " Amperios al día";
 
-            document.getElementById("informe-result").innerHTML = informe;
-        }
-{        
+            var informeCompleto = "Contenido: " + contenido + "<br>"
+                + "Autor: " + autor + "<br>"
+                + "Destinatario: " + destinatario + "<br>"
+                + "Ubicación: " + ubicacion + "<br>"
+                + "Fecha: " + fecha + "<br>"
+                + "Hora: " + hora + "<br>"
+                + "Datos del Piso: " + piso + "<br>"
+                + "Datos del Sensor: " + amperios + " Amperios cada " + horas + " horas" + "<br>"
+                + datosActuador;
+
             var informeResult = document.getElementById("informe-result");
-            informeResult.innerHTML = "Informe generado con éxito.";
+            informeResult.innerHTML = informeCompleto;
+
             document.getElementById("opciones-generar-informe").style.display = "block";
         }
 
