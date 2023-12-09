@@ -1,0 +1,15 @@
+h1 span {
+    color: #000000; /* Color de texto blanco */
+}
+
+.text-white {
+    color: #000000 !important; /* Color de texto blanco */
+}
+
+a {
+    color: #000000; /* Color de texto blanco para los enlaces */
+}
+
+a:hover {
+    color: #c99042; /* Cambio de color al pasar el ratón sobre los enlaces */
+}
