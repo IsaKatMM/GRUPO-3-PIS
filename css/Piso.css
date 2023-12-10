@@ -1,0 +1,40 @@
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:  #ba7fa7; 
+}
+
+h1 {
+    text-align: center;
+    color: #333; 
+    background-color: rgb(146, 46, 180); 
+    padding: 20px;
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .piso, .edificio, .sensor, .actuador {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    background-color: #f0d0e8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    line-height: 2;
+  }
+
+  .chart-container {
+    margin-top: 20px;
+    text-align: center;
+  }
