@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/Usuario.css">
     <title>Recuperar contraseña</title>
 </head>
 <body>
-<h2>Recuperar contraseña</h2>
-<form>
-    <label for="correo">Correo: <input type="text" id="correo"></label> <br> <br>
-    <button type="submit">Recuperar contraseña</button>
-    <br>
-    <p>¿Ya tienes una cuenta? <a href="iniciarSesion.html">Iniciar Sesión</a></p>
-</form>
+<div class="formulario">
+    <form action="post">
+        <h1>Recuperar contraseña</h1>
+        <div class="correo">
+            <input type="text" required >
+            <label> Ingrese su Correo:</label>
+        </div>
+
+        <div class="recuperar">
+            <input type="submit" value="Enviar">
+        </div>
+        <div class="login">
+            <a href="iniciarSesion.html">Iniciar Sesión</a>
+        </div>
+    </form>
+</div>
 </body>
 </html>
