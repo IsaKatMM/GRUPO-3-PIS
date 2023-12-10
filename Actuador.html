@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actuador</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="actuador" id="actuador1">
+    <h2>Actuador 1</h2>
+    <p>Ubicación: <span id="ubicacionActuador1"></span></p>
+    <p>Estado: <span id="estadoActuador1"></span></p>
+    <button onclick="cambiarEstadoActuador1()">Cambiar Estado</button>
+  </div>
+
+  <script>
+    class Actuador {
+      constructor() {
+        this.ubicacion = '';
+        this.estado = false;
+        this.datosSensor = '';
+        this.potencia = 0.0;
+      }
+
+      cambiarEstado() {
+        console.log('Cambiando estado del actuador...');
+      }
+    }
+
+    const actuador1 = new Actuador();
+  </script>
+
+</body>
+</html>
