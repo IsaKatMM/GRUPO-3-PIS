@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0d0e8; /* Morado medio con un toque de rosa para el fondo */
 }
 
 .container {
@@ -11,21 +11,17 @@ body {
 }
 
 .header {
-    background-color: #333;
+    background-color: #ba7fa7; /* Morado medio con un toque de rosa para el encabezado */
     color: #fff;
     padding: 10px 0;
-    text-align: center; /* Alinear el texto al centro */
-}
-
-.header h2.title {
-    margin: 0;
+    text-align: center;
 }
 
 .menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: flex; /* Alinea los elementos en línea horizontal */
 }
 
 .menu li {
@@ -36,34 +32,25 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    display: block;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .menu a:hover,
 .menu a.active {
-    background-color: #555;
-    border-radius: 5px;
+    background-color: #a3678d; /* Morado medio más oscuro para el hover */
 }
 
 .login-box {
-    background-color: #fff;
+    background-color: #fff; /* Fondo blanco para el cuadro de inicio de sesión */
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-box h2 {
-    margin-bottom: 20px;
-}
-
-.login-box p {
-    margin: 10px 0;
-}
-
 .login-box a {
-    color: #3498db;
+    color: #d084af; /* Morado más oscuro para los enlaces */
 }
 
 .login-box a:hover {
