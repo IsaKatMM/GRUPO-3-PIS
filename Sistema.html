@@ -1,98 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema</title>
   <link rel="stylesheet" href="css/style.css">
-  
+  <style>
+
+    h1 {
+      text-align: center;
+      color: #333; 
+      background-color: rgb(146, 46, 180); 
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .piso, .edificio, .sensor, .actuador {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .chart-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
   <h1>Sistema</h1>
 
   <div class="container">
+
     <div class="piso" id="piso1">
-        <h2>Piso 1</h2>
-        <p>Nombre: <span id="nombrePiso1"></span></p>
-        <p>Ubicación: <span id="ubicacionPiso1"></span></p>
-        <p>Potencia del actuador: <span id="potenciaActuadorPiso1"></span></p>
-        <p>Datos del sensor: <span id="datosSensorPiso1"></span></p>
-        <button onclick="obtenerRecomendacionesPiso1()">Obtener Recomendaciones</button>
-        <button onclick="crearPiso1()">Crear Piso</button>
-        <p>Consumo del piso: <span id="consumoPiso1"></span></p>
-      </div>
-  
-      <div class="edificio" id="edificio">
-        <h2>Edificio</h2>
-        <p>Número de pisos: <span id="numeroPisos"></span></p>
-        <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
-        <p>Consumo total del edificio: <span id="consumoTotalEdificio"></span></p>
-      </div>
+      <h2>Piso 1</h2>
+      <p>Nombre: <span id="nombrePiso1"></span></p>
+      <p>Ubicación: <span id="ubicacionPiso1"></span></p>
+      <p>Potencia del actuador: <span id="potenciaActuadorPiso1"></span></p>
+      <p>Datos del sensor: <span id="datosSensorPiso1"></span></p>
+      <button onclick="obtenerRecomendacionesPiso1()">Obtener Recomendaciones</button>
+      <button onclick="crearPiso1()">Crear Piso</button>
+      <p>Consumo del piso: <span id="consumoPiso1"></span></p>
     </div>
-  
-    <script>
-      class Piso {
-          constructor() {
-          this.nombre = '';
-          this.ubicacion = '';
-          this.potenciaActuador = '';
-          this.datosSensor = '';
-        }
-  
-        obtenerRecomendaciones() {
-          // Implementa la lógica para obtener recomendaciones del piso
-          return 'Recomendaciones del piso';
-        }
-  
-        crearPiso() {
-          // Implementa la lógica para crear un nuevo piso
-          console.log('Creando piso...');
-        }
-  
-        calcularConsumoPiso() {
-          // Implementa la lógica para calcular el consumo del piso
-          return 0.0; // Puedes devolver un valor específico o calcularlo dinámicamente
-        }
-  
-      }
-  
-      class Edificio {
-          constructor() {
-          this.numeroPisos = 0;
-        }
-  
-        calcularConsumoTotal() {
-          // Implementa la lógica para calcular el consumo total del edificio
-          return 0.0; // Puedes devolver un valor específico o calcularlo dinámicamente
-        }
-      }
-  
-      class Sistema {
-          constructor() {
-          this.edificio = new Edificio();
-          this.pisos = []; // Array para almacenar los pisos
-        }
-      }
-  
-      const Sistema = new Sistema();
-      const piso1 = new Piso();
-      sistema.pisos.push(piso1);
-  
-      function obtenerRecomendacionesPiso1() {
-          console.log(piso1.obtenerRecomendaciones());
-          piso1.crearPiso();
-      }
-  
-      function crearPiso1() {
-          console.log(piso1.calcularConsumoPiso());
-      }
-  
-      function calcularConsumoTotal() {
-          console.log(sistema.edificio.calcularConsumoTotal());
-      }
-    </script>
+
+    <div class="edificio" id="edificio">
+      <h2>Edificio</h2>
+      <p>Número de pisos: <span id="numeroPisos"></span></p>
+      <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
+      <p>Consumo total del edificio: <span id="consumoTotalEdificio"></span></p>
+    </div>
 
     <div class="sensor" id="sensor1">
       <h2>Sensor 1</h2>
@@ -108,15 +74,41 @@
       <p>Estado: <span id="estadoActuador1"></span></p>
       <button onclick="cambiarEstadoActuador1()">Cambiar Estado</button>
     </div>
-  </div>
 
-  <div class="chart-container">
-    <!-- Aquí puedes agregar gráficos si decides usar bibliotecas como Chart.js o D3.js -->
-    <!-- Por ejemplo, puedes usar un elemento canvas para dibujar gráficos -->
-    <!-- <canvas id="myChart" width="400" height="200"></canvas> -->
   </div>
 
   <script>
+    class Piso {
+      constructor() {
+        this.nombre = '';
+        this.ubicacion = '';
+        this.potenciaActuador = '';
+        this.datosSensor = '';
+      }
+
+      obtenerRecomendaciones() {
+        return 'Recomendaciones del piso';
+      }
+
+      crearPiso() {
+        console.log('Creando piso...');
+      }
+
+      calcularConsumoPiso() {
+        return 0.0; 
+      }
+    }
+
+    class Edificio {
+      constructor() {
+        this.numeroPisos = 0;
+      }
+
+      calcularConsumoTotal() {
+        return 0.0;
+      }
+    }
+
     class Sensor {
       constructor() {
         this.numero = '';
@@ -127,7 +119,6 @@
       }
 
       leerDatos() {
-        // Implementa la lógica para leer datos del sensor
         console.log('Leyendo datos del sensor...');
       }
     }
@@ -141,7 +132,6 @@
       }
 
       cambiarEstado() {
-        // Implementa la lógica para cambiar el estado del actuador
         console.log('Cambiando estado del actuador...');
       }
     }
@@ -150,35 +140,29 @@
       constructor() {
         this.edificio = new Edificio();
         this.pisos = [];
-        this.sensores = []; // Lista de sensores
-        this.actuadores = []; // Lista de actuadores
+        this.sensores = []; 
+        this.actuadores = []; 
       }
 
       supervisarConsumo() {
-        // Implementa la lógica para supervisar el consumo
         console.log('Supervisando consumo...');
       }
 
       controlarSistemas() {
-        // Implementa la lógica para controlar sistemas
         console.log('Controlando sistemas...');
       }
     }
 
-    // Ejemplo de uso
     const sistema = new Sistema();
+    const piso1 = new Piso();
     const sensor1 = new Sensor();
     const actuador1 = new Actuador();
+    sistema.pisos.push(piso1);
     sistema.sensores.push(sensor1);
     sistema.actuadores.push(actuador1);
 
-    function leerDatosSensor1() {
-      // ... (código para leer datos del sensor)
-    }
-
-    function cambiarEstadoActuador1() {
-      // ... (código para cambiar estado del actuador)
-    }
+    sistema.supervisarConsumo();
+    sistema.controlarSistemas();
   </script>
 
 </body>
