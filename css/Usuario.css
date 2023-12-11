@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(90deg, #333333, #2C2C2C, #333333);
+    background: linear-gradient(45deg, #FFD9EB, #FCE4EC);
     height: 100vh;
 }
 
@@ -15,3 +15,5 @@ body {
     background: white;
     border-radius: 10px;
 }
+
+
