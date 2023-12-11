@@ -8,29 +8,28 @@
 </head>
 <body>
 
-  <div class="actuador" id="actuador1">
-    <h2>Actuador 1</h2>
-    <p>Ubicación: <span id="ubicacionActuador1"></span></p>
-    <p>Estado: <span id="estadoActuador1"></span></p>
-    <button onclick="cambiarEstadoActuador1()">Cambiar Estado</button>
+  <div class="actuador" id="actuador">
+    <h2>Actuador</h2>
+  
+    <label for="datosSensor">Datos del Sensor:</label>
+    <input type="text" id="datosSensor" name="datosSensor" required><br>
+
+   <label for="potenciaActuador">Potencia:</label>
+    <input type="text" id="potenciaActuador" name="potenciaActuador" required><br>
+
+    <label for="ubicacionActuador">Ubicación:</label>
+    <select id="ubicacionActuador" name="ubicacionActuador" required>
+        <option value="Piso 1">Piso 1</option>
+        <option value="Piso 2">Piso 2</option>
+        <option value="Piso 3">Piso 3</option>
+
+    </select><br>
+
+    <label for="EstadoActuador">Estado:</label>
+    <select id="EstadoActuador" name="EstadoActuador" required>
+        <option value="Encendido">Encendido</option>
+        <option value="Apagado">Apagado</option>
+    </select><br>
   </div>
-
-  <script>
-    class Actuador {
-      constructor() {
-        this.ubicacion = '';
-        this.estado = false;
-        this.datosSensor = '';
-        this.potencia = 0.0;
-      }
-
-      cambiarEstado() {
-        console.log('Cambiando estado del actuador...');
-      }
-    }
-
-    const actuador1 = new Actuador();
-  </script>
-
 </body>
 </html>
