@@ -9,29 +9,41 @@
 <body>
 
   <div class="sensor" id="sensor1">
-    <h2>Sensor 1</h2>
-    <p>Número: <span id="numeroSensor1"></span></p>
-    <p>Ubicación: <span id="ubicacionSensor1"></span></p>
-    <p>Lectura Actual: <span id="lecturaActualSensor1"></span></p>
-    <button onclick="leerDatosSensor1()">Leer Datos</button>
-  </div>
-
+  
+      <h2>Sensor 1</h2>
+  
+      <label for="ubicacion">Ubicación:</label><br>
+      <select id="ubicacion" name="ubicacion" required>
+        <option value="Piso 1">Piso 1</option>      
+        <option value="Piso 2">Piso 2</option>
+        <option value="Piso 3">Piso 3</option>
+      </select><br>
+  
+      <label for="potenciaActuador">Potencia del actuador:</label><br>
+      <input type="text" id="potenciaActuador" name="potenciaActuador" placeholder="Potencia del actuador"><br>
+  
+      <label for="datosSensor">Datos del Sensor:</label>
+      <input type="text" id="amperios" name="amperios" placeholder="Amperios" required>
+      <input type="text" id="horas" name="horas" placeholder="Horas" required><br>
+      
+      <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
+      
+      <script>
+        function calcularConsumoTotal() {
+          var amperios = parseFloat(document.getElementById("amperios").value) || 0;
+          var horas = parseFloat(document.getElementById("horas").value) || 0;
+      
+          var consumoTotal = amperios * horas;
+      
+          alert("El consumo total es de " + consumoTotal + " amperios.");
+      
+          if (consumoTotal > 700) {
+            alert("¡Consumo Alto detectado! Reduzca el Consumo.");
+          }
+        }
+      </script>
   <script>
-    class Sensor {
-      constructor() {
-        this.numero = '';
-        this.ubicacion = '';
-        this.lecturaActual = 0.0;
-        this.lecturaAnterior = 0.0;
-        this.estado = false;
-      }
 
-      leerDatos() {
-        console.log('Leyendo datos del sensor...');
-      }
-    }
-
-    const sensor1 = new Sensor();
   </script>
 
 </body>
