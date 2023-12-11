@@ -10,39 +10,35 @@
 
   <div class="piso" id="piso1">
     <h2>Piso 1</h2>
-    <p>Nombre: <span id="nombrePiso1"></span></p>
-    <p>Ubicación: <span id="ubicacionPiso1"></span></p>
-    <p>Potencia del actuador: <span id="potenciaActuadorPiso1"></span></p>
-    <p>Datos del sensor: <span id="datosSensorPiso1"></span></p>
-    <button onclick="obtenerRecomendacionesPiso1()">Obtener Recomendaciones</button>
-    <button onclick="crearPiso1()">Crear Piso</button>
-    <p>Consumo del piso: <span id="consumoPiso1"></span></p>
-  </div>
+    <label for="ubicacion">Ubicación:</label><br>
+    <select id="ubicacion" name="ubicacion" required>
+      <option value="Piso 1">Piso 1</option>      
+      <option value="Piso 2">Piso 2</option>
+      <option value="Piso 3">Piso 3</option>
+    </select><br>
 
-  <script>
-    class Piso {
-      constructor() {
-        this.nombre = '';
-        this.ubicacion = '';
-        this.potenciaActuador = '';
-        this.datosSensor = '';
+    <label for="potenciaActuador">Potencia del actuador:</label><br>
+    <input type="text" id="potenciaActuador" name="potenciaActuador" placeholder="Potencia del actuador"><br>
+
+    <label for="datosSensor">Datos del Sensor:</label>
+    <input type="text" id="amperios" name="amperios" placeholder="Amperios" required>
+    <input type="text" id="horas" name="horas" placeholder="Horas" required><br>
+    
+    <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
+    
+    <script>
+      function calcularConsumoTotal() {
+        var amperios = parseFloat(document.getElementById("amperios").value) || 0;
+        var horas = parseFloat(document.getElementById("horas").value) || 0;
+    
+        var consumoTotal = amperios * horas;
+    
+        alert("El consumo total es de " + consumoTotal + " amperios.");
+    
+        if (consumoTotal > 700) {
+          alert("¡Consumo Alto detectado! Reduzca el Consumo.");
+        }
       }
-
-      obtenerRecomendaciones() {
-        return 'Recomendaciones del piso';
-      }
-
-      crearPiso() {
-        console.log('Creando piso...');
-      }
-
-      calcularConsumoPiso() {
-        return 0.0; 
-      }
-    }
-
-    const piso1 = new Piso();
-  </script>
-
+    </script>
 </body>
 </html>
