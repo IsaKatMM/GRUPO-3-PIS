@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edificio</title>
+  <link rel="stylesheet" href="css/Piso.css">
+</head>
+<body>
+
+  <div class="edificio" id="edificio">
+    <h2>Edificio</h2>
+    <p>Número de pisos: <span id="numeroPisos"></span></p>
+    <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
+    <p>Consumo total del edificio: <span id="consumoTotalEdificio"></span></p>
+  </div>
+
+  <script>
+    class Edificio {
+      constructor() {
+        this.numeroPisos = 0;
+      }
+
+      calcularConsumoTotal() {
+        return 0.0;
+      }
+    }
+
+    const edificio = new Edificio();
+  </script>
+
+</body>
+</html>
 

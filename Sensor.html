@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor</title>
+  <link rel="stylesheet" href="css/Piso.css">
+</head>
+<body>
+
+  <div class="sensor" id="sensor1">
+    <h2>Sensor 1</h2>
+    <p>Número: <span id="numeroSensor1"></span></p>
+    <p>Ubicación: <span id="ubicacionSensor1"></span></p>
+    <p>Lectura Actual: <span id="lecturaActualSensor1"></span></p>
+    <button onclick="leerDatosSensor1()">Leer Datos</button>
+  </div>
+
+  <script>
+    class Sensor {
+      constructor() {
+        this.numero = '';
+        this.ubicacion = '';
+        this.lecturaActual = 0.0;
+        this.lecturaAnterior = 0.0;
+        this.estado = false;
+      }
+
+      leerDatos() {
+        console.log('Leyendo datos del sensor...');
+      }
+    }
+
+    const sensor1 = new Sensor();
+  </script>
+
+</body>
+</html>

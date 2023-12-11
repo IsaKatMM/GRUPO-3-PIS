@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actuador</title>
+  <link rel="stylesheet" href="css/Piso.css">
+</head>
+<body>
+
+  <div class="actuador" id="actuador">
+    <h2>Actuador</h2>
+  
+    <label for="datosSensor">Datos del Sensor:</label>
+    <input type="text" id="datosSensor" name="datosSensor" required><br>
+
+   <label for="potenciaActuador">Potencia:</label>
+    <input type="text" id="potenciaActuador" name="potenciaActuador" required><br>
+
+    <label for="ubicacionActuador">Ubicación:</label>
+    <select id="ubicacionActuador" name="ubicacionActuador" required>
+        <option value="Piso 1">Piso 1</option>
+        <option value="Piso 2">Piso 2</option>
+        <option value="Piso 3">Piso 3</option>
+
+    </select><br>
+
+    <label for="EstadoActuador">Estado:</label>
+    <select id="EstadoActuador" name="EstadoActuador" required>
+        <option value="Encendido">Encendido</option>
+        <option value="Apagado">Apagado</option>
+    </select><br>
+  </div>
+</body>
+</html>

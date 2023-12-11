@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piso</title>
+  <link rel="stylesheet" href="css/Piso.css">
+</head>
+<body>
+
+  <div class="piso" id="piso1">
+    <h2>Piso 1</h2>
+    <p>Nombre: <span id="nombrePiso1"></span></p>
+    <p>Ubicación: <span id="ubicacionPiso1"></span></p>
+    <p>Potencia del actuador: <span id="potenciaActuadorPiso1"></span></p>
+    <p>Datos del sensor: <span id="datosSensorPiso1"></span></p>
+    <button onclick="obtenerRecomendacionesPiso1()">Obtener Recomendaciones</button>
+    <button onclick="crearPiso1()">Crear Piso</button>
+    <p>Consumo del piso: <span id="consumoPiso1"></span></p>
+  </div>
+
+  <script>
+    class Piso {
+      constructor() {
+        this.nombre = '';
+        this.ubicacion = '';
+        this.potenciaActuador = '';
+        this.datosSensor = '';
+      }
+
+      obtenerRecomendaciones() {
+        return 'Recomendaciones del piso';
+      }
+
+      crearPiso() {
+        console.log('Creando piso...');
+      }
+
+      calcularConsumoPiso() {
+        return 0.0; 
+      }
+    }
+
+    const piso1 = new Piso();
+  </script>
+
+</body>
+</html>
