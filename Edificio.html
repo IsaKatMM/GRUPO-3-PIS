@@ -10,25 +10,32 @@
 
   <div class="edificio" id="edificio">
     <h2>Edificio</h2>
-    <p>Número de pisos: <span id="numeroPisos"></span></p>
+    
+    <label for="numeroPisos">Número de pisos:</label><br>
+    <select id="numeroPisos" name="numeroPisos" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3" selected>3</option>
+    </select><br>
+
+    <label for="calcularConsumoTotal">Calcular consumo total:</label><br>
+    <input type="text" id="calcularConsumoTotal1" name="calcularConsumoTotal1" placeholder="Piso 1"><br>
+    <input type="text" id="calcularConsumoTotal2" name="calcularConsumoTotal2" placeholder="Piso 2"><br>
+    <input type="text" id="calcularConsumoTotal3" name="calcularConsumoTotal3" placeholder="Piso 3"><br>
+    
     <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
-    <p>Consumo total del edificio: <span id="consumoTotalEdificio"></span></p>
+    
+    <script>
+      function calcularConsumoTotal() {
+        var calcularConsumoTotal1 = parseFloat(document.getElementById("calcularConsumoTotal1").value) || 0;
+        var calcularConsumoTotal2 = parseFloat(document.getElementById("calcularConsumoTotal2").value) || 0;
+        var calcularConsumoTotal3 = parseFloat(document.getElementById("calcularConsumoTotal3").value) || 0;
+    
+        var calcularConsumoTotal = calcularConsumoTotal1 + calcularConsumoTotal2 + calcularConsumoTotal3;
+        alert("El consumo total es de " + calcularConsumoTotal + " amperios.");
+      }
+    </script>
   </div>
-
-  <script>
-    class Edificio {
-      constructor() {
-        this.numeroPisos = 0;
-      }
-
-      calcularConsumoTotal() {
-        return 0.0;
-      }
-    }
-
-    const edificio = new Edificio();
-  </script>
-
 </body>
 </html>
 
