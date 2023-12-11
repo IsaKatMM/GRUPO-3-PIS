@@ -1,177 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-
-    h1 {
-      text-align: center;
-      color: #333; 
-      background-color: hsl(286, 29%, 77%); 
-      padding: 20px;
-      margin: 0;
-    }
-
-    h2 {
-      text-align: center;
-      color: #333; 
-      background-color: #d2aebf; 
-      padding: 20px;
-      margin: 0;
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
-
-    .piso, .edificio, .sensor, .actuador {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px;
-      width: 200px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .chart-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNCIONES DEL SISTEMA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <header class="content header">
+        <h2 class="title">FUNCIONES DEL SISTEMA</h2>
+    </header>
 
-  <h1>Sistema</h1>
-
-  <div class="container">
-
-    <div class="piso" id="piso1">
-      <h2>Piso 1</h2>
-      <p>Nombre: <span id="nombrePiso1"></span></p>
-      <p>Ubicación: <span id="ubicacionPiso1"></span></p>
-      <p>Potencia del actuador: <span id="potenciaActuadorPiso1"></span></p>
-      <p>Datos del sensor: <span id="datosSensorPiso1"></span></p>
-      <button onclick="obtenerRecomendacionesPiso1()">Obtener Recomendaciones</button>
-      <button onclick="crearPiso1()">Crear Piso</button>
-      <p>Consumo del piso: <span id="consumoPiso1"></span></p>
+    <div class="login-box container">
+        <p><a href="Piso.html"target="_self">Acceder al Piso</a></p>
+        <p><a href="Sensor.html"target="_self">Acceder al Sensor</a></p>
+        <p><a href="Actuador.html"target="_self">Acceder al Actuador</a></p>
+        <p><a href="Informe.html"target="_self">Generador de Informe</a></p>
     </div>
-
-    <div class="edificio" id="edificio">
-      <h2>Edificio</h2>
-      <p>Número de pisos: <span id="numeroPisos"></span></p>
-      <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
-      <p>Consumo total del edificio: <span id="consumoTotalEdificio"></span></p>
-    </div>
-
-    <div class="sensor" id="sensor1">
-      <h2>Sensor 1</h2>
-      <p>Número: <span id="numeroSensor1"></span></p>
-      <p>Ubicación: <span id="ubicacionSensor1"></span></p>
-      <p>Lectura Actual: <span id="lecturaActualSensor1"></span></p>
-      <button onclick="leerDatosSensor1()">Leer Datos</button>
-    </div>
-
-    <div class="actuador" id="actuador1">
-      <h2>Actuador 1</h2>
-      <p>Ubicación: <span id="ubicacionActuador1"></span></p>
-      <p>Estado: <span id="estadoActuador1"></span></p>
-      <button onclick="cambiarEstadoActuador1()">Cambiar Estado</button>
-    </div>
-
-  </div>
-
-  <script>
-    class Piso {
-      constructor() {
-        this.nombre = '';
-        this.ubicacion = '';
-        this.potenciaActuador = '';
-        this.datosSensor = '';
-      }
-
-      obtenerRecomendaciones() {
-        return 'Recomendaciones del piso';
-      }
-
-      crearPiso() {
-        console.log('Creando piso...');
-      }
-
-      calcularConsumoPiso() {
-        return 0.0; 
-      }
-    }
-
-    class Edificio {
-      constructor() {
-        this.numeroPisos = 0;
-      }
-
-      calcularConsumoTotal() {
-        return 0.0;
-      }
-    }
-
-    class Sensor {
-      constructor() {
-        this.numero = '';
-        this.ubicacion = '';
-        this.lecturaActual = 0.0;
-        this.lecturaAnterior = 0.0;
-        this.estado = false;
-      }
-
-      leerDatos() {
-        console.log('Leyendo datos del sensor...');
-      }
-    }
-
-    class Actuador {
-      constructor() {
-        this.ubicacion = '';
-        this.estado = false;
-        this.datosSensor = '';
-        this.potencia = 0.0;
-      }
-
-      cambiarEstado() {
-        console.log('Cambiando estado del actuador...');
-      }
-    }
-
-    class Sistema {
-      constructor() {
-        this.edificio = new Edificio();
-        this.pisos = [];
-        this.sensores = []; 
-        this.actuadores = []; 
-      }
-
-      supervisarConsumo() {
-        console.log('Supervisando consumo...');
-      }
-
-      controlarSistemas() {
-        console.log('Controlando sistemas...');
-      }
-    }
-
-    const sistema = new Sistema();
-    const piso1 = new Piso();
-    const sensor1 = new Sensor();
-    const actuador1 = new Actuador();
-    sistema.pisos.push(piso1);
-    sistema.sensores.push(sensor1);
-    sistema.actuadores.push(actuador1);
-
-    sistema.supervisarConsumo();
-    sistema.controlarSistemas();
-  </script>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
