@@ -8,9 +8,11 @@ body {
 h1 span {
     background-color: #313061; 
     color: #f6f6f6;
-    padding: 10px 0;
+    padding: 10px;
+    margin-bottom: 20px;
     text-align: center;
 }
+
 
 .text-white {
     color: #000000 !important;
@@ -29,4 +31,8 @@ footer {
     background-color: #313061;
     color: #fff;
     margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
 }
