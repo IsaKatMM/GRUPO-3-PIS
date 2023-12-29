@@ -1,8 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
+    font-family: 'body', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
 header {
@@ -22,13 +23,16 @@ section {
 
 .team-container {
     display: flex;
-    justify-content: space-around; /* Cambiado a space-around para dar un espacio uniforme */
+    justify-content: space-around;
+    /* Cambiado a space-around para dar un espacio uniforme */
     align-items: center;
-    flex-wrap: wrap; /* Cambiado a wrap para permitir envoltura de líneas */
+    flex-wrap: wrap;
+    /* Cambiado a wrap para permitir envoltura de líneas */
 }
 
 .team-member {
-    flex: 0 0 48%; /* Ajuste del porcentaje y aumento del espacio entre los miembros */
+    flex: 0 0 48%;
+    /* Ajuste del porcentaje y aumento del espacio entre los miembros */
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -40,4 +44,12 @@ section {
     height: auto;
     border-radius: 50%;
     margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #a57f9d;
+    color: #fff;
+    margin-bottom: 20px;
 }
