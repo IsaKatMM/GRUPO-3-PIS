@@ -2,18 +2,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    background: url("imagenes/backgroundUsu.png") no-repeat;
-    background-size: cover;
+    background: linear-gradient(45deg, #191970, #87CEEB);
     height: 100vh;
 }
-body {
-    font-family: 'Poppins', sans-serif;
+body{
+    font-family: "Poppins", sans-serif;
     margin: 20px;
     padding: 20px;
     text-align: center;
 }
-
-
 .formulario {
     position: absolute;
     top: 50%;
