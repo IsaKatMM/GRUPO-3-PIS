@@ -6,10 +6,10 @@ body {
 }
 
 h1 span {
-    background-color: #a57f9d; 
+    background-color: #313061; 
     color: #f6f6f6;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 10px 0;
+    text-align: center;
 }
 
 .text-white {
@@ -26,7 +26,7 @@ a:hover {
 footer {
     margin-top: 20px;
     padding: 10px;
-    background-color: #a57f9d;
+    background-color: #313061;
     color: #fff;
     margin-bottom: 20px;
 }

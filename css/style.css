@@ -1,12 +1,9 @@
 body {
-
-    background-color: #f0d0e8;
-    /* Morado medio con un toque de rosa para el fondo */
-
     font-family: 'body', sans-serif;
     margin: 20px;
     padding: 20px;
     text-align: center;
+    background-image: url('https://i.pinimg.com/564x/2b/5d/03/2b5d03bd9ed7832a9aa0dc02a860d003.jpg');
 }
 
 .container {
@@ -15,8 +12,7 @@ body {
 }
 
 .header {
-    background-color: #ba7fa7;
-    /* Morado medio con un toque de rosa para el encabezado */
+    background-color: #313061;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -27,7 +23,6 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    /* Alinea los elementos en línea horizontal */
 }
 
 .menu li {
