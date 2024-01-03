@@ -5,4 +5,4 @@ function calcularPromedio() {
     var promedio = (lecturaActual + lecturaAnterior) / 2;
 
     alert("El promedio de las lecturas es: " + promedio);
-  }
+  } 
