@@ -4,7 +4,7 @@ public class Sistema {
 
     ArrayList<Actuador> actuadorArrayList = new ArrayList<>();
     ArrayList<Sensor> sensorList = new ArrayList<>();
-    private ArrayList<Actuador> actuadorList = new ArrayList<>();
+    ArrayList<Actuador> actuadorList = new ArrayList<>();
     private Usuario usuario;
     private Informe informe;
 
