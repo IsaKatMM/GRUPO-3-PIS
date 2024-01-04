@@ -2,39 +2,13 @@ import java.util.ArrayList;
 
 public class Sistema {
 
-    ArrayList<Actuador> actuadorArrayList = new ArrayList<>(); //diagrama
+    ArrayList<Actuador> actuadorArrayList = new ArrayList<>();
+    ArrayList<Sensor> sensorList = new ArrayList<>();
+    private ArrayList<Actuador> actuadorList = new ArrayList<>();
     private Usuario usuario;
     private Informe informe;
 
-    public void supervisarSistema() { //diagrama
-    }
-
-    public int getEstado() { //diagrama
-        return 0;
-    }
-
-    public static class Edificio {
-        private Sistema sistema;
-    }
-
-    public static class Sensor {
-        private Sistema sistema;
-
-        public void leerDatos() {
-        }
-    }
-
-    public static class Actuador {
-        private Sistema sistema;
-
-        public void cambiarEstado() {
-        }
-    }
-
-    ArrayList<Sensor> sensorList = new ArrayList<>(); // Inicialización de sensorList
-    ArrayList<Actuador> actuadorList = new ArrayList<>(); // Inicialización de actuadorList
-
-    public void suprevisarSistema() {
+    public void supervisarSistema() {
         for (Sensor sensor : sensorList) {
             sensor.leerDatos();
         }
@@ -43,6 +17,33 @@ public class Sistema {
     public void controlarSistema() {
         for (Actuador actuador : actuadorList) {
             actuador.cambiarEstado();
+        }
+    }
+
+    public static class Edificio {
+        private Sistema sistema;
+        public Edificio(Sistema sistema) {
+            this.sistema = sistema;
+        }
+    }
+
+    public static class Sensor {
+        private Sistema sistema;
+        public Sensor(Sistema sistema) {
+            this.sistema = sistema;
+        }
+        public void leerDatos() {
+            System.out.println("Leyendo datos del sensor en el sistema.");
+        }
+    }
+
+    public static class Actuador {
+        private Sistema sistema;
+        public Actuador(Sistema sistema) {
+            this.sistema = sistema;
+        }
+        public void cambiarEstado() {
+           System.out.println("Cambiando estado del actuador en el sistema."); 
         }
     }
 }
