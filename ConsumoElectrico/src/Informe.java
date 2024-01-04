@@ -11,12 +11,15 @@ public class Informe {
     String datosEdificio;
     
     public void enviarInforme() {
+        System.out.println("Enviando informe...");
     }
 
     public void archivarInforme() {
+        System.out.println("Archivando informe...");
     }
 
     public void descargarInforme() {
+        System.out.println("Descargando informe...");
     }
    public void generarInformePiso(String contenido, String fecha, String hora, String ubicacion, String autor, String
            destinatario, String datosSensor, String datosActuador, String datosPiso) {
