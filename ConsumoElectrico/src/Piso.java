@@ -1,11 +1,11 @@
 public class Piso {
+    //Atributos
     public Actuador[] actuadores;
     private String nombre;
     private String ubicacion;
     private String datosSensor;
     private String potenciaActuador;
-
-
+    //Constructor
     public void crearPiso(String nombre, String ubicacion, String datosSensor, String potenciaActuador) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
@@ -13,7 +13,7 @@ public class Piso {
         this.potenciaActuador = potenciaActuador;
         this.actuadores = actuadores;
     }
-
+    //Metodos
     public void obtenerRecomendaciones() {
         System.out.println("Obteniendo recomendaciones para el piso " + nombre);
     }
@@ -25,7 +25,7 @@ public class Piso {
         }
         return consumo;
     }
-
+    //Metodos get
      public Actuador[] getActuadores() {
         return actuadores;
     }
