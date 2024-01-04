@@ -7,9 +7,14 @@ public class Actuador {
 
 
     public void cambiarEstado() {
+         estado = !estado;
     }
 
     public boolean getEstado() {
-        return true;
+        return estado;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
     }
 }
