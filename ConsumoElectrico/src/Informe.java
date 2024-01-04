@@ -1,4 +1,5 @@
 public class Informe {
+    //Atributos
     String contenido;
     String fecha;
     String hora;
@@ -9,7 +10,7 @@ public class Informe {
     String datosActuador;
     String datosPiso;
     String datosEdificio;
-    
+    //Metodos
     public void enviarInforme() {
         System.out.println("Enviando informe...");
     }
@@ -21,6 +22,7 @@ public class Informe {
     public void descargarInforme() {
         System.out.println("Descargando informe...");
     }
+    //Constructor
    public void generarInformePiso(String contenido, String fecha, String hora, String ubicacion, String autor, String
            destinatario, String datosSensor, String datosActuador, String datosPiso) {
         this.contenido = contenido;
@@ -33,7 +35,8 @@ public class Informe {
         this.datosActuador = datosActuador;
         this.datosPiso = datosPiso;
     }
-public void generarInformeEdificio(String contenido, String fecha, String hora, String ubicacion, String autor, String
+    
+    public void generarInformeEdificio(String contenido, String fecha, String hora, String ubicacion, String autor, String
         destinatario, String datosSensor, String datosActuador, String datosEdificio) {
         this.contenido = contenido;
         this.fecha = fecha;
