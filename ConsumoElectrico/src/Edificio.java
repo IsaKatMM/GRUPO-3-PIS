@@ -1,4 +1,5 @@
 public class Edificio {
+    //Atributo
     private int numeroPisos;
 
     public static class Piso{
