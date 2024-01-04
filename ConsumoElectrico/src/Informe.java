@@ -9,6 +9,7 @@ public class Informe {
     String datosActuador;
     String datosPiso;
     String datosEdificio;
+    
     public void enviarInforme() {
     }
 
