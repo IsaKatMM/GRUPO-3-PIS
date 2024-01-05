@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Sistema {
 
     //Atributos
-    ArrayList<Actuador> actuadorArrayList = new ArrayList<>();
-    ArrayList<Sensor> sensorList = new ArrayList<>();
-    ArrayList<Actuador> actuadorList = new ArrayList<>();
+    ArrayList<Actuador> actuadorArrayList = new ArrayList<>(); //Se inicializa vacio
+    ArrayList<Sensor> sensorList = new ArrayList<>(); //Se inicializa vacio
+    ArrayList<Actuador> actuadorList = new ArrayList<>(); //Se inicializa vacio
     //relacion de asociacion
     private Usuario usuario;
     private Informe informe;

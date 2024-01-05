@@ -13,7 +13,9 @@ public class Sensor {
     public int getDatos() {
         return lecturaActual;
     }
+
     //Constructor
+    //Crea instancias de la clase Sensor
     public Sensor(String numero, boolean estado, String ubicacion) {
         this.numero = numero;
         this.estado = estado;
