@@ -6,6 +6,7 @@ public class Sistema {
     ArrayList<Actuador> actuadorArrayList = new ArrayList<>();
     ArrayList<Sensor> sensorList = new ArrayList<>();
     ArrayList<Actuador> actuadorList = new ArrayList<>();
+    //relacion de asociacion
     private Usuario usuario;
     private Informe informe;
 
@@ -23,13 +24,14 @@ public class Sistema {
     }
 
     //CLases internas
+    //relacion de composiciom
     public static class Edificio {
         private Sistema sistema;
         public Edificio(Sistema sistema) {
             this.sistema = sistema;
         }
     }
-
+    //relacion de composiciom
     public static class Sensor {
         private Sistema sistema;
         public Sensor(Sistema sistema) {
@@ -39,7 +41,7 @@ public class Sistema {
             System.out.println("Leyendo datos del sensor en el sistema.");
         }
     }
-
+    //relacion de composiciom
     public static class Actuador {
         private Sistema sistema;
         public Actuador(Sistema sistema) {
