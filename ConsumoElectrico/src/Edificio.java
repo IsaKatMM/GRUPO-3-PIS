@@ -23,6 +23,8 @@ public class Edificio {
         }
         
     }
+
+    //Metodo
     public double calcularConsumoTotal() {
         double consumo = 0;
         for (Piso piso : pisos) {

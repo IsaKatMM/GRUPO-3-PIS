@@ -5,11 +5,13 @@ body {
     background: linear-gradient(45deg, #191970, #87CEEB);
     height: 100vh;
 }
+
 body{
     font-family: "Poppins", sans-serif;
     margin: 20px;
     padding: 20px;
     text-align: center;
+
 }
 
 .formulario {
@@ -21,6 +23,7 @@ body{
     background: white;
     border-radius: 10px;
 }
+
 .formulario h1{
     text-align: center;
     padding: 20px 0;

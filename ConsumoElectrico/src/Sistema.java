@@ -2,12 +2,14 @@ import java.util.ArrayList;
 
 public class Sistema {
 
+    //Atributos
     ArrayList<Actuador> actuadorArrayList = new ArrayList<>();
     ArrayList<Sensor> sensorList = new ArrayList<>();
     ArrayList<Actuador> actuadorList = new ArrayList<>();
     private Usuario usuario;
     private Informe informe;
 
+    //Metodos
     public void supervisarSistema() {
         for (Sensor sensor : sensorList) {
             sensor.leerDatos();
@@ -20,6 +22,7 @@ public class Sistema {
         }
     }
 
+    //CLases internas
     public static class Edificio {
         private Sistema sistema;
         public Edificio(Sistema sistema) {
