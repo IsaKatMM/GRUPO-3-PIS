@@ -6,10 +6,11 @@ public class Actuador {
     private String ubicacion;
     private String datosSensor;
     //Metodos
+    //hace cambiar el valor del estado al contrario del valor actual
     public void cambiarEstado() {
          estado = !estado;
     }
-
+    //acceder al atributo privado- get
     public boolean getEstado() {
         return estado;
     }
