@@ -6,6 +6,7 @@ public class Piso {
     private String datosSensor;
     private String potenciaActuador;
     //Constructor
+    // Inicializa los atributos de la clase cuando se crea una nueva instancia
     public void crearPiso(String nombre, String ubicacion, String datosSensor, String potenciaActuador) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
@@ -18,6 +19,7 @@ public class Piso {
         System.out.println("Obteniendo recomendaciones para el piso " + nombre);
     }
 
+    // bucle que itera cada elemento
     public double calcularConsumoPiso() {
         double consumo = 0;
         for (Actuador actuador : actuadores) {
