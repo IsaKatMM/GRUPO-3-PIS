@@ -1,3 +1,4 @@
+
 @import url(http://fonts.googleapis.com/css?family=Abel);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 
@@ -10,25 +11,22 @@ body {
     background-color: black;
     font-family: 'Abel';
     color: white;
-    text-align: center;
-  }
-  
-  .texto-encabezado {
+}
+
+.texto-encabezado {
     text-align: center;
     font-size: 3em;
     font-weight: bold;
     margin: 0;
     padding: 0;
-  }
-
-/* Menu */  
+}
+/* Menu */
 nav {
     display: table;
     table-layout: fixed;
     width: 75%;
     margin: 0 auto;
 }
-
 #menu {
     width:100%;
     min-height:35px;
@@ -40,49 +38,41 @@ nav {
 
 #menu a {
     background-color:inherit;
-    color: #fff;
 }
-
 ul#topnav  {
     display: table-row;
     padding: 0;
+    display: flex;
     overflow: hidden;
     position:relative;
     bottom:0;
 }
-
 ul#topnav li {
     list-style-type: none;
     display: table-cell;
     text-align:center;
     vertical-align:middle;
 }
-
 ul#topnav li a {
     display:block;
     padding:8px;
     text-decoration:underline;
 }
-
 ul#topnav li a:hover {
     color:#777;
     text-decoration:none;
 }
-
 ul#topnav li> ul {
     list-style-type: none;
     margin:0;
     padding:0;
 }
-
 ul#topnav li> ul > li{
-	font-size:120%;
+    font-size:120%;
     float:left;
     display:inline;
     padding-right:5px;
 }
-
-
 #show-menu  {display:none;}
 .open, .close { background-color:inherit; color:#fff; text-align:right; font-weight:normal; font-size:1.5em; padding: 0; position:absolute; top:10%; right:5%; display:none; }
 
@@ -111,64 +101,63 @@ ul#topnav li> ul > li {padding-left:10px; }
 
 
 .btn {
-  display: inline-block;
-  font-weight: normal;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  border: 9px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  border-radius: 0.25rem; }
-  .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    display: inline-block;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 9px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 0.25rem; }
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:focus, .btn:hover {
+.btn:focus, .btn:hover {
     text-decoration: none; }
-  .btn.focus {
+.btn.focus {
     text-decoration: none; }
-  .btn:active, .btn.active {
+.btn:active, .btn.active {
     background-image: none;
     outline: 0; }
-  .btn.disabled, .btn:disabled {
+.btn.disabled, .btn:disabled {
     cursor: not-allowed;
     opacity: .65; }
 
 a.btn.disabled,
 fieldset[disabled] a.btn {
-  pointer-events: none; }
+    pointer-events: none; }
 
 .btn-primary {
-  color: #fff;
-  background-color: #0275d8;
-  border-color: #0275d8; }
-  .btn-primary:hover {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8; }
+.btn-primary:hover {
     color: #fff;
     background-color: #025aa5;
     border-color: #01549b; }
-  .btn-primary:focus, .btn-primary.focus {
+.btn-primary:focus, .btn-primary.focus {
     color: #fff;
     background-color: #025aa5;
     border-color: #01549b; }
-  .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     color: #fff;
     background-color: #025aa5;
     border-color: #01549b;
     background-image: none; }
-    .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus {
-      color: #fff;
-      background-color: #014682;
-      border-color: #01315a; }
-  .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary:disabled:focus, .btn-primary:disabled.focus {
+.btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus {
+    color: #fff;
+    background-color: #014682;
+    border-color: #01315a; }
+.btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary:disabled:focus, .btn-primary:disabled.focus {
     background-color: #0275d8;
     border-color: #0275d8; }
-  .btn-primary.disabled:hover, .btn-primary:disabled:hover {
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
     background-color: #0275d8;
     border-color: #0275d8; }
-
