@@ -53,3 +53,61 @@ footer {
     color: #fff;
     margin-bottom: 20px;
 }
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.social-buttons {
+    margin: 20px;
+}
+
+.instagram-button,
+.facebook-button,
+.twitter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.instagram-button {
+    background-color: #405de6; /* Color de Instagram */
+}
+
+.facebook-button {
+    background-color: #1877f2; /* Color de Facebook */
+}
+
+.twitter-button {
+    background-color: #1da1f2; /* Color de Twitter */
+}
+
+.social-buttons i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Estilos adicionales para hover (efecto al pasar el ratón) */
+.instagram-button:hover {
+    background-color: #35469c;
+}
+
+.facebook-button:hover {
+    background-color: #1565c0;
+}
+
+.twitter-button:hover {
+    background-color: #0d8eff;
+}
+
+
+
