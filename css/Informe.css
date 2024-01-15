@@ -4,26 +4,26 @@ body, h1, h2, p, ul, li {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: fantasy;
+    color: #fff;
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(45deg, #191970, #87CEEB);
+    background: linear-gradient(45deg, #ededf0, #87CEEB);
 }
 
 #informe-container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color:#9bacf5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0 0 10px rgba(255, 251, 251, 0.1);
 }
 
 #informe-result{
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color:#9bacf5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     line-height: 1.5;
 }
@@ -46,7 +46,7 @@ textarea, input, select {
 
 button {
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #4caf78;
     color: #fff;
     border: none;
     cursor: pointer;
