@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: fantasy;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -41,6 +41,8 @@ h2 {
 }
 
 button {
+  margin: 15px;
+  font-family: cursive;
   padding: 10px;
   background-color: #3ca579;
   color: #ffffff;
