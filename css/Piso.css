@@ -4,7 +4,6 @@ body {
   padding: 0;
   height: 100vh;
   background: linear-gradient(45deg, #191970, #87CEEB);
-
 }
 
 h2 {
@@ -20,8 +19,10 @@ h2 {
   margin-top: 20px;
 }
 
-.piso,.edificio,.sensor,.actuador {
-
+.piso,
+.edificio,
+.sensor,
+.actuador {
   color: #ffffff;
   padding: 10px;
   margin: 10px;
@@ -31,6 +32,7 @@ h2 {
   transform: translate(-50%, -50%);
   width: 400px;
   border-radius: 10px;
+  font-size: 22px; 
 }
 
 .chart-container {
@@ -54,10 +56,9 @@ button {
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 body {
-   background-image: url("Fondo1.avif");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  background-image: url("Fondo1.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
