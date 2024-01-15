@@ -8,7 +8,7 @@ body {
 
 header {
     background-color: #313061;
-    color: #fff;
+    color:#fff;
     padding: 10px;
     text-align: center;
 }
@@ -17,7 +17,7 @@ section {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+
     box-shadow: 0 0 10px rgba(190, 85, 159, 0.1);
 }
 
@@ -35,7 +35,6 @@ section {
     /* Ajuste del porcentaje y aumento del espacio entre los miembros */
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ddd;
     text-align: center;
 }
 
@@ -58,6 +57,7 @@ footer {
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    color: #fff;
     text-align: center;
 }
 
@@ -156,7 +156,6 @@ body {
   top: 0;
   bottom: 0;
   overflow-y: auto;
-  background: white;
   padding: 0.5em;
   box-sizing: border-box;
 }
