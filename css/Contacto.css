@@ -672,7 +672,7 @@ body{
 	@media screen and (max-width: 1280px) {
 
 		#footer {
-			background-color: #2e3141;
+			background-color: #185c5c;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 			background-size: auto,
  cover;
@@ -764,7 +764,7 @@ body{
 	box-sizing:content-box;
 }
 body{
-	background-color: #f1f1f1;
+	background-color: #185c5c;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
