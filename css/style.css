@@ -22,7 +22,7 @@ body {
 }
 /* Menu */
 #menu{
-    background: #24A3A3;
+    background: #185c5c;
 }
 #menu1{
     display: flex;
@@ -103,12 +103,12 @@ fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #0275d8;
-    border-color: #0275d8; }
+    background-color: #185c5c;
+    border-color: #185c5c; }
 .btn-primary:hover {
     color: #fff;
-    background-color: #025aa5;
-    border-color: #01549b; }
+    background-color: #185c5c;
+    border-color: #185c5c; }
 .btn-primary:focus, .btn-primary.focus {
     color: #fff;
     background-color: #025aa5;
