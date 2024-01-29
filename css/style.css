@@ -8,9 +8,9 @@ a:hover {color: #000; text-decoration:underline; }
 
 /* Fondo oscuro */
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: #000;
     font-family: 'Abel';
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 .texto-encabezado {
@@ -40,7 +40,7 @@ body {
 }
 
 #menu1 h1{
-    color: #000;
+    color: white;
     font-size: 20px;
     text-decoration: none;
 }
@@ -48,12 +48,12 @@ body {
 #menu1 ul li{
     display: inline-block;
     padding: 0 35px;
-    color: #000;
+    color: white;
     text-decoration: none;
 }
 
 #menu1 ul li a:hover {
-    color: #fff;
+    color: aqua;
 }
 
 ul{
