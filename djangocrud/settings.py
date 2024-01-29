@@ -56,7 +56,7 @@ ROOT_URLCONF = 'djangocrud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS'],
+        'DIRS': ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/Static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

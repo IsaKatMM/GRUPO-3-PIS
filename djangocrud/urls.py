@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from task.views import index
+from Static import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
