@@ -1,0 +1,65 @@
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: fantasy;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(45deg, #ededf0, #87CEEB);
+}
+
+#informe-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+
+    box-shadow: 0 0 10px rgba(255, 251, 251, 0.1);
+}
+
+#informe-result{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea, input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf78;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#informe-result, #opciones-generar-informe {
+    margin-top: 20px;
+}
+
+#opciones-generar-informe button {
+    margin-right: 10px;
+}

@@ -1,0 +1,66 @@
+body {
+  font-family: fantasy;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #191970, #87CEEB);
+}
+
+h2 {
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.piso,
+.edificio,
+.sensor,
+.actuador {
+  color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border-radius: 10px;
+  font-size: 22px; 
+}
+
+.chart-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  margin: 15px;
+  font-family: cursive;
+  padding: 10px;
+  background-color: #3ca579;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+#informe-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+body {
+  background-image: url("Fondo1.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
