@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'task',
-    'Static'
+    'Static',
+    'Templates'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'djangocrud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/Static'],
+        'DIRS': ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/djangocrud/Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
