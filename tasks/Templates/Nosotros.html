@@ -22,11 +22,11 @@
   <header id="menu">
       <nav id="menu1">
           <h1>
-              <a href="{% static '/index.html' %}"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo"></a>
-              <a href="{% static '/index.html' %}">REPETIX</a>
+              <a href="index.html"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo"></a>
+              <a href="index.html">REPETIX</a>
           </h1>
           <ul>
-              <li><a href="{% static '/index.html' %}">INICIO</a></li>
+              <li><a href="index.html">INICIO</a></li>
               <li><a href="{% static '/Nosotros.html' %}">NOSOTROS</a></li>
               <li><a href="{% static '/Servicio.html' %}">SERVICIOS</a></li>
               <li><a href="{% static '/contacto.html' %}">CONTACTOS</a></li>
@@ -94,7 +94,7 @@
         }
       </script>
       <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
-        {{#each locations}}
+
           <li class="location-result" data-location-index="{{index}}">
             <button class="select-location">
               <h2 class="name">{{title}}</h2>
@@ -109,7 +109,7 @@
               </svg>
             </a>
           </li>
-        {{/each}}
+
       </script>
 
 

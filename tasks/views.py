@@ -8,6 +8,15 @@ from django.db import IntegrityError
 def index(request):
     return render(request, 'index.html')
 
+def nosotros(request):
+    return render(request, 'Nosotros.html')
+
+def servicio(request):
+    return render(request, 'Servicio.html')
+
+def contacto(request):
+    return render(request, 'contacto.html')
+
 def iniciarSesion(request):
     return render(request, 'iniciarSesion.html')
 

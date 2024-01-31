@@ -17,12 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tasks import views
-from tasks.views import index, iniciarSesion
+from tasks.views import index, iniciarSesion, nosotros, servicio, contacto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='Index'),
-    path('iniciarSesion/', views.iniciarSesion, name='iniciarSesion'),
+    path('tasks/Templates/index.html', views.index, name='Index'),
+    path('tasks/Templates/Nosotros.html', views.nosotros, name='Nosotros'),
+    path('tasks/Templates/Servicio.html', views.servicio, name='Servicio'),
+    path('tasks/Templates/contacto.html', views.contacto, name='Contacto'),
+    path('tasks/Templates/iniciarSesion.html', views.iniciarSesion, name='iniciarSesion'),   
     #path('', views.nosotros, name='Nosotros'),
     #path('Signup/', views.signup, name='Signup'),
     #path('tasks/', views.tasks, name='tasks'),
