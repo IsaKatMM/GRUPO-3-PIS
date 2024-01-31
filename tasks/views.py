@@ -8,19 +8,39 @@ from django.db import IntegrityError
 def index(request):
     return render(request, 'index.html')
 
+def iniciarSesion(request):
+    return render(request, 'iniciarSesion.html')
 
-def nosotros(request):
-    return render(request, 'Nosotros.html')
-
-
-def signup(request):
-
+#def iniciarSesion(request):
     if request.method == 'GET':
+        return render(request, 'iniciarSesion.html', {
+            'form': AuthenticationForm
+        })
+#    else:
+        user = authenticate(
+            request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'iniciarSesion.html', {
+                'form': AuthenticationForm,
+                'error': 'Username or password is incorrect'
+            })
+        else:
+            login(request, user)
+            return redirect('tasks')
+
+
+#def nosotros(request):
+   # return render(request, 'Nosotros.html')
+
+
+#def signup(request):
+
+   #if request.method == 'GET':
         return render(request, 'Signup.html', {
             'form': UserCreationForm
         })
 
-    else:
+#    else:
         if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.create_user(
@@ -40,16 +60,16 @@ def signup(request):
         })
 
 
-def tasks(request):
+#def tasks(request):
     return render(request, 'tasks.html')
 
 
-def signout(request):
+#def signout(request):
     logout(request)
     return redirect('Home')
 
 
-def iniciarSesion(request):
+#def iniciarSesion(request):
     if request.method == 'GET':
         return render(request, 'iniciarSesion.html', {
             'form': AuthenticationForm

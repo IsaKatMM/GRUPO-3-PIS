@@ -1,5 +1,4 @@
-{% extends "index.html" %}
-{% load static %}
+
 
 
 
@@ -26,8 +25,6 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
         <div class="form-box">
             <div class="form-value">
                 <form action="/iniciarSesion/" method= "POST">
-                    {% csrf_token %}
-                    {{form.as_p}}
                     <h2>INICIAR SESION</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
@@ -54,8 +51,7 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    {% block content %}
-    {% endblock  %}
+
 
 </body>
 </html>

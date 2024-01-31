@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tasks import views
+from tasks.views import index, iniciarSesion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='Index'),
-    path('', views.nosotros, name='Nosotros'),
-    path('Signup/', views.signup, name='Signup'),
-    path('tasks/', views.tasks, name='tasks'),
-    path('logout/', views.signout, name='logout'),
-    path('iniciarSesion/', views.iniciarSesion, name='Iniciar Sesion')
+    path('iniciarSesion/', views.iniciarSesion, name='iniciarSesion'),
+    #path('', views.nosotros, name='Nosotros'),
+    #path('Signup/', views.signup, name='Signup'),
+    #path('tasks/', views.tasks, name='tasks'),
+    #path('logout/', views.signout, name='logout'),
+    #path('iniciarSesion/', views.iniciarSesion, name='Iniciar Sesion')
 ]
