@@ -1,3 +1,8 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -5,9 +10,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/iniciarSesion.css">
+  <link rel="stylesheet" href="{% static '/css/iniciarSesion.css' %}">
   <title>Iniciar Sesion</title>
-  <link rel="icon" href ="imagenes/repetix.ico.png">
+  <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
 </head>
 <body>
 
@@ -20,7 +25,9 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form action="/iniciarSesion/" method= "POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
                     <h2>INICIAR SESION</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
@@ -33,12 +40,12 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
                         <label for="">CONTRASEÑA</label>
                     </div>
                     <div class="forget">
-                        <p> Olvide mi <a href="recuperarContrasena.html">contraseña</a></p>
+                        <p> Olvide mi <a href="{% static '/recuperarContrasena.html' %}">contraseña</a></p>
                     </div>
 
                     <button>Iniciar Sesión</button>
                     <div class="register">
-                        <p>Eres nuevo? <a href="registro.html">Registrate</a></p>
+                        <p>Eres nuevo? <a href="{% static '/registro.html' %}">Registrate</a></p>
                     </div>
                 </form>
             </div>
@@ -46,5 +53,9 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
     </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    {% block content %}
+    {% endblock  %}
+
 </body>
 </html>

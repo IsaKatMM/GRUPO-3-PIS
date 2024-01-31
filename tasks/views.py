@@ -49,16 +49,16 @@ def signout(request):
     return redirect('Home')
 
 
-def signin(request):
+def iniciarSesion(request):
     if request.method == 'GET':
-        return render(request, 'signin.html', {
+        return render(request, 'iniciarSesion.html', {
             'form': AuthenticationForm
         })
     else:
         user = authenticate(
             request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request, 'signin.html', {
+            return render(request, 'iniciarSesion.html', {
                 'form': AuthenticationForm,
                 'error': 'Username or password is incorrect'
             })
