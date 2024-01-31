@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
+</head>
+
+<body>
+
+<video aria-hidden="true" muted="" loop="" playsinline="" id="video" class="video" autoplay="autoplay" style="z-index: -1; position: absolute; opacity: .5;    width: 100%;
+    min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
+    <source src="{% static '/imagenes/Atras.mp4' %}" type="video/mp4">
+</video>
+
+<!--Inicio menu-->
+<header id="menu">
+    <nav id="menu1">
+        <h1>
+            <a href="#"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo"></a>
+            <a href="#">REPETIX</a>
+        </h1>
+        <ul>
+            <li><a href="#">INICIO</a></li>
+            <li><a href="Nosotros.html">NOSOTROS</a></li>
+            <li><a href="Servicio.html">SERVICIOS</a></li>
+            <li><a href="contacto.html">CONTACTOS</a></li>
+        </ul>
+    </nav>
+</header>
+<!--Fin menu-->
+
+<div class="texto-encabezado text-xs-center">
+    <div class="container">
+        <h1 class="display-4 wow bounceIn">SISTEMA DE CONSUMO ELECTRICO</h1>
+        <a href="{% static '/iniciarSesion.html'%}"
+           class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Iniciar Sesión
+        </a>
+        <a href="{% static '/registro.html'%}"
+           class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Registrarse</a>
+        </a>
+        <a href="{% static '/Sistema.html'%}"
+           class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Acceder al Sistema</a>
+    </div>
+
+</div>
+</section>
+</body>
+</html>
