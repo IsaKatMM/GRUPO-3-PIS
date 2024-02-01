@@ -26,19 +26,18 @@ def iniciarSesion(request):
         print('Obteniendo formulario')
     return render(request, 'iniciarSesion.html')
 
-
 def registro(request):
     if request.method == 'GET':
         return render(request, 'registro.html')
     else:
-        if request.POST['password'] == request.POST['password']:
+        if request.POST['password1'] == request.POST['password2']:
             try:
-                user = User.objects.create_user(email=request.POST['email'], password=request.POST['password'])
+                user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
                 user.save()
                 return HttpResponse('Usuario creado sastifactoriamente')
                 
             except:
-                return HttpResponse('El usuario no existe')
+                return HttpResponse('El usuario ya existe')
             
         return HttpResponse('Las contrasenas no coinciden')
         
