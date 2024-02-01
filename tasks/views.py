@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 
@@ -18,81 +19,31 @@ def contacto(request):
     return render(request, 'contacto.html')
 
 def iniciarSesion(request):
+    if request.method == 'GET':
+        print('Enviando formulario')
+    else:
+        print(request.POST)
+        print('Obteniendo formulario')
     return render(request, 'iniciarSesion.html')
 
-#def iniciarSesion(request):
+
+def registro(request):
     if request.method == 'GET':
-        return render(request, 'iniciarSesion.html', {
-            'form': AuthenticationForm
-        })
-#    else:
-        user = authenticate(
-            request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
-            return render(request, 'iniciarSesion.html', {
-                'form': AuthenticationForm,
-                'error': 'Username or password is incorrect'
-            })
-        else:
-            login(request, user)
-            return redirect('tasks')
-
-
-#def nosotros(request):
-   # return render(request, 'Nosotros.html')
-
-
-#def signup(request):
-
-   #if request.method == 'GET':
-        return render(request, 'Signup.html', {
-            'form': UserCreationForm
-        })
-
-#    else:
+        return render(request, 'registro.html')
+    else:
         if request.POST['password1'] == request.POST['password2']:
             try:
-                user = User.objects.create_user(
-                    username=request.POST['username'], password=request.POST['password1'])
+                user = User.objects.create_user(email=request.POST['email'], password=request.POST['password1'])
                 user.save()
-                login(request, user)
-                return redirect('tasks')
-            except IntegrityError:
-                return render(request, 'Signup.html', {
-                    'form': UserCreationForm,
-                    "Error": 'User already exists'
-                })
-
-        return render(request, 'Signup.html', {
-            'form': UserCreationForm,
-            "Error": 'Password do not match'
-        })
-
-
-#def tasks(request):
-    return render(request, 'tasks.html')
-
-
-#def signout(request):
-    logout(request)
-    return redirect('Home')
-
-
-#def iniciarSesion(request):
-    if request.method == 'GET':
-        return render(request, 'iniciarSesion.html', {
-            'form': AuthenticationForm
-        })
-    else:
-        user = authenticate(
-            request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
-            return render(request, 'iniciarSesion.html', {
-                'form': AuthenticationForm,
-                'error': 'Username or password is incorrect'
-            })
-        else:
-            login(request, user)
-            return redirect('tasks')
+                return HttpResponse('Usuario creado sastifactoriamente')
+                
+            except:
+                return HttpResponse('El usuario no existe')
             
+        return HttpResponse('Las contrasenas no coinciden')
+        
+def sistema(request):
+    return render(request, 'Sistema.html')
+
+
 
