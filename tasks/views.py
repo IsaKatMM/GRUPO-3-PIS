@@ -44,14 +44,14 @@ def registro(request):
                 user.save()
                 return HttpResponse('Usuario creado sastifactoriamente')
 
-            except IntegrityError:
-                error = 'El usuario ya existe'
-                print(error)
-                return render(request, 'registro.html', {"error":error})
+            except:
+                return render(request, 'registro.html', {
+                    "error": 'El usuario ya existe'
+                })
 
-        error = 'Las contrasenas no coinciden'
-        print(error)
-        return render(request, 'registro.html')
+        return render(request, 'registro.html', {
+            "error": 'Las contrasenas no coinciden'
+        })
 
 
 def sistema(request):
