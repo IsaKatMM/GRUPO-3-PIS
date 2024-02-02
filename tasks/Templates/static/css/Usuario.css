@@ -56,6 +56,10 @@ body {
         background: none;
     }
 
+    input:focus ~ label,
+    input:valid ~ label{
+    top: -5px;}
+
     .formu label{
         position: absolute;
         top: 50%;
