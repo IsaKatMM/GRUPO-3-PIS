@@ -62,6 +62,20 @@ def iniciarSesion(request):
         else:
             login(request, user)
             return redirect('Sistema')
+        
+def sensor(request):
+    return render(request, 'Sensor.html')
 
+def actuador(request):
+    return render(request, 'Actuador.html')
+
+def edificio(request):
+    return render(request, 'Edificio.html')
+
+def piso(request):
+    return render(request, 'Piso.html')
+
+def informe(request):
+    return render(request, 'Informe.html')
 
 

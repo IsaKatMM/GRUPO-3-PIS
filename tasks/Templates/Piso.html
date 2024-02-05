@@ -1,17 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piso</title>
-  <link rel="stylesheet" href="css/Piso.css">
-  <link rel="icon" href ="imagenes/repetix.ico.png">
+  <link rel="stylesheet" href="{% static '/css/Piso.css' %}">
+  <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
 </head>
 <body>
 
   <video aria-hidden="true" muted="" loop="" playsinline="" id="video" class="video" autoplay="autoplay" style="z-index: -1; position: absolute; opacity: 1;    width: 100%;
   min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
-  <source src="imagenes/neonFondo.mp4" type="video/mp4">
+  <source src="{% static '/imagenes/neonFondo.mp4' %}" type="video/mp4">
   </video>
 
   <div class="piso" id="piso1">
@@ -32,6 +33,6 @@
     
     <button onclick="calcularConsumoTotal()">Calcular Consumo Total</button>
     
-    <script src="js/piso.js"></script>
+    <script src="{% static '/js/piso.js' %}"></script>
 </body>
 </html>
