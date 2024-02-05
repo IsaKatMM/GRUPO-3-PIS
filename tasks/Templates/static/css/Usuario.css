@@ -15,6 +15,14 @@ body {
 
     }
 
+    #text{
+        font-family: "poppins", sans-serif;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        color: black;
+    }
+
     .formulario {
         position: absolute;
         top: 50%;
@@ -39,12 +47,6 @@ body {
     .formulario form{
         padding: 0 40px;
         box-sizing: border-box;
-    }
-
-    .error.formu{
-        text-align: center;
-        padding: 20px 0;
-        color: #000000;
     }
 
     form .formu{

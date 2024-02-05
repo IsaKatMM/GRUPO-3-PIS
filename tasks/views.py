@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+#from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 
@@ -23,16 +22,6 @@ def servicio(request):
 def contacto(request):
     return render(request, 'contacto.html')
 
-
-def iniciarSesion(request):
-    if request.method == 'GET':
-        print('Enviando formulario')
-    else:
-        print(request.POST)
-        print('Obteniendo formulario')
-    return render(request, 'iniciarSesion.html')
-
-
 def registro(request):
     if request.method == 'GET':
         return render(request, 'registro.html')
@@ -42,17 +31,37 @@ def registro(request):
                 user = User.objects.create_user(
                     username=request.POST['username'], password=request.POST['password1'])
                 user.save()
-                return HttpResponse('Usuario creado sastifactoriamente')
+                login(request, user)
+                return redirect('Sistema')
 
-            except:
+            except IntegrityError:
                 return render(request, 'registro.html', {
                     "error": 'El usuario ya existe'
                 })
 
         return render(request, 'registro.html', {
-            "error": 'Las contrasenas no coinciden'
+            "error": 'Las contraseñas no coinciden'
         })
-
 
 def sistema(request):
     return render(request, 'Sistema.html')
+
+def cerrarSesion(request):
+    logout(request)
+    return redirect('Index')
+
+def iniciarSesion(request):
+    if request.method == 'GET':
+        return render(request, 'iniciarSesion.html')
+    else:
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'iniciarSesion.htmL', {
+                'error': "El usuario o la contrasena son incorrectos"
+            })
+        else:
+            login(request, user)
+            return redirect('Sistema')
+
+
+
