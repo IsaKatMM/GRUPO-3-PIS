@@ -35,6 +35,7 @@ urlpatterns = [
     path('tasks/Templates/Piso.html', views.piso, name='Piso'),
     path('tasks/Templates/Informe.html', views.informe, name='Informe'),
     path('tasks/Templates/logout.html', views.cerrarSesion, name='logout'),
+    path('tasks/Templates/recuperarContrasena.html', views.recuperacion, name='recuperarContrasena'),
     #path('Signup/', views.signup, name='Signup'),
     #path('tasks/', views.tasks, name='tasks'),
     #path('logout/', views.signout, name='logout'),

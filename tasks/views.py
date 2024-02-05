@@ -78,4 +78,7 @@ def piso(request):
 def informe(request):
     return render(request, 'Informe.html')
 
+def recuperacion(request):
+    return render(request, 'recuperarContrasena.html')
+
 
