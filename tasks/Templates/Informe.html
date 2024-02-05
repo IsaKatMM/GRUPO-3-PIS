@@ -1,17 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Informe</title>
-    <link rel="stylesheet" href="css/Informe.css">
-    <link rel="icon" href ="imagenes/repetix.ico.png">
+    <link rel="stylesheet" href="{% static '/css/Informe.css' %}">
+    <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
 </head>
 <body>
 
     <video aria-hidden="true" muted="" loop="" playsinline="" id="video" class="video" autoplay="autoplay" style="z-index: -1; position: absolute; opacity: 1;    width: 100%;
     min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
-    <source src="imagenes/neonFondo.mp4" type="video/mp4">
+    <source src="{% static '/imagenes/neonFondo.mp4' %}" type="video/mp4">
     </video>
     
     <div id="informe-container">
@@ -60,6 +61,6 @@
             <button type="button" onclick="generarInformeEdificio()">Generar Informe del Edificio</button>
         </div>
     </div>
- <script src="js/informe.js"></script>
+ <script src="{% static '/js/informe.js' %}"></script>
 </body>
 </html>
