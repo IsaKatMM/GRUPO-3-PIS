@@ -26,15 +26,15 @@
               <a href="index.html">REPETIX</a>
           </h1>
           <ul>
-              <li><a href="/index.html">INICIO</a></li>
-              <li><a href="/Nosotros.html">NOSOTROS</a></li>
-              <li><a href="/Servicio.html">SERVICIOS</a></li>
-              <li><a href="/contacto.html">CONTACTOS</a></li>
+              <li><a href="/tasks/Templates/index.html">INICIO</a></li>
+              <li><a href="/tasks/Templates/Nosotros.html">NOSOTROS</a></li>
+              <li><a href="/tasks/Templates/Servicio.html">SERVICIOS</a></li>
+              <li><a href="/tasks/Templates/contacto.html">CONTACTOS</a></li>
               {% if user.is_authenticated %}
-                <li><a href="tasks/Templates/logout.html">CERRAR SESION</a></li>
+                <li><a href="/tasks/Templates/logout.html">CERRAR SESION</a></li>
               {% else %}
-                <li><a href="tasks/Templates/registro.html">REGISTRARSE</a></li>
-                <li><a href="tasks/Templates/iniciarSesion.html">INICIAR SESION</a></li>
+                <li><a href="/tasks/Templates/registro.html">REGISTRARSE</a></li>
+                <li><a href="/tasks/Templates/iniciarSesion.html">INICIAR SESION</a></li>
             {% endif %}
           </ul>
       </nav>
