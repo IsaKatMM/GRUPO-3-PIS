@@ -1,52 +1,92 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="{% static '/css/Contacto.css' %}" />
-        <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
-        <title>Contácto </title>
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{% static '/css/contacto.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/Servicio.css' %}" />
+    <link rel="icon" href="{% static '/imagenes/repetix.ico.png' %}" />
+    <title>Contácto</title>
+  </head>
+  <body>
 
-        <section id="footer">
-            <div class="inner">
-                <h2 class="major">Contáctanos</h2>
-                <p>Para más información o consultas no dude en ponerse en contácto con nosotros </p>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" />
-                        </div>
-                        <div class="field">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" name="email" id="email" />
-                        </div>
-                        <div class="field">
-                            <label for="message">Mensaje</label>
-                            <textarea name="message" id="message" rows="4"></textarea>
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" /></li>
-                    </ul>
-                </form>
-                
-                <section class="buttons">
-                    <a href="poner link"target="_blank" class="fa fa-facebook"></a>
-                    <a href="poner link" target="_blank"class="fa fa-twitter"></a>
-                    <a href="poner link"target="_blank" class="fa fa-instagram"></a>
-                </section>
+    <header id="menu">
+      <nav id="menu1">
+        <h1>
+          <a href="index.html"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo" /></a>
+          <a href="index.html">REPETIX</a>
+        </h1>
+        <ul>
+          <li>
+            <a href="index.html">INICIO</a>
+          </li>
+          <li>
+            <a href="Nosotros.html">NOSOTROS</a>
+          </li>
+          <li>
+            <a href="Servicio.html">SERVICIOS</a>
+          </li>
+          <li>
+            <a href="contacto.html">CONTACTOS</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li>
+              <a href="tasks/Templates/logout.html">CERRAR SESION</a>
+            </li>
+          {% else %}
+            <li>
+              <a href="tasks/Templates/registro.html">REGISTRARSE</a>
+            </li>
+            <li>
+              <a href="tasks/Templates/iniciarSesion.html">INICIAR SESION</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
 
-                <ul class="copyright">
-                    <li>Repetix</li>
-                    <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                </ul>
+    <section id="footer">
+      <div class="inner">
+        <h2 class="major">Contáctanos</h2>
+        <p>Para más información o consultas no dude en ponerse en contácto con nosotros</p>
+        <form method="post" action="#">
+          <div class="fields">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input type="text" name="name" id="name" />
             </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div class="field">
+              <label for="message">Mensaje</label>
+              <textarea name="message" id="message" rows="4"></textarea>
+            </div>
+          </div>
+          <ul class="actions">
+            <li>
+              <input type="submit" value="Send Message" />
+            </li>
+          </ul>
+        </form>
+
+        <section class="buttons">
+          <a href="poner link" target="_blank" class="fa fa-facebook"></a>
+          <a href="poner link" target="_blank" class="fa fa-twitter"></a>
+          <a href="poner link" target="_blank" class="fa fa-instagram"></a>
         </section>
-    </body>
-    
+
+        <ul class="copyright">
+          <li>Repetix</li>
+          <li>&copy; Untitled Inc. All rights reserved.</li>
+          <li>
+            Design: <a href="http://html5up.net">HTML5 UP</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </body>
 </html>
