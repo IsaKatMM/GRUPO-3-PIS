@@ -38,6 +38,7 @@ h2 {
 .chart-container {
   margin-top: 20px;
   text-align: center;
+  background-color: #0000;
 }
 
 button {
@@ -54,6 +55,7 @@ button {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
+  background-color: #000000
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
