@@ -28,8 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 STATICFILES_DIRS = ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/tasks/Templates/static',
-                    'C:/Users/Viviana/OneDrive/Escritorio/GRUPO-3-PIS/tasks/Templates/static'
-                    ]
+                   'C:/Users/HP/Desktop/Git_Repositorio/GRUPO-3-PIS/tasks/Templates/static']
 
 # Application definition
 
