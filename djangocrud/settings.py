@@ -29,7 +29,12 @@ ALLOWED_HOSTS = []
 
 STATICFILES_DIRS = ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/tasks/Templates/static',
                     'C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/static',
+<<<<<<< HEAD
                     'C:/Users/HP/Desktop/Git_Repositorio/GRUPO-3-PIS/tasks/Templates/static'
+=======
+                    'C:/Users/Viviana/OneDrive/Escritorio/GRUPO-3-PIS/tasks/Templates/static',
+                    
+>>>>>>> ec0c9265f9e6c95c34aa2082e8d57a194d8cb5a0
                     ]
 
 # Application definition
