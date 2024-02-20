@@ -27,12 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATICFILES_DIRS = ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/tasks/Templates/static',
-                    'C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/static',
-                    'C:/Users/HP/Desktop/Git_Repositorio/GRUPO-3-PIS/tasks/Templates/static'
-                    'C:/Users/Viviana/OneDrive/Escritorio/GRUPO-3-PIS/tasks/Templates/static',
-                    'C:/Users/Usuario iTC/Documents/Flamie/Repos/GRUPO-3-PIS/tasks/Templates/static'
-                    ]
+#STATICFILES_DIRS = ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/tasks/Templates/static',
+#                    'C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/static',
+#                    'C:/Users/HP/Desktop/Git_Repositorio/GRUPO-3-PIS/tasks/Templates/static'
+#                    'C:/Users/Viviana/OneDrive/Escritorio/GRUPO-3-PIS/tasks/Templates/static',
+#                    'C:/Users/Usuario iTC/Documents/Flamie/Repos/GRUPO-3-PIS/tasks/Templates/static'
+#                    ]
 
 # Application definition
 
@@ -123,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
