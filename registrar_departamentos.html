@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar departamentos</title>
+</head>
+<body>
+    <h1>Registrar departamentos</h1>
+    
+    <form action="guardar_departamento.php" method="POST">
+        <label for="nombre_departamento">Nombre del departamento:</label><br>
+        <input type="text" id="nombre_departamento" name="nombre_departamento" required><br><br>
+
+        <label for="sensor_departamento">Número del sensor:</label><br>
+        <input type="number" id="sensor_departamento" name="sensor_departamento" required><br><br>
+
+        <label for="sensores">Registrar sensor:</label><br>
+        <a href="registrar_sensor.html" target="_blank">Registrar sensor</a><br><br>
+
+        <button type="submit">Registrar departamento</button>
+    </form>
+</body>
+</html>

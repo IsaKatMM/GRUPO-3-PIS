@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar pisos</title>
+</head>
+<body>
+    <h1>Registrar pisos</h1>
+    
+    <form action="guardar_piso.php" method="POST">
+        <label for="numero_piso">Número de piso:</label><br>
+        <input type="number" id="numero_piso" name="numero_piso" required><br><br>
+
+        <label for="contador_piso">Número del contador del piso:</label><br>
+        <input type="number" id="contador_piso" name="contador_piso" required><br><br>
+
+        <label for="departamentos_piso">Número de departamentos del piso:</label><br>
+        <input type="number" id="departamentos_piso" name="departamentos_piso" onchange="mostrarRegistrarDepartamentos()" required><br><br>
+
+        <div id="departamentos_container"></div>
+
+        <button type="submit">Registrar piso</button>
+    </form>
+
+    <script>
+        function mostrarRegistrarDepartamentos() {
+            const numDepartamentos = document.getElementById('departamentos_piso').value;
+            const container = document.getElementById('departamentos_container');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= numDepartamentos; i++) {
+                const label = document.createElement('label');
+                label.textContent = `Registrar departamento ${i}: `;
+                
+                const link = document.createElement('a');
+                link.href = `registrar_departamentos_${i}.html`;
+                link.textContent = 'Registrar departamento';
+                link.target = '_blank';
+
+                container.appendChild(label);
+                container.appendChild(link);
+                container.appendChild(document.createElement('br'));
+            }
+        }
+    </script>
+</body>
+</html>
