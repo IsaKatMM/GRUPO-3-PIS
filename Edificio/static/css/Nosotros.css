@@ -1,0 +1,284 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+header { background-color:#000000; color: #555; font-family: 'Abel', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
+a:link, a:visited, a:active{ color:inherit; text-decoration: none; }
+a:hover {color: #000; text-decoration:underline; }
+
+body {
+    background-color: #000000;
+    font-family: 'Abel';
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Menu */
+#menu{
+    background: #24A3A3;
+}
+#menu1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-weight: bold;
+    font-size: 17px;
+}
+#menu1 h1 img {
+    width: 45px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#menu1 h1{
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#menu1 ul li{
+    display: inline-block;
+    padding: 0 35px;
+    color: #000;
+    text-decoration: none;
+}
+
+#menu1 ul li a:hover {
+    color: #fff;
+
+}
+
+ul{
+    list-style: none;
+
+}
+* a:visited{
+color: #000;
+}
+/*Fin menu*/
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+
+    box-shadow: 0 0 10px rgba(190, 85, 159, 0.1);
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    /* Cambiado a space-around para dar un espacio uniforme */
+    align-items: center;
+    flex-wrap: wrap;
+    /* Cambiado a wrap para permitir envoltura de líneas */
+}
+
+.team-member {
+    flex: 0 0 48%;
+    /* Ajuste del porcentaje y aumento del espacio entre los miembros */
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.team-member img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #313061;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+}
+
+.social-buttons {
+    margin: 20px;
+}
+
+.instagram-button,
+.facebook-button,
+.twitter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.instagram-button {
+    background-color: #405de6; /* Color de Instagram */
+}
+
+.facebook-button {
+    background-color: #1877f2; /* Color de Facebook */
+}
+
+.twitter-button {
+    background-color: #1da1f2; /* Color de Twitter */
+}
+
+.social-buttons i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Estilos adicionales para hover (efecto al pasar el ratón) */
+.instagram-button:hover {
+    background-color: #35469c;
+}
+
+.facebook-button:hover {
+    background-color: #1565c0;
+}
+
+.twitter-button:hover {
+    background-color: #0d8eff;
+}
+
+/* GOOGLE MAPS API */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+#map-container a {
+  text-decoration: none;
+  color: #1967d2;
+}
+
+#map-container button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#gmp-map {
+  position: absolute;
+  left: 22em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#locations-panel {
+  position: absolute;
+  left: 0;
+  width: 22em;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 876px) {
+  #gmp-map {
+    left: 0;
+    bottom: 50%;
+  }
+
+  #locations-panel {
+    top: 50%;
+    right: 0;
+    width: unset;
+  }
+}
+
+#locations-panel-list .section-name {
+  font-weight: 500;
+  font-size: 0.9em;
+  margin: 1.8em 0 1em 1.5em;
+}
+
+#locations-panel-list .location-result {
+  position: relative;
+  padding: 0.8em 3.5em 0.8em 1.4em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+#locations-panel-list .location-result:first-of-type {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#locations-panel-list .location-result:last-of-type {
+  border-bottom: none;
+}
+
+#locations-panel-list .location-result.selected {
+  outline: 2px solid #4285f4;
+}
+
+#locations-panel-list button.select-location {
+  margin-bottom: 0.6em;
+  text-align: left;
+}
+
+#locations-panel-list .location-result h2.name {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#locations-panel-list .location-result .address {
+  color: #757575;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+#locations-panel-list .directions-button {
+  position: absolute;
+  right: 1.2em;
+  top: 2.3em;
+}
+
+#locations-panel-list .directions-button-background:hover {
+  fill: rgba(116,120,127,0.1);
+}
+
+#locations-panel-list .directions-button-background {
+  fill: rgba(255,255,255,0.01);
+}
+
+#location-results-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+

@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tasks import views
-from tasks.views import index, iniciarSesion, nosotros, servicio, contacto
+from Edificio import views
+from Edificio.views import index, iniciarSesion, nosotros, servicio, contacto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,4 +40,9 @@ urlpatterns = [
     #path('tasks/', views.tasks, name='tasks'),
     #path('logout/', views.signout, name='logout'),
     #path('iniciarSesion/', views.iniciarSesion, name='Iniciar Sesion')
+    path('RegistrarEdificio/', views.registrarEdificio, name='RegistrarEdificio'),
+    path('registrar_pisos/', views.registrarPiso, name='registrar_pisos'),
+    path('registrar_departamentos/', views.registrarDepartamento, name='registrar_departamentos'),
+    path('registrar_sensor/', views.registrarSensor, name='registrar_sensor'),
 ]
+

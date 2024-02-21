@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+header { background-color:#fefdfb; color: #555; font-family: 'Abel', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
+a:link, a:visited, a:active{ color:inherit; text-decoration: none; }
+a:hover {color: #000; text-decoration:underline; }
+
+body {
+    font-family: 'Abel', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+/* Menu */
+#menu{
+    background: #24A3A3;
+}
+#menu1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-weight: bold;
+    font-size: 17px;
+}
+#menu1 h1 img {
+    width: 45px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#menu1 h1{
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#menu1 ul li{
+    display: inline-block;
+    padding: 0 35px;
+    color: #000;
+    text-decoration: none;
+}
+
+
+#menu1 ul li a:hover {
+    color: #fff;
+
+}
+
+ul{
+    list-style: none;
+
+}
+
+/*Fin menu*/
+
+/*header {*/
+/*    background-color: #313061;*/
+/*    color: #f6f6f6;*/
+/*    padding: 10px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color:#313061;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+
+section img {
+    max-width: 100%;
+    height: 450px;
+    border-radius: 8px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+

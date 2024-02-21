@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tasks'
+#   'tasks',
+    'Edificio'
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,8 @@ ROOT_URLCONF = 'djangocrud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/tasks/Templates'],
+#       'DIRS': ['C:/Users/crisc/Documents/GitHub/GRUPO-3-PIS/tasks/Templates'],
+        'DIRS': [os.path.join(BASE_DIR / 'Edificio/Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/usuario.css' %}" />
+    <title>Registrarse</title>
+    <link rel="icon" href="{% static 'imagenes/repetix.ico.png' %}" />
+  </head>
+
+  <body>
+    {{ error }}
+    <div class="formulario">
+      <form class="user" method="POST">
+        {% csrf_token %}
+        <h1>Registrarse</h1>
+        <div class="formu">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" id="idname" name="name" required />
+          <label>Nombre:</label>
+        </div>
+
+        <div class="formu">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" id="idlastname" name="lastname" required />
+          <label>Apellido:</label>
+        </div>
+
+        <div class="formu">
+          <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+          <input type="email" id="idusername" name="username" required />
+          <label>Correo:</label>
+        </div>
+
+        <div class="formu">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" id="id_password" name="password1" required />
+          <label>Contraseña:</label>
+        </div>
+
+        <div class="formu">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" id="id_password" name="password2" required />
+          <label>Confirmar contraseña:</label>
+        </div>
+
+        <br />
+
+        <div class="boton">
+          <input type="submit" value="Registrarse" />
+        </div>
+
+        <br />
+
+        <div>
+          ¿Ya tienes una cuenta? <a href="/iniciarSesion/">Iniciar Sesión</a>
+        </div>
+        <br />
+      </form>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
