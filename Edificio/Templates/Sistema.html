@@ -29,9 +29,9 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
                      </div>
       
                      <div class="card__data">
-                        <h3 class="card__name">Edificio</h3>
+                        <h3 class="card__name">Registrar Edificio</h3>
                         <p class="card__description">
-                        Calcula el gasto que consume el edificio
+                        Registra el edificio, si aun no se encuentra registrado.
                         </p>
       
                         <a href="/RegistrarEdificio/" class="card__button">Ingresar</a>
@@ -45,12 +45,28 @@ min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index:
                      </div>
       
                      <div class="card__data">
-                        <h3 class="card__name">Edificio</h3>
+                        <h3 class="card__name">Acceder al Edificio</h3>
                         <p class="card__description">
-                        Calcula el gasto que consume el edificio
+                        Accede al edificio que quieres supervisar su consumo energetico.
                         </p>
       
                         <a href="/AccederEdificio/" class="card__button">Ingresar</a>
+                     </div>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="{% static '/imagenes/sistema/Sensor.png' %}" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Control del edificio</h3>
+                        <p class="card__description">
+                        Controla los valores de los sensores y de los contadores que registra el edificio.
+                        </p>
+      
+                        <a href="/control/" class="card__button">Ingresar</a>
                      </div>
                   </article>
                   

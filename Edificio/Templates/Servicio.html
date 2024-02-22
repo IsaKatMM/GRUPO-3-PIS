@@ -17,32 +17,32 @@
     <header id="menu">
       <nav id="menu1">
         <h1>
-          <a href="index.html"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo" /></a>
-          <a href="index.html">REPETIX</a>
+          <a href="/index/"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo" /></a>
+          <a href="/index/">REPETIX</a>
         </h1>
         <ul>
           <li>
-            <a href="/tasks/Templates/index.html">INICIO</a>
+            <a href="/index/">INICIO</a>
           </li>
           <li>
-            <a href="/tasks/Templates/Nosotros.html">NOSOTROS</a>
+            <a href="/Nosotros/">NOSOTROS</a>
           </li>
           <li>
-            <a href="/tasks/Templates/Servicio.html">SERVICIOS</a>
+            <a href="/Servicio/">SERVICIOS</a>
           </li>
           <li>
-            <a href="/tasks/Templates/contacto.html">CONTACTOS</a>
+            <a href="/contacto/">CONTACTOS</a>
           </li>
           {% if user.is_authenticated %}
             <li>
-              <a href="/tasks/Templates/logout.html">CERRAR SESION</a>
+              <a href="/logout/">CERRAR SESION</a>
             </li>
           {% else %}
             <li>
-              <a href="/tasks/Templates/registro.html">REGISTRARSE</a>
+              <a href="/registro/">REGISTRARSE</a>
             </li>
             <li>
-              <a href="/tasks/Templates/iniciarSesion.html">INICIAR SESION</a>
+              <a href="/iniciarSesion/">INICIAR SESION</a>
             </li>
           {% endif %}
         </ul>

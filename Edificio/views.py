@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from Edificio.models import Sensor  
 
 # Create your views here.
 
@@ -95,6 +96,36 @@ def registrarDepartamento(request):
     return render(request, 'registrar_departamentos.html', {'num_departamentos': num_departamentos})
 
 def registrarSensor(request):
-    return render(request, 'registrar_sensor.html')
+    if request.method == 'GET':
+        return render(request, 'registrar_sensor.html')
+    elif request.method == 'POST':
+        # Si el formulario se envía
+        nombre_edificio = request.POST['nombre_edificio']
+        numero_edificio = request.POST['numero_edificio']
+        numero_piso_edificio = request.POST['numero_piso_edificio']
+        nombre_departamento = request.POST['nombre_departamento']
+        datos_sensor = request.POST['datos_sensor']
+        consumo_sensor = request.POST['consumo_sensor']
+        
+        # Guardar los datos en la base de datos
+        sensor = Sensor(
+            nombre_edificio=nombre_edificio,
+            numero_edificio=numero_edificio,
+            numero_piso_edificio=numero_piso_edificio,
+            nombre_departamento=nombre_departamento,
+            datos_sensor=datos_sensor,
+            consumo_sensor=consumo_sensor
+        )
+        sensor.save()
+        
+        # Redireccionar a alguna página después de guardar los datos
+        return redirect('registrar_departamentos')  # Cambia 'pagina_despues_de_guardar.html' por tu propia página
+
+
+def accederEdificio(request):
+    return render(request, 'AccederEdificio.html')
+
+def control(request):
+    return render(request, 'control.html')
 
 

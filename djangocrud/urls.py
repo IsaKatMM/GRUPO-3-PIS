@@ -44,5 +44,7 @@ urlpatterns = [
     path('registrar_pisos/', views.registrarPiso, name='registrar_pisos'),
     path('registrar_departamentos/', views.registrarDepartamento, name='registrar_departamentos'),
     path('registrar_sensor/', views.registrarSensor, name='registrar_sensor'),
+    path('AccederEdificio/', views.accederEdificio, name='AccederEdificio'),
+    path('control/', views.control, name='control'),
 ]
 
