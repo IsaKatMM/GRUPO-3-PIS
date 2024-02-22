@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from Edificio.models import Sensor  
+from Edificio.models import Sensor, Departamento, Piso, Edificio
 
 # Create your views here.
 
@@ -82,18 +82,108 @@ def informe(request):
 def recuperacion(request):
     return render(request, 'recuperarContrasena.html')
 
+#def registrarEdificio(request):
+    return render(request, 'RegistrarEdificio.html')
+
 def registrarEdificio(request):
+    if request.method == 'POST':
+        # Si el formulario se envía
+        nombre_edificio = request.POST['nombre_edificio']
+        numero_edificio = request.POST['numero_edificio']
+        ubicacion_edificio = request.POST['ubicacion_edificio']
+        numero_pisos = request.POST['numero_pisos']
+
+        # Guardar los datos en la base de datos
+        edificio = Edificio(
+            nombre=nombre_edificio,
+            numero=numero_edificio,
+            ubicacion=ubicacion_edificio,
+            numero_pisos=numero_pisos
+        )
+        edificio.save()
+
+        # Redireccionar a alguna página después de guardar los datos
+        return redirect('control') 
+    
     return render(request, 'RegistrarEdificio.html')
 
 def registrarPiso(request):
     num_pisos = request.GET.get('num_pisos')
-    # Aquí puedes agregar lógica adicional si es necesario
+    if request.method == 'POST':
+        # Si el formulario se envía
+        numero_piso = request.POST[f'numero_piso']
+        contador_piso = request.POST[f'contador_piso']
+
+        # Guardar los datos en la base de datos
+        piso = Piso(
+            numero_piso=numero_piso,
+            contador_piso=contador_piso
+        )
+        piso.save()
+
+        # Redireccionar a alguna página después de guardar los datos
+        return redirect('RegistrarEdificio')
+    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos})
+
+#def registrarPiso(request):
+    if request.method == 'POST':
+        # Si el formulario se envía
+        num_pisos = request.POST['num_pisos']
+
+        for i in range(1, int(num_pisos) + 1):
+            numero_piso = request.POST[f'numero_piso_{i}']
+
+            # Guardar los datos en la base de datos
+            piso = Piso(
+                numero_piso=numero_piso
+            )
+            piso.save()
+
+        # Redireccionar a alguna página después de guardar los datos
+        return redirect('RegistrarEdificio')  # Cambia 'pagina_despues_de_guardar.html' por tu propia página
+        
+    num_pisos = request.GET.get('num_pisos')
     return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos})
 
 def registrarDepartamento(request):
     num_departamentos = request.GET.get('num_departamentos')
-    # Aquí puedes agregar lógica adicional si es necesarios
+    if request.method == 'POST':
+        # Si el formulario se envía
+        nombre_departamento = request.POST[f'nombre_departamento']
+        sensor_departamento = request.POST[f'sensor_departamento']
+
+        # Guardar los datos en la base de datos
+        departamento = Departamento(
+            nombre_departamento=nombre_departamento,
+            sensor_departamento=sensor_departamento
+        )
+        departamento.save()
+
+        # Redireccionar a alguna página después de guardar los datos
+        return redirect('registrar_pisos')
     return render(request, 'registrar_departamentos.html', {'num_departamentos': num_departamentos})
+
+#def registrarDepartamento(request):
+    if request.method == 'POST':
+        # Si el formulario se envía
+        num_departamentos = request.POST['num_departamentos']
+
+        for i in range(1, int(num_departamentos) + 1):
+            nombre_departamento = request.POST[f'nombre_departamento_{i}']
+            numero_sensor = request.POST[f'numero_sensor_{i}']
+
+            # Guardar los datos en la base de datos
+            departamento = Departamento(
+                nombre_departamento=nombre_departamento,
+                numero_sensor=numero_sensor
+            )
+            departamento.save()
+
+        # Redireccionar a alguna página después de guardar los datos
+        return redirect('registrar_pisos')  
+        
+    return render(request, 'registrar_departamentos.html')
+
 
 def registrarSensor(request):
     if request.method == 'GET':
@@ -119,7 +209,7 @@ def registrarSensor(request):
         sensor.save()
         
         # Redireccionar a alguna página después de guardar los datos
-        return redirect('registrar_departamentos')  # Cambia 'pagina_despues_de_guardar.html' por tu propia página
+        return redirect('registrar_departamentos')  
 
 
 def accederEdificio(request):

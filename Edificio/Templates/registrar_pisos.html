@@ -11,7 +11,8 @@
 <body>
     <h1>Registrar pisos</h1>
     
-    <form action="guardar_piso.php" method="POST">
+    <form method="POST">
+        {% csrf_token %}
         <label for="numero_piso">Número de piso:</label><br>
         <input type="number" id="numero_piso" name="numero_piso" required><br><br>
 
