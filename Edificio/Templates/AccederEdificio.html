@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceder Edificio</title>
+    <link rel="stylesheet" href="{% static 'css/RegistrarEdificio.css' %}">
+</head>
+<body>
+    <h1>Acceder Edificio</h1>
+
+    <!-- Mostrar lista de edificios -->
+    <h2>Edificios</h2>
+    <ul>
+        {% for edificio in edificios %}
+        <li>
+            <a href="{% url 'piso' edificio.id %}">{{ edificio.nombre }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Piso -->
+    {% if piso %}
+    <h2>Piso {{ piso.numero_piso }}</h2>
+    <ul>
+        <li>
+            <a href="{% url 'departamento' piso.id %}">Departamento</a>
+        </li>
+    </ul>
+    {% endif %}
+
+    <!-- Departamento -->
+    {% if departamento %}
+    <h2>Departamento {{ departamento.nombre_departamento }}</h2>
+    <ul>
+        <li>
+            <a href="{% url 'sensor' departamento.id %}">Sensor</a>
+        </li>
+    </ul>
+    {% endif %}
+
+    <!-- Sensor -->
+    {% if sensor %}
+    <h2>Sensor {{ sensor.id }}</h2>
+    <!-- Aquí puedes mostrar los datos del sensor -->
+    {% endif %}
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceder Edificio</title>
+</head>
+<body>
+    <h1>Acceder Edificio</h1>
+
+    <h2>Edificios</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Número</th>
+                <th>Ubicación</th>
+                <th>Número de Pisos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for edificio in edificios %}
+            <tr>
+                <td>{{ edificio.nombre }}</td>
+                <td>{{ edificio.numero }}</td>
+                <td>{{ edificio.ubicacion }}</td>
+                <td>{{ edificio.numero_pisos }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Pisos</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Contador</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for piso in pisos %}
+            <tr>
+                <td>{{ piso.numero_piso }}</td>
+                <td>{{ piso.contador_piso }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Sensores</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre Edificio</th>
+                <th>Número Edificio</th>
+                <th>Número Piso Edificio</th>
+                <th>Nombre Departamento</th>
+                <th>Datos Sensor</th>
+                <th>Consumo Sensor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sensor in sensores %}
+            <tr>
+                <td>{{ sensor.nombre_edificio }}</td>
+                <td>{{ sensor.numero_edificio }}</td>
+                <td>{{ sensor.numero_piso_edificio }}</td>
+                <td>{{ sensor.nombre_departamento }}</td>
+                <td>{{ sensor.datos_sensor }}</td>
+                <td>{{ sensor.consumo_sensor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Departamentos</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre Departamento</th>
+                <th>Sensor Departamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departamento in departamentos %}
+            <tr>
+                <td>{{ departamento.nombre_departamento }}</td>
+                <td>{{ departamento.sensor_departamento }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

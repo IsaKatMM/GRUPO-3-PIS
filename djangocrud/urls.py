@@ -46,5 +46,9 @@ urlpatterns = [
     path('registrar_sensor/', views.registrarSensor, name='registrar_sensor'),
     path('AccederEdificio/', views.accederEdificio, name='AccederEdificio'),
     path('control/', views.control, name='control'),
+    path('piso/<int:edificio_id>/', views.piso, name='piso'),
+#    path('departamento/<int:piso_id>/', views.departamento, name='departamento'),
+#    path('piso/<int:edificio_id>/', views.piso, name='piso'),
+
 ]
 

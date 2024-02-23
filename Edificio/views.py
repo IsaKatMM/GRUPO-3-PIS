@@ -211,11 +211,37 @@ def registrarSensor(request):
         # Redireccionar a alguna página después de guardar los datos
         return redirect('registrar_departamentos')  
 
-
 def accederEdificio(request):
-    return render(request, 'AccederEdificio.html')
+    # Recupera los datos de cada clase desde la base de datos
+    edificios = Edificio.objects.all()
+    pisos = Piso.objects.all()
+    sensores = Sensor.objects.all()
+    departamentos = Departamento.objects.all()
+
+    # Pasa los datos recuperados a la plantilla mediante el contexto de renderización
+    return render(request, 'AccederEdificio.html', {
+        'edificios': edificios,
+        'pisos': pisos,
+        'sensores': sensores,
+        'departamentos': departamentos,
+    })
+
 
 def control(request):
     return render(request, 'control.html')
 
+def departamento(request):
+    return render(request, 'departamento.html')
 
+def sensor(request):
+    return render(request, 'sensor.html')
+
+def contador(request):
+    return render(request, 'contador.html')
+
+def actuador(request):
+    return render(request, 'actuador.html')
+
+def piso(request, edificio_id):
+    # Aquí puedes realizar cualquier lógica necesaria utilizando edificio_id
+    return render(request, 'piso.html')

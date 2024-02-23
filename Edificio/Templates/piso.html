@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceder Piso</title>
+    <link rel="stylesheet" href="{% static 'css/RegistrarEdificio.css' %}">
+</head>
+
+<body>
+
+    <h1>Acceder al piso</h1>
+    {% if piso %}
+    <h2>Piso {{ piso.numero_piso }}</h2>
+    <ul>
+        <li>
+            <a href="{% url 'departamento' piso.id %}">Departamento</a>
+        </li>
+    </ul>
+    {% endif %}
+
+</body>
+</html>
