@@ -104,8 +104,13 @@ fieldset[disabled] a.btn {
 .btn-primary {
     color: #fff;
     background-color: #185c5c;
-    border-color: #185c5c; }
+    border-color: #185c5c;
+    transition: transform 0.3s ease;  /*ojo*/
+    margin: 0 5px;
+
+}
 .btn-primary:hover {
+    transform: scale(1.2);  /*ojo*/
     color: #fff;
     background-color: #185c5c;
     border-color: #185c5c; }
