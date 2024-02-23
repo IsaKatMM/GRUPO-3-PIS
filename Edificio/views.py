@@ -107,23 +107,48 @@ def registrarEdificio(request):
     
     return render(request, 'RegistrarEdificio.html')
 
+from django.shortcuts import render, redirect
+from Edificio.models import Piso
+
 def registrarPiso(request):
-    num_pisos = request.GET.get('num_pisos')
+    edificio_id = request.GET.get('edificio_id')  # Obtener el ID del edificio desde la URL
+    num_pisos = request.GET.get('num_pisos')  # Obtener el número de pisos del edificio
+
     if request.method == 'POST':
         # Si el formulario se envía
-        numero_piso = request.POST[f'numero_piso']
-        contador_piso = request.POST[f'contador_piso']
+        numero_piso = request.POST['numero_piso']
+        contador_piso = request.POST['contador_piso']
 
-        # Guardar los datos en la base de datos
+        # Guardar los datos en la base de datos asociando el piso con el edificio correspondiente
         piso = Piso(
             numero_piso=numero_piso,
-            contador_piso=contador_piso
+            contador_piso=contador_piso,
+            edificio_id=edificio_id  # Asociar el piso con el edificio
         )
         piso.save()
 
         # Redireccionar a alguna página después de guardar los datos
         return redirect('RegistrarEdificio')
-    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos})
+
+    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos, 'edificio_id': edificio_id})
+
+#def registrarPiso(request):
+#    num_pisos = request.GET.get('num_pisos')
+#    if request.method == 'POST':
+#        # Si el formulario se envía
+#        numero_piso = request.POST[f'numero_piso']
+#        contador_piso = request.POST[f'contador_piso']
+
+        # Guardar los datos en la base de datos
+#        piso = Piso(
+#            numero_piso=numero_piso,
+#            contador_piso=contador_piso
+#        )
+#        piso.save()
+
+        # Redireccionar a alguna página después de guardar los datos
+#        return redirect('RegistrarEdificio')
+#    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos})
 
 #def registrarPiso(request):
     if request.method == 'POST':

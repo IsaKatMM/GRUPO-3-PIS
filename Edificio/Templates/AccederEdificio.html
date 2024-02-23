@@ -6,56 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceder Edificio</title>
-    <link rel="stylesheet" href="{% static 'css/RegistrarEdificio.css' %}">
-</head>
-<body>
-    <h1>Acceder Edificio</h1>
-
-    <!-- Mostrar lista de edificios -->
-    <h2>Edificios</h2>
-    <ul>
-        {% for edificio in edificios %}
-        <li>
-            <a href="{% url 'piso' edificio.id %}">{{ edificio.nombre }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <!-- Piso -->
-    {% if piso %}
-    <h2>Piso {{ piso.numero_piso }}</h2>
-    <ul>
-        <li>
-            <a href="{% url 'departamento' piso.id %}">Departamento</a>
-        </li>
-    </ul>
-    {% endif %}
-
-    <!-- Departamento -->
-    {% if departamento %}
-    <h2>Departamento {{ departamento.nombre_departamento }}</h2>
-    <ul>
-        <li>
-            <a href="{% url 'sensor' departamento.id %}">Sensor</a>
-        </li>
-    </ul>
-    {% endif %}
-
-    <!-- Sensor -->
-    {% if sensor %}
-    <h2>Sensor {{ sensor.id }}</h2>
-    <!-- Aquí puedes mostrar los datos del sensor -->
-    {% endif %}
-</body>
-</html>
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceder Edificio</title>
 </head>
 <body>
     <h1>Acceder Edificio</h1>
