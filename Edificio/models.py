@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class User(models.Model): 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 # Create your models here.
 class Sensor(models.Model):
@@ -22,22 +20,21 @@ class Departamento(models.Model):
     def __str__(self):
         return self.nombre_departamento
 
-class Piso(models.Model):
-    numero_piso = models.IntegerField()
-    contador_piso = models.IntegerField()
-
-    # Opcional: puedes agregar más campos según sea necesario
-    
-    def __str__(self):
-        return f"Piso {self.numero_piso}"
-
 class Edificio(models.Model):
     nombre = models.CharField(max_length=100)
     numero = models.IntegerField()
     ubicacion = models.CharField(max_length=255)
     numero_pisos = models.IntegerField()
 
-    # Opcional: puedes agregar más campos según sea necesario
-    
     def __str__(self):
         return self.nombre
+
+
+class Piso(models.Model):
+#    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, default=None) 
+    numero_piso = models.IntegerField()
+    contador_piso = models.IntegerField()
+    edificio_id = models.ForeignKey(Edificio, on_delete=models.CASCADE, default=None)
+
+    def __str__(self):
+        return f"Piso {self.numero_piso} del edificio {self.edificio_id.nombre}"
