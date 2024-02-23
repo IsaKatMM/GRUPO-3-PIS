@@ -230,16 +230,16 @@ def accederEdificio(request):
 def control(request):
     return render(request, 'control.html')
 
-def departamento(request):
+#def departamento(request):
     return render(request, 'departamento.html')
 
-def sensor(request):
+#def sensor(request):
     return render(request, 'sensor.html')
 
-def contador(request):
+#def contador(request):
     return render(request, 'contador.html')
 
-def actuador(request):
+#def actuador(request):
     return render(request, 'actuador.html')
 
 def piso(request, edificio_id):
