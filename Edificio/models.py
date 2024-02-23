@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class User(models.Model): 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 # Create your models here.
 class Sensor(models.Model):
     nombre_edificio = models.CharField(max_length=100)
@@ -9,7 +12,6 @@ class Sensor(models.Model):
     nombre_departamento = models.CharField(max_length=100)
     datos_sensor = models.CharField(max_length=100)
     consumo_sensor = models.FloatField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Departamento(models.Model):
     nombre_departamento = models.CharField(max_length=100)
@@ -34,7 +36,6 @@ class Edificio(models.Model):
     numero = models.IntegerField()
     ubicacion = models.CharField(max_length=255)
     numero_pisos = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # Opcional: puedes agregar más campos según sea necesario
     

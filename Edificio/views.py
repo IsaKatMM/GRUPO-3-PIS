@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from Edificio.models import Sensor, Departamento, Piso, Edificio
+from Edificio.models import Sensor, Departamento, Piso, Edificio, User
 
 # Create your views here.
 
@@ -204,7 +204,7 @@ def registrarSensor(request):
             numero_piso_edificio=numero_piso_edificio,
             nombre_departamento=nombre_departamento,
             datos_sensor=datos_sensor,
-            consumo_sensor=consumo_sensor
+            consumo_sensor=consumo_sensor,
         )
         sensor.save()
         
