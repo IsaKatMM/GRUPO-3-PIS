@@ -84,7 +84,7 @@ def recuperacion(request):
 
 #def registrarEdificio(request):
     return render(request, 'RegistrarEdificio.html')
-
+     
 def registrarEdificio(request):
     if request.method == 'POST':
         # Si el formulario se envía
@@ -105,8 +105,7 @@ def registrarEdificio(request):
         # Redireccionar a alguna página después de guardar los datos
         return redirect('control') 
     
-    return render(request, 'RegistrarEdificio.html', {'edificio': nombre_edificio})
-
+    return render(request, 'RegistrarEdificio.html', {'edificio': edificio})
 
 def registrarPiso(request):
     edificio_id = request.GET.get('edificio_id')  # Obtener el ID del edificio desde la URL
@@ -125,12 +124,13 @@ def registrarPiso(request):
         )
         piso.save()
 
+        # Obtener el objeto Edificio usando el ID
+        edificio = Edificio.objects.get(pk=edificio_id)
+
         # Redireccionar a alguna página después de guardar los datos
-        #return redirect('RegistrarEdificio')
-        return render(request, 'RegistrarEdificio.html', {'edificio': edificio_id})
+        return render(request, 'RegistrarEdificio.html', {'edificio': edificio})
 
     return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos, 'edificio_id': edificio_id})
-
 
 #def registrarPiso(request):
 #    num_pisos = request.GET.get('num_pisos')
