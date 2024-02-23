@@ -28,13 +28,12 @@ class Edificio(models.Model):
 
     def __str__(self):
         return self.nombre
-
-
+    
 class Piso(models.Model):
-#    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, default=None) 
     numero_piso = models.IntegerField()
     contador_piso = models.IntegerField()
-    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, default=Edificio)
+    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Piso {self.numero_piso} del edificio {self.edificio.nombre}"
+
