@@ -105,10 +105,8 @@ def registrarEdificio(request):
         # Redireccionar a alguna página después de guardar los datos
         return redirect('control') 
     
-    return render(request, 'RegistrarEdificio.html')
+    return render(request, 'RegistrarEdificio.html', {'edificio': nombre_edificio})
 
-from django.shortcuts import render, redirect
-from Edificio.models import Piso
 
 def registrarPiso(request):
     edificio_id = request.GET.get('edificio_id')  # Obtener el ID del edificio desde la URL
@@ -123,14 +121,16 @@ def registrarPiso(request):
         piso = Piso(
             numero_piso=numero_piso,
             contador_piso=contador_piso,
-            edificio_id=edificio_id  # Asociar el piso con el edificio
+            edificio_id=edificio_id  
         )
         piso.save()
 
         # Redireccionar a alguna página después de guardar los datos
-        return redirect('RegistrarEdificio')
+        #return redirect('RegistrarEdificio')
+        return render(request, 'RegistrarEdificio.html', {'edificio': edificio_id})
 
     return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos, 'edificio_id': edificio_id})
+
 
 #def registrarPiso(request):
 #    num_pisos = request.GET.get('num_pisos')
@@ -267,6 +267,6 @@ def control(request):
 #def actuador(request):
     return render(request, 'actuador.html')
 
-def piso(request, edificio_id):
+#def piso(request, edificio_id):
     # Aquí puedes realizar cualquier lógica necesaria utilizando edificio_id
     return render(request, 'piso.html')
