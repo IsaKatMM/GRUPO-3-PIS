@@ -1,4 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url("https://img.freepik.com/fotos-premium/pantalla-computadora-luces-neon-fondo-azul_902846-5983.jpg");
+    background-image: url("https://img.freepik.com/fotos-premium/pantalla-computadora-luces-neon-fondo-azul_902846-5983.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,19 +48,19 @@ h2{
     border-bottom: 2px solid #ffffff;
 }
 .inputbox label {
-        position: absolute;
-        top: 50%;
-        left: 5px;
-        transform: translateY(-50%);
-        color: #ffffff;
-        font-size: 1em;
-        pointer-events: none;
-        transition: .5s;
-    }
-    input:focus ~ label,
-    input:valid ~ label{
-        top: -5px;
-    }
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+    top: -5px;
+}
 
 .inputbox input {
     width: 100%;
@@ -147,4 +147,9 @@ button:hover{
 
 .register p a:hover{
     text-decoration: underline;
+}
+
+.register__inicio{
+    text-align: center;
+    padding-top: 1rem;
 }
