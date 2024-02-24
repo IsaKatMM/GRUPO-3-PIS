@@ -82,9 +82,6 @@ def informe(request):
 def recuperacion(request):
     return render(request, 'recuperarContrasena.html')
 
-#def registrarEdificio(request):
-    return render(request, 'RegistrarEdificio.html')
-     
 def registrarEdificio(request):
     if request.method == 'POST':
         # Si el formulario se envía
@@ -105,70 +102,27 @@ def registrarEdificio(request):
         # Redireccionar a alguna página después de guardar los datos
         return redirect('control') 
     
-    return render(request, 'RegistrarEdificio.html', {'edificio': edificio})
+    # Si no es un POST, solo renderiza el formulario
+    return render(request, 'RegistrarEdificio.html')
 
 def registrarPiso(request):
-    edificio_id = request.GET.get('edificio_id')  # Obtener el ID del edificio desde la URL
-    num_pisos = request.GET.get('num_pisos')  # Obtener el número de pisos del edificio
-
+    num_pisos = request.GET.get('num_pisos')
     if request.method == 'POST':
         # Si el formulario se envía
-        numero_piso = request.POST['numero_piso']
-        contador_piso = request.POST['contador_piso']
+        numero_piso = request.POST[f'numero_piso']
+        contador_piso = request.POST[f'contador_piso']
 
-        # Guardar los datos en la base de datos asociando el piso con el edificio correspondiente
+        # Guardar los datos en la base de datos
         piso = Piso(
             numero_piso=numero_piso,
-            contador_piso=contador_piso,
-            edificio_id=edificio_id  
+            contador_piso=contador_piso
         )
         piso.save()
 
-        # Obtener el objeto Edificio usando el ID
-        edificio = Edificio.objects.get(pk=edificio_id)
-
         # Redireccionar a alguna página después de guardar los datos
-        return render(request, 'RegistrarEdificio.html', {'edificio': edificio})
-
-    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos, 'edificio_id': edificio_id})
-
-#def registrarPiso(request):
-#    num_pisos = request.GET.get('num_pisos')
-#    if request.method == 'POST':
-#        # Si el formulario se envía
-#        numero_piso = request.POST[f'numero_piso']
-#        contador_piso = request.POST[f'contador_piso']
-
-        # Guardar los datos en la base de datos
-#        piso = Piso(
-#            numero_piso=numero_piso,
-#            contador_piso=contador_piso
-#        )
-#        piso.save()
-
-        # Redireccionar a alguna página después de guardar los datos
-#        return redirect('RegistrarEdificio')
-#    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos})
-
-#def registrarPiso(request):
-    if request.method == 'POST':
-        # Si el formulario se envía
-        num_pisos = request.POST['num_pisos']
-
-        for i in range(1, int(num_pisos) + 1):
-            numero_piso = request.POST[f'numero_piso_{i}']
-
-            # Guardar los datos en la base de datos
-            piso = Piso(
-                numero_piso=numero_piso
-            )
-            piso.save()
-
-        # Redireccionar a alguna página después de guardar los datos
-        return redirect('RegistrarEdificio')  # Cambia 'pagina_despues_de_guardar.html' por tu propia página
-        
-    num_pisos = request.GET.get('num_pisos')
+        return redirect('RegistrarEdificio')
     return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos})
+
 
 def registrarDepartamento(request):
     num_departamentos = request.GET.get('num_departamentos')
@@ -270,3 +224,4 @@ def control(request):
 #def piso(request, edificio_id):
     # Aquí puedes realizar cualquier lógica necesaria utilizando edificio_id
     return render(request, 'piso.html')
+

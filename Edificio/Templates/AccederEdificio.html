@@ -1,4 +1,37 @@
-{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control del edificio</title>
+</head>
+<body>
+    <h1>Control del edificio {{ edificio.nombre }}</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre del edificio</th>
+                <th>Número del edificio</th>
+                <th>Ubicación</th>
+                <th>Pisos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for piso in pisos %}
+            <tr>
+                <td>{{ edificio.nombre }}</td>
+                <td>{{ edificio.numero }}</td>
+                <td>{{ edificio.ubicacion }}</td>
+                <td>{{ piso.numero_piso }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!--{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
