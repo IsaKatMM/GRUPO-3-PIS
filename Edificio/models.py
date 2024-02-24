@@ -22,12 +22,16 @@ class Departamento(models.Model):
 
 class Edificio(models.Model):
     nombre = models.CharField(max_length=100)
-    numero = models.IntegerField()
+    numero_id = models.IntegerField()
     ubicacion = models.CharField(max_length=255)
     numero_pisos = models.IntegerField()
 
     def __str__(self):
-        return self.nombre
+        texto = "{0} ({1})"
+        return texto.format(self.nombre, self.numero_id)
+    
+#    def __str__(self):
+#        return self.numero_id
     
 class Piso(models.Model):
     numero_piso = models.IntegerField()
