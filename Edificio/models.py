@@ -32,7 +32,7 @@ class Edificio(models.Model):
 class Piso(models.Model):
     numero_piso = models.IntegerField()
     contador_piso = models.IntegerField()
-    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE)
+    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, default=None, null=True)
 
     def __str__(self):
         return f"Piso {self.numero_piso} del edificio {self.edificio.nombre}"
