@@ -18,25 +18,31 @@
                 {{error}}
                 <form class="user" method= "POST">
                     {% csrf_token %}
-                    <h2>INICIAR SESION</h2>
+                    <h2>Iniciar Sesión</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="email" id="idusername" name="username" required>
-                        <label for="">CORREO</label>
+                        <label for="">Correo</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="password" id="id_password" name="password" required>
-                        <label for="">CONTRASEÑA</label>
+                        <label for="">Contraseña</label>
                     </div>
                     <div class="forget">
                         <p> Olvide mi <a href="/recuperarContrasena/">contraseña</a></p>
                     </div>
 
-                    <button>Iniciar Sesión</button>
+                    <div class="boton">
+                        <button type="submit">Enviar</button>
+                    </div>
 
                     <div class="register">
                         <p>Eres nuevo? <a href="/registro/">Registrate</a></p>
+                    </div>
+
+                    <div class="register">
+                        <div class="register__inicio"><p> Ir a <a href="/index/">Inicio</a></p></div>
                     </div>
                 </form>
             </div>
