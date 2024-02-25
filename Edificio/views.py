@@ -84,23 +84,25 @@ def recuperacion(request):
 
 def registrarEdificio(request):
     nombre_edificio = request.POST['nombre_edificio']
-    numero_id = request.POST['numero_edificio']
+    codigo = request.POST['numero_edificio']
     ubicacion_edificio = request.POST['ubicacion_edificio']
     numero_pisos = request.POST['numero_pisos']
     
     edificio = Edificio.objects.create(
         nombre=nombre_edificio,
-        numero_id=numero_id,
+        codigo=codigo,
         ubicacion=ubicacion_edificio,
         numero_pisos=numero_pisos
     )
     
+    edificio.save()
+    
     return redirect('AccederEdificio')
 
-def eliminacion(request, numero_id):
-    edificio = Edificio.objects.get(numero_id=numero_id)
+def eliminacion(request, codigo):
+    edificio = Edificio.objects.get(codigo=codigo)
     edificio.delete()
-    return redirect('AccederEdificio.html')
+    return redirect('AccederEdificio')
 
 #def registrarEdificio(request):
     

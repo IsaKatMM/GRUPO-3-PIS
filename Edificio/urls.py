@@ -23,6 +23,6 @@ urlpatterns = [
     path('registrar_sensor/', views.registrarSensor, name='registrar_sensor'),
     path('AccederEdificio/', views.accederEdificio, name='AccederEdificio'),
     path('control/', views.control, name='control'),
-    path('EliminarEdificio/<numero_id>', views.eliminacion, name='EliminarEdificio')
+    path('EliminarEdificio/<codigo>', views.eliminacion, name='EliminarEdificio')
 
 ]

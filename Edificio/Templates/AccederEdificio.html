@@ -48,11 +48,11 @@
                     {% for edificio in edificio %}
                     <tr>
                         <td>{{edificio.nombre}}</td>
-                        <td>{{edificio.numero_id}}</td>
+                        <td>{{edificio.codigo}}</td>
                         <td>{{edificio.ubicacion}}</td>
                         <td>{{edificio.numero_pisos}}</td>
                         <td><a href="RegistrarEdificio/{{edificio.numero_id}}" class="btn btn-info">Editar</a></td>
-                        <td><a href="EliminarEdificio/{{edificio.numero_id}}" class="btn btn-danger">Eliminar Edificio</a></td>
+                        <td><a href="/EliminarEdificio/{{edificio.codigo}}" class="btn btn-danger">Eliminar Edificio</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

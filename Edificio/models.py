@@ -22,7 +22,7 @@ class Departamento(models.Model):
 
 class Edificio(models.Model):
     nombre = models.CharField(max_length=100)
-    numero_id = models.IntegerField()
+    codigo = models.IntegerField()
     ubicacion = models.CharField(max_length=255)
     numero_pisos = models.IntegerField()
 
