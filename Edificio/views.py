@@ -83,6 +83,29 @@ def recuperacion(request):
     return render(request, 'recuperarContrasena.html')
 
 def registrarEdificio(request):
+    nombre_edificio = request.POST['nombre_edificio']
+    numero_id = request.POST['numero_edificio']
+    ubicacion_edificio = request.POST['ubicacion_edificio']
+    numero_pisos = request.POST['numero_pisos']
+    
+    edificio = Edificio.objects.create(
+        nombre=nombre_edificio,
+        numero_id=numero_id,
+        ubicacion=ubicacion_edificio,
+        numero_pisos=numero_pisos
+    )
+    
+    return redirect('AccederEdificio')
+
+def eliminacion(request, numero_id):
+    edificio = Edificio.objects.get(numero_id=numero_id)
+    edificio.delete()
+    return redirect('AccederEdificio.html')
+
+#def registrarEdificio(request):
+    
+    edificio = Edificio.objects.all()
+    
     if request.method == 'POST':
         # Si el formulario se envía
         nombre_edificio = request.POST['nombre_edificio']
@@ -93,17 +116,17 @@ def registrarEdificio(request):
         # Guardar los datos en la base de datos
         edificio = Edificio(
             nombre=nombre_edificio,
-            numero=numero_edificio,
+            numero_id=numero_edificio,
             ubicacion=ubicacion_edificio,
             numero_pisos=numero_pisos
         )
         edificio.save()
 
         # Redireccionar a alguna página después de guardar los datos
-        return redirect('control') 
+        return redirect('AccederEdificio') 
     
     # Si no es un POST, solo renderiza el formulario
-    return render(request, 'RegistrarEdificio.html')
+    return render(request, 'RegistrarEdificio.html', {"edificio": edificio})
 
 def registrarPiso(request):
     num_pisos = request.GET.get('num_pisos')
@@ -192,14 +215,14 @@ def registrarSensor(request):
 
 def accederEdificio(request):
     # Recupera los datos de cada clase desde la base de datos
-    edificios = Edificio.objects.all()
+    edificio = Edificio.objects.all()
     pisos = Piso.objects.all()
     sensores = Sensor.objects.all()
     departamentos = Departamento.objects.all()
 
     # Pasa los datos recuperados a la plantilla mediante el contexto de renderización
     return render(request, 'AccederEdificio.html', {
-        'edificios': edificios,
+        'edificio': edificio,
         'pisos': pisos,
         'sensores': sensores,
         'departamentos': departamentos,
@@ -208,20 +231,4 @@ def accederEdificio(request):
 
 def control(request):
     return render(request, 'control.html')
-
-#def departamento(request):
-    return render(request, 'departamento.html')
-
-#def sensor(request):
-    return render(request, 'sensor.html')
-
-#def contador(request):
-    return render(request, 'contador.html')
-
-#def actuador(request):
-    return render(request, 'actuador.html')
-
-#def piso(request, edificio_id):
-    # Aquí puedes realizar cualquier lógica necesaria utilizando edificio_id
-    return render(request, 'piso.html')
 

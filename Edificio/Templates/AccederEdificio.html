@@ -1,131 +1,64 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control del edificio</title>
-</head>
-<body>
-    <h1>Control del edificio {{ edificio.nombre }}</h1>
+{% extends "./base.html" %}
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre del edificio</th>
-                <th>Número del edificio</th>
-                <th>Ubicación</th>
-                <th>Pisos</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for piso in pisos %}
-            <tr>
-                <td>{{ edificio.nombre }}</td>
-                <td>{{ edificio.numero }}</td>
-                <td>{{ edificio.ubicacion }}</td>
-                <td>{{ piso.numero_piso }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% block title %}Control del edificio{% endblock %}
 
-<!--{% load static %}
+{% block body %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceder Edificio</title>
-</head>
-<body>
-    <h1>Acceder Edificio</h1>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h1>Registro del edificio</h1>
+        <div class="card">
+            <div class="card-body py-2">
+                <form action="/RegistrarEdificio/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group py-2">
+                        <input type="text" id="nombre_edificio" name="nombre_edificio" class="form-control" placeholder="nombre_edificio" minlength="6" required> 
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="numero_edificio" name="numero_edificio" class="form-control" placeholder="numero_edificio" maxlength="50" required> 
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="ubicacion_edificio" name="ubicacion_edificio" class="form-control" placeholder="ubicacion_edificio" maxlength="50" required> 
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="numero_pisos" name="numero_pisos" class="form-control" min="1" max="9" value="1" required> 
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-success btn-block text-white">Registrar Edificio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
 
-    <h2>Edificios</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Número</th>
-                <th>Ubicación</th>
-                <th>Número de Pisos</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for edificio in edificios %}
-            <tr>
-                <td>{{ edificio.nombre }}</td>
-                <td>{{ edificio.numero }}</td>
-                <td>{{ edificio.ubicacion }}</td>
-                <td>{{ edificio.numero_pisos }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <h1>Control del edificio</h1>
+        <div class="table-responsive py-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Numero(id)</th>
+                        <th>Ubicacion</th>
+                        <th>Numero de pisos</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for edificio in edificio %}
+                    <tr>
+                        <td>{{edificio.nombre}}</td>
+                        <td>{{edificio.numero_id}}</td>
+                        <td>{{edificio.ubicacion}}</td>
+                        <td>{{edificio.numero_pisos}}</td>
+                        <td><a href="RegistrarEdificio/{{edificio.numero_id}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="EliminarEdificio/{{edificio.numero_id}}" class="btn btn-danger">Eliminar Edificio</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-    <h2>Pisos</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Número</th>
-                <th>Contador</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for piso in pisos %}
-            <tr>
-                <td>{{ piso.numero_piso }}</td>
-                <td>{{ piso.contador_piso }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <h2>Sensores</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre Edificio</th>
-                <th>Número Edificio</th>
-                <th>Número Piso Edificio</th>
-                <th>Nombre Departamento</th>
-                <th>Datos Sensor</th>
-                <th>Consumo Sensor</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for sensor in sensores %}
-            <tr>
-                <td>{{ sensor.nombre_edificio }}</td>
-                <td>{{ sensor.numero_edificio }}</td>
-                <td>{{ sensor.numero_piso_edificio }}</td>
-                <td>{{ sensor.nombre_departamento }}</td>
-                <td>{{ sensor.datos_sensor }}</td>
-                <td>{{ sensor.consumo_sensor }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <h2>Departamentos</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre Departamento</th>
-                <th>Sensor Departamento</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for departamento in departamentos %}
-            <tr>
-                <td>{{ departamento.nombre_departamento }}</td>
-                <td>{{ departamento.sensor_departamento }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
-
+{% endblock %}

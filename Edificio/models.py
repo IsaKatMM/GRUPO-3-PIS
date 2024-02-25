@@ -29,9 +29,7 @@ class Edificio(models.Model):
     def __str__(self):
         texto = "{0} ({1})"
         return texto.format(self.nombre, self.numero_id)
-    
-#    def __str__(self):
-#        return self.numero_id
+
     
 class Piso(models.Model):
     numero_piso = models.IntegerField()
