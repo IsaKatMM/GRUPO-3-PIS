@@ -28,7 +28,7 @@ class Edificio(models.Model):
 
     def __str__(self):
         texto = "{0} ({1})"
-        return texto.format(self.nombre, self.numero_id)
+        return texto.format(self.nombre, self.codigo)
 
     
 class Piso(models.Model):

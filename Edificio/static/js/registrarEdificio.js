@@ -8,7 +8,7 @@ function mostrarRegistrarPisos() {
         label.textContent = `Registrar piso ${i}: `;
         
         const link = document.createElement('a');
-//              link.href = `registrar_pisos_${i}.html`;                
+//        link.href = `registrar_pisos_${i}.html`;                
 //              link.href = `/registrar_pisos.html?num_pisos=${numPisos}/`;
         link.href = "{% url 'registrar_pisos' %}?num_pisos=${numPisos}";
 //              link.href = "{% url 'registrar_pisos' %}?numero_edificio={{ edificio.id }}";
