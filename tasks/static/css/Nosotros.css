@@ -15,7 +15,7 @@ body {
 
 /* Menu */
 #menu{
-    background: #24A3A3;
+    background: #197070;
 }
 #menu1{
     display: flex;
@@ -94,7 +94,7 @@ section {
 footer {
     margin-top: 20px;
     padding: 10px;
-    background-color: #313061;
+    background-color: #4b9393;
     color: #000000;
     margin-bottom: 20px;
 }
