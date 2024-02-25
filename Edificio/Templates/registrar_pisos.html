@@ -1,136 +1,65 @@
 {% extends './base.html' %}
 
 {% block title %}
-  Control del edificio
+  Registrar pisos
 {% endblock %}
 
 {% block body %}
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-dismissible alert-success fade show" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <strong class="text-dark">{{ message }}</strong>
-          </div>
-        {% endfor %}
-      {% endif %}
-      <h1>Registro del edificio</h1>
+    <div class="col-md-4 offset-md-4">
+      <h1>Registrar Piso</h1>
       <div class="card">
         <div class="card-body py-2">
-          <form action="/Registrar_pisos/" method="POST">
+          <form action="/registrar_pisos/" method="POST">
             {% csrf_token %}
             <div class="form-group py-2">
-              <input type="text" id="nombre_edificio" name="nombre_edificio" class="form-control" placeholder="Nombre del edificio" required />
+              <input type="text" id="nombre_edificio" name="nombre_edificio" value="{{ edificio.nombre }}" class="form-control" placeholder="nombre_edificio" readonly required />
             </div>
             <div class="form-group py-2">
-              <input type="text" id="numero_edificio" name="numero_edificio" class="form-control" placeholder="Numero del edificio" required />
+              <input type="text" id="numero_edificio" name="numero_edificio" value="{{ edificio.codigo }}" class="form-control" placeholder="numero_edificio" readonly required />
             </div>
             <div class="form-group py-2">
-              <input type="text" id="ubicacion_edificio" name="ubicacion_edificio" class="form-control" placeholder="Ubicación del edificio" required />
+              <input type="text" id="numero_piso" name="numero_piso" class="form-control" placeholder="Ubicacion" required />
             </div>
             <div class="form-group py-2">
-              <label for="numero_pisos">Numero de pisos</label>
-              <input type="number" id="numero_pisos" name="numero_pisos" class="form-control" placeholder="Numero de pisos" onchange="mostrarRegistrarPisos()" required />
+              <input type="text" id="contador_piso" name="contador_piso" class="form-control" placeholder="#Numero del Contador(id)" required />
             </div>
+            <div class="form-group py-2">
+              <label for="departamentos_piso">Número de departamentos del piso:</label>
+              <input type="number" id="departamentos_piso" name="departamentos_piso" class="form-control" placeholder="Numero de pisos" onchange="mostrarRegistrarDepartamentos()" required />
+            </div>
+            <div id="departamentos_container"></div>
 
-            <div id="pisos_container"></div>
-
             <div class="form-group py-2">
-              <button type="submit" class="btn btn-success btn-block text-white">Registrar Edificio</button>
+              <button type="submit" class="btn btn-success btn-block text-white">Registrar Piso</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-      <h1>Control del edificio</h1>
-      <div class="table-responsive py-3">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nombre</th>
-              <th>Numero(id)</th>
-              <th>Ubicacion</th>
-              <th>Numero de pisos</th>
-              <th colspan="2">Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for edificio in edificio %}
-              <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ edificio.nombre }}</td>
-                <td>{{ edificio.codigo }}</td>
-                <td>{{ edificio.ubicacion }}</td>
-                <td>{{ edificio.numero_pisos }}</td>
-                <td>
-                  <a href="/EdicionEdificio/{{ edificio.codigo }}" class="btn btn-info">Editar</a>
-                </td>
-                <td>
-                  <a href="/EliminarEdificio2/{{ edificio.codigo }}" class="btn btn-danger btnEliminacion">Eliminar Edificio</a>
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>
   <script>
     function mostrarRegistrarDepartamentos() {
-        const numDepartamentos = document.getElementById('departamentos_piso').value;
-        const container = document.getElementById('departamentos_container');
-        container.innerHTML = '';
+      const numDepartamentos = document.getElementById('departamentos_piso').value
+      const container = document.getElementById('departamentos_container')
+      container.innerHTML = ''
     
-        for (let i = 1; i <= numDepartamentos; i++) {
-            const label = document.createElement('label');
-            label.textContent = `Registrar departamento ${i}: `;
-            
-            const link = document.createElement('a');
-            link.href = "{% url 'registrar_departamentos' %}?num_departamentos=${numDepartamentos}";
-            link.textContent = 'Registrar departamento';
-            link.target = '_blank';
+      for (let i = 1; i <= numDepartamentos; i++) {
+        const label = document.createElement('label')
+        label.textContent = `Registrar departamento ${i}: `
     
-            container.appendChild(label);
-            container.appendChild(link);
-            container.appendChild(document.createElement('br'));
+        const button = document.createElement('button')
+        button.textContent = 'Registrar departamento'
+        button.className = 'btn btn-info'
+        button.onclick = function () {
+          window.open(`{% url 'registrar_departamentos' %}?num_departamentos=${numDepartamentos}`, '_blank')
         }
+    
+        container.appendChild(label)
+        container.appendChild(button)
+        container.appendChild(document.createElement('br'))
+        container.appendChild(document.createElement('br'))
+      }
     }
   </script>
 {% endblock %}
-
-
-<!--{% load static %}
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar pisos</title>
-    <link rel="stylesheet" href="{% static 'css/RegistrarEdificio.css' %}">
-</head>
-<body>
-    <h1>Registrar pisos</h1>
-    
-    <form method="POST">
-        {% csrf_token %}
-        <label for="numero_piso">Número de piso:</label><br>
-        <input type="number" id="numero_piso" name="numero_piso" required><br><br>
-
-        <label for="contador_piso">Número del contador del piso:</label><br>
-        <input type="number" id="contador_piso" name="contador_piso" required><br><br>
-
-        <label for="departamentos_piso">Número de departamentos del piso:</label><br>
-        <input type="number" id="departamentos_piso" name="departamentos_piso" onchange="mostrarRegistrarDepartamentos()" required><br><br>
-
-        <div id="departamentos_container"></div>
-
-        <button type="submit">Registrar piso</button>
-    </form>
-
-    <script src="{% static 'js/registrarPiso.js' %}"></script>
-</body>
-</html>

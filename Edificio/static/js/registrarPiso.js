@@ -8,8 +8,6 @@ function mostrarRegistrarDepartamentos() {
         label.textContent = `Registrar departamento ${i}: `;
         
         const link = document.createElement('a');
-//              link.href = `registrar_departamentos_${i}.html`;
-//              link.href = `registrar_departamentos.html?num_Departamentos=${numDepartamentos}`;
         link.href = "{% url 'registrar_departamentos' %}?num_departamentos=${numDepartamentos}";
         link.textContent = 'Registrar departamento';
         link.target = '_blank';
