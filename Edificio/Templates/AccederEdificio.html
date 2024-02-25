@@ -6,6 +6,14 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
         <h1>Registro del edificio</h1>
         <div class="card">
             <div class="card-body py-2">
@@ -37,6 +45,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Nombre</th>
                         <th>Numero(id)</th>
                         <th>Ubicacion</th>
@@ -47,12 +56,13 @@
                 <tbody>
                     {% for edificio in edificio %}
                     <tr>
+                        <td>{{forloop.counter}}</td>
                         <td>{{edificio.nombre}}</td>
                         <td>{{edificio.codigo}}</td>
                         <td>{{edificio.ubicacion}}</td>
                         <td>{{edificio.numero_pisos}}</td>
-                        <td><a href="RegistrarEdificio/{{edificio.numero_id}}" class="btn btn-info">Editar</a></td>
-                        <td><a href="/EliminarEdificio/{{edificio.codigo}}" class="btn btn-danger">Eliminar Edificio</a></td>
+                        <td><a href="/EdicionEdificio/{{edificio.codigo}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="/EliminarEdificio/{{edificio.codigo}}" class="btn btn-danger btnEliminacion">Eliminar Edificio</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

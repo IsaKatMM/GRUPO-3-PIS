@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from Edificio.models import Sensor, Departamento, Piso, Edificio, User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -97,11 +98,36 @@ def registrarEdificio(request):
     
     edificio.save()
     
+    messages.success(request, 'Edificios Registrados!')
+    
+    return redirect('AccederEdificio')
+
+def edicion(request, codigo):
+    edificio = Edificio.objects.get(codigo=codigo)
+    return render(request, "EdicionEdificio.html", {"edificio": edificio})
+
+def editarEdificio(request):
+    nombre_edificio = request.POST['nombre_edificio']
+    codigo = request.POST['numero_edificio']
+    ubicacion_edificio = request.POST['ubicacion_edificio']
+    numero_pisos = request.POST['numero_pisos']
+    
+    edificio = Edificio.objects.get(codigo=codigo)
+    edificio.nombre = nombre_edificio
+    edificio.ubicacion = ubicacion_edificio
+    edificio.numero_pisos = numero_pisos
+    edificio.save()
+    
+    messages.success(request, 'Edificios Editados!')
+    
     return redirect('AccederEdificio')
 
 def eliminacion(request, codigo):
     edificio = Edificio.objects.get(codigo=codigo)
     edificio.delete()
+    
+    messages.success(request, 'Edificio Eliminado!')
+    
     return redirect('AccederEdificio')
 
 #def registrarEdificio(request):
