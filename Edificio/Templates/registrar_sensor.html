@@ -1,4 +1,5 @@
 {% extends './base.html' %}
+<<<<<<< HEAD
 
 {% block title %}
   Registrar pisos
@@ -47,29 +48,52 @@
 {% endblock %}
 
 <!-- {% load static %}
+=======
+>>>>>>> da113dfabb1670e1381a70c5e567b66b33744ff6
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar sensor</title>
-    <link rel="stylesheet" href="{% static 'css/RegistrarEdificio.css' %}">
-</head>
-<body>
-    <h1>Registrar sensor</h1>
-    
-    <form  method="POST">
-        {% csrf_token %}
-        <label for="nombre_edificio">Nombre del edificio:</label><br>
-        <input type="text" id="nombre_edificio" name="nombre_edificio" required><br><br>
+{% block title %}
+Registrar Sensor
+{% endblock %}
 
-        <label for="numero_edificio">Número del edificio:</label><br>
-        <input type="number" id="numero_edificio" name="numero_edificio" required><br><br>
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1>Registrar Sensor</h1>
+        <div class="card">
+            <div class="card-body py-2">
+                <form action="/registrar_pisos/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group py-2">
+                        <input type="text" id="nombre_edificio" name="nombre_edificio"  class="form-control" placeholder="Nombre Edificio"  required />
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="numero_edificio" name="numero_edificio"  class="form-control" placeholder="Número Edificio"  required />
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="numero_piso_edificio" name="numero_piso_edificio"  class="form-control" placeholder="Numero_Piso_Edificio" required />
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="nombre_departamento" name="nombre_departamento" class="form-control" placeholder="Nombre departamento" required />
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="datos_sensor" name="datos_sensor" class="form-control" placeholder="Numero del Contador(id)" required />
+                    </div>
+                    <div class="form-group py-2">
+                        <label for="departamentos_piso">Datos de sensor:</label>
+                        <input type="number" id="consumo_sensor" name="consumo_sensor" class="form-control" placeholder="consumo_sensor" onchange="mostrarRegistrarDepartamentos()" required />
+                    </div>
+                    <div id="departamentos_container"></div>
 
-        <label for="numero_piso_edificio">Ubicacion del piso del edificio:</label><br>
-        <input type="number" id="numero_piso_edificio" name="numero_piso_edificio" required><br><br>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-success btn-block text-white">Enviar datos del sensor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<<<<<<< HEAD
         <label for="nombre_departamento">Nombre del departamento del edificio:</label><br>
         <input type="text" id="nombre_departamento" name="nombre_departamento" required><br><br>
 
@@ -89,3 +113,49 @@
 </body>
 </html>
  -->
+=======
+{% endblock %}
+{##}
+{#<!-- {% load static %}#}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="es">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Registrar sensor</title>#}
+{#    <link rel="stylesheet" href="{% static 'css/RegistrarEdificio.css' %}">#}
+{#</head>#}
+{#<body>#}
+{#    <h1>Registrar sensor</h1>#}
+{##}
+{#    <form  method="POST">#}
+{#        {% csrf_token %}#}
+{#        <label for="nombre_edificio">Nombre del edificio:</label><br>#}
+{#        <input type="text" id="nombre_edificio" name="nombre_edificio" required><br><br>#}
+{##}
+{#        <label for="numero_edificio">Número del edificio:</label><br>#}
+{#        <input type="number" id="numero_edificio" name="numero_edificio" required><br><br>#}
+{##}
+{#        <label for="numero_piso_edificio">Ubicacion del piso del edificio:</label><br>#}
+{#        <input type="number" id="numero_piso_edificio" name="numero_piso_edificio" required><br><br>#}
+{##}
+{#        <label for="nombre_departamento">Nombre del departamento del edificio:</label><br>#}
+{#        <input type="text" id="nombre_departamento" name="nombre_departamento" required><br><br>#}
+{##}
+{#        <h1>Datos del sensor</h1>#}
+{##}
+{#        <label for="datos_sensor">Lectura anterior del sensor(Datos del mes anterior):</label><br>#}
+{#        <input type="text" id="datos_sensor" name="datos_sensor" required><br><br>#}
+{##}
+{#        <label for="datos_sensor">Lectura actual del sensor(Datos de este mes):</label><br>#}
+{#        <input type="text" id="datos_sensor" name="datos_sensor" required><br><br>#}
+{##}
+{#        <label for="consumo_sensor">Consumo del sensor en kilowatts por hora:</label><br>#}
+{#        <input type="number" id="consumo_sensor" name="consumo_sensor" required><br><br>#}
+{##}
+{#        <button type="submit">Enviar datos del sensor</button>#}
+{#    </form>#}
+{#</body>#}
+{#</html> -->#}
+>>>>>>> da113dfabb1670e1381a70c5e567b66b33744ff6
