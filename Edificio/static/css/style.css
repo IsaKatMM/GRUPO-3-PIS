@@ -88,7 +88,7 @@ a {
     width: 100%;
     height: var(--header-height);
     padding: 0 1rem;
-    background-color: #FFF;
+    background-color: #185c5c;
     z-index: var(--z-fixed);
     display: flex;
     justify-content: space-between;
