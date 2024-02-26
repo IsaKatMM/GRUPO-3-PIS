@@ -28,4 +28,5 @@ urlpatterns = [
     path('EditarEdificio/', views.editarEdificio, name='EditarEdificio'),
     path('EliminarEdificio2/<codigo>', views.eliminacion2, name='EliminarEdificio2'),
     path('EliminarEdificio/<codigo>', views.eliminacion, name='EliminarEdificio'),
+    path('contador/', views.contador, name='contador')
 ]
