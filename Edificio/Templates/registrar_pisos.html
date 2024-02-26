@@ -25,11 +25,14 @@
               <input type="text" id="contador_piso" name="contador_piso" class="form-control" placeholder="#Numero del Contador(id)" required />
             </div>
             <div class="form-group py-2">
+              <label for="contador">Registrar contador:</label>
+              <a href="/contador/" target="_blank" class="btn btn-info">Registrar sensor</a><br><br>
+            </div>
+            <div class="form-group py-2">
               <label for="departamentos_piso">Número de departamentos del piso:</label>
               <input type="number" id="departamentos_piso" name="departamentos_piso" class="form-control" placeholder="Numero de pisos" onchange="mostrarRegistrarDepartamentos()" required />
             </div>
             <div id="departamentos_container"></div>
-
             <div class="form-group py-2">
               <button type="submit" class="btn btn-success btn-block text-white">Registrar Piso</button>
             </div>
@@ -43,18 +46,18 @@
       const numDepartamentos = document.getElementById('departamentos_piso').value
       const container = document.getElementById('departamentos_container')
       container.innerHTML = ''
-    
+
       for (let i = 1; i <= numDepartamentos; i++) {
         const label = document.createElement('label')
         label.textContent = `Registrar departamento ${i}: `
-    
+
         const button = document.createElement('button')
         button.textContent = 'Registrar departamento'
         button.className = 'btn btn-info'
         button.onclick = function () {
           window.open(`{% url 'registrar_departamentos' %}?num_departamentos=${numDepartamentos}`, '_blank')
         }
-    
+
         container.appendChild(label)
         container.appendChild(button)
         container.appendChild(document.createElement('br'))

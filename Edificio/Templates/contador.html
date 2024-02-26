@@ -10,7 +10,7 @@
             <h1>Registro Contador</h1>
             <div class="card">
                 <div class="card-body py-2">
-                    <form action="/registrar_pisos/" method="POST">
+                    <form method="POST">
                         {% csrf_token %}
                         <div class="form-group py-2">
                             <input type="text" id="numero_sensor" name="numero_sensor"  class="form-control" placeholder="numero_sensor"  required />
