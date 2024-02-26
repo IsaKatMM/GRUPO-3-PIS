@@ -7,9 +7,43 @@
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />-->
     <link rel="stylesheet" href="{% static '/css/contacto.css' %}" />
     <link rel="icon" href="{% static '/imagenes/repetix.ico.png' %}" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"/>
     <title>Contácto</title>
   </head>
   <body>
+
+  <!-- Inicio Menu -->
+  <header class="header">
+      <a href="#" class="header__logo">REPETIX</a>
+
+      <i class='bx bx-menu header__toggle' id="header-toggle"></i>
+
+      <nav class="nav" id="nav-menu">
+          <div class="nav__content bd-grid">
+              <a href="" class="nav__perfil">
+                  <div class="nav__img">
+                      <img src="{% static 'imagenes/repetix.ico.png' %}"/>
+                  </div>
+
+                  <div>
+                      <span class="nav__name">REPETIX</span>
+                  </div>
+              </a>
+
+              <div class="nav__menu">
+                  <ul class="nav__list">
+                      <li class="nav__item"><a href="/index/" class="nav__link active">Inicio</a></li>
+                      <li class="nav__item"><a href="/Nosotros/" class="nav__link">Nosotros</a></li>
+                      <li class="nav__item"><a href="/Servicio/" class="nav__link">Servicios</a></li>
+                      <li class="nav__item"><a href="/contacto/" class="nav__link">Contacto</a></li>
+                      <li class="nav__item"><a href="/iniciarSesion/" class="nav__link">Iniciar Sesión</a></li>
+                      <li class="nav__item"><a href="/registro/" class="nav__link">Registrarse</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+  <!-- Fin menu -->
 
     <section id="footer">
       <div class="inner">
@@ -52,5 +86,7 @@
         </ul>
       </div>
     </section>
+
+  <script src=" {% static 'js/menu.js' %}"></script>
   </body>
 </html>
