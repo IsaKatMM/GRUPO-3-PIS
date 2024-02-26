@@ -21,7 +21,7 @@ urlpatterns = [
     path('RegistrarEdificio/', views.registrarEdificio, name='RegistrarEdificio'),
     path('registrar_pisos/', views.registrarPiso, name='registrar_pisos'),
     path('registrar_departamentos/', views.registrarDepartamento, name='registrar_departamentos'),
-    path('registrar_sensor/', views.registrarSensor, name='registrar_sensor'),
+    path('registrar_sensor/<codigo>', views.registrarSensor, name='registrar_sensor'),
     path('AccederEdificio/', views.accederEdificio, name='AccederEdificio'),
     path('control/', views.control, name='control'),
     path('EdicionEdificio/<codigo>', views.edicion, name='EdicionEdificio'),
@@ -29,5 +29,4 @@ urlpatterns = [
     path('EliminarEdificio2/<codigo>', views.eliminacion2, name='EliminarEdificio2'),
     path('EliminarEdificio/<codigo>', views.eliminacion, name='EliminarEdificio'),
     path('contador/', views.contador, name='contador')
-
 ]
