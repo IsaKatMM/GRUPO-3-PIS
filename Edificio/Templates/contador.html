@@ -13,10 +13,10 @@
                     <form method="POST">
                         {% csrf_token %}
                         <div class="form-group py-2">
-                            <input type="text" id="numero_sensor" name="numero_sensor"  class="form-control" placeholder="numero_sensor"  required />
+                            <input type="text" id="numero_contador" name="numero_contador"  class="form-control" placeholder="#Numero del Contador"  required />
                         </div>
                         <div class="form-group py-2">
-                            <input type="text" id="ubicacion_sensor" name="ubicacion_sensor"  class="form-control" placeholder="ubicacion_sensor"  required />
+                            <input type="text" id="ubicacion_contador" name="ubicacion_contador"  class="form-control" placeholder="Ubicacion del contador"  required />
                         </div>
                         <div class="form-group py-2">
                             <input type="text" id="lectura_actual" name="lectura_actual"  class="form-control" placeholder="lectura_actual"  required />
@@ -28,7 +28,7 @@
                             <input type="text" id="estado" name="estado"  class="form-control" placeholder="Estado" readonly required />
                         </div>
                         <div class="form-group py-2">
-                            <button type="submit" class="btn btn-success btn-block text-white">Datos del sensoor</button>
+                            <button type="submit" class="btn btn-success btn-block text-white">Datos del contador</button>
                         </div>
                     </form>
                 </div>
