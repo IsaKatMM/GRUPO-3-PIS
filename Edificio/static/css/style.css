@@ -4,7 +4,7 @@
 
 body { background-color:#fefdfb; color: #555; font-family: 'Abel', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
 a:link, a:visited, a:active{ color:inherit; text-decoration: none; }
-a:hover {color: #000; text-decoration:underline; }
+a:hover {color: aqua }
 
 /* Fondo oscuro */
 body {
@@ -20,24 +20,22 @@ body {
     margin: 0;
     padding: 0;
 }
-/*Inicio menu responsive*/
-/*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*inicio menu responsive*/
 
 /*===== VARIABLES CSS =====*/
 :root {
     --header-height: 3rem;
 
     /*===== Colors =====*/
-    --first-color: #5B65F5;
+    --first-color: #185c5c;
     --first-color-light: #C4C7F5;
     --dark-color: #0E1026;
     --white-color: #FBFBFB;
 
     /*===== Font and typography =====*/
-    --body-font: 'Open Sans', sans-serif;
     --nav-name-font-size: 1.5rem;
-    --normal-font-size: .938rem;
+    --normal-font-size: 1.2rem;
 
     /*===== z index =====*/
     --z-fixed: 100;
@@ -45,8 +43,8 @@ body {
 
 @media screen and (min-width: 768px) {
     :root {
-        --nav-name-font-size: 1rem;
-        --normal-font-size: 1rem;
+        --nav-name-font-size: 1.3rem;
+        --normal-font-size: 1.3rem;
     }
 }
 
@@ -57,9 +55,7 @@ body {
 
 body {
     margin: var(--header-height) 0 0 0;
-    font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    font-weight: 600;
 }
 
 ul {
@@ -97,7 +93,7 @@ a {
 }
 
 .header__logo {
-    color: var(--dark-color);
+    color: white;
 }
 
 .header__toggle {
@@ -150,8 +146,9 @@ a {
 
 .nav__name {
     display: block;
-    font-size: var(--nav-name-font-size);
-    color: var(--white-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
 }
 
 .nav__item {
@@ -163,7 +160,7 @@ a {
 }
 
 .nav__link:hover {
-    color: var(--white-color);
+    color: aqua;
 }
 
 /*Show menu*/
@@ -245,7 +242,7 @@ a {
         width: 46px;
     }
     .nav__name {
-        color: var(--dark-color);
+        color: white;
     }
     .nav__list {
         display: flex;
@@ -256,10 +253,10 @@ a {
         padding: 1.4rem 0;
     }
     .nav__link {
-        color: var(--dark-color);
+        color: aqua;
     }
     .nav__link:hover {
-        color: var(--first-color);
+        color: aqua;
     }
     /*Active link new color*/
     .active {
@@ -286,9 +283,10 @@ a {
         margin-left: auto;
         margin-right: auto;
     }
+
 }
 
-/*FIn menu responsive*/
+/*Fin menu responsive*/
 
 /*!* Menu *!*/
 /*#menu{*/
@@ -403,3 +401,4 @@ fieldset[disabled] a.btn {
 .btn-primary.disabled:hover, .btn-primary:disabled:hover {
     background-color: #0275d8;
     border-color: #0275d8; }
+

@@ -277,4 +277,3 @@ def control(request):
 
 def contador(request):
     return render(request, 'contador.html')
-
