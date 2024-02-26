@@ -6,49 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static '/css/Servicio.css' %}" />
     <link rel="icon" href="{% static '/imagenes/repetix.ico.png' %}" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"/>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SERVICIOS</title>
   </head>
 
   <body>
-    <!-- Inicio menu -->
-    <header id="menu">
-      <nav id="menu1">
-        <h1>
-          <a href="/index/"><img src="{% static '/imagenes/repetix.ico.png' %}" alt="logo" /></a>
-          <a href="/index/">REPETIX</a>
-        </h1>
-        <ul>
-          <li>
-            <a href="/index/">INICIO</a>
-          </li>
-          <li>
-            <a href="/Nosotros/">NOSOTROS</a>
-          </li>
-          <li>
-            <a href="/Servicio/">SERVICIOS</a>
-          </li>
-          <li>
-            <a href="/contacto/">CONTACTOS</a>
-          </li>
-          {% if user.is_authenticated %}
-            <li>
-              <a href="/logout/">CERRAR SESION</a>
-            </li>
-          {% else %}
-            <li>
-              <a href="/registro/">REGISTRARSE</a>
-            </li>
-            <li>
-              <a href="/iniciarSesion/">INICIAR SESION</a>
-            </li>
-          {% endif %}
-        </ul>
+
+  <!-- Inicio Menu -->
+  <header class="header">
+      <a href="#" class="header__logo">REPETIX</a>
+
+      <i class='bx bx-menu header__toggle' id="header-toggle"></i>
+
+      <nav class="nav" id="nav-menu">
+          <div class="nav__content bd-grid">
+              <a href="" class="nav__perfil">
+                  <div class="nav__img">
+                      <img src="{% static 'imagenes/repetix.ico.png' %}"/>
+                  </div>
+
+                  <div>
+                      <span class="nav__name">REPETIX</span>
+                  </div>
+              </a>
+
+              <div class="nav__menu">
+                  <ul class="nav__list">
+                      <li class="nav__item"><a href="/index/" class="nav__link active">Inicio</a></li>
+                      <li class="nav__item"><a href="/Nosotros/" class="nav__link">Nosotros</a></li>
+                      <li class="nav__item"><a href="/Servicio/" class="nav__link">Servicios</a></li>
+                      <li class="nav__item"><a href="/contacto/" class="nav__link">Contacto</a></li>
+                      <li class="nav__item"><a href="/iniciarSesion/" class="nav__link">Iniciar Sesión</a></li>
+                      <li class="nav__item"><a href="/registro/" class="nav__link">Registrarse</a></li>
+                  </ul>
+              </div>
+          </div>
       </nav>
-    </header>
-    <!-- Fin menu -->
+  </header>
+  <!-- Fin menu -->
 
     <h1>SERVICIOS DE SISTEMA DE CONSUMO</h1>
 
@@ -74,5 +70,8 @@
     <footer>
       <p>&copy; 2023 Sistema de Consumo Eléctrico</p>
     </footer>
+
+  <script src=" {% static 'js/menu.js' %}"></script>
+
   </body>
 </html>
