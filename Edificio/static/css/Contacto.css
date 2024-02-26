@@ -469,6 +469,12 @@ a {
 
 /*Fin menu responsive*/
 
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    background-color: #185c5c;
+    color: #ffffff;
+}
 
 .contact-form h2{
 text-align: center;
