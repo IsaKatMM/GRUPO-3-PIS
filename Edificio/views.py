@@ -270,6 +270,7 @@ def registrarSensor(request):
         'pisos': pisos,
         'sensores': sensores,
         'departamentos': departamentos,
+        'sesor': Sensor.objects.all()
     })
 
 def accederEdificio(request):

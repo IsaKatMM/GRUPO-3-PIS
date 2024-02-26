@@ -4,6 +4,8 @@
   Registrar pisos
 {% endblock %}
 
+
+
 {% block body %}
   <div class="row">
     <div class="col-md-4 offset-md-4">
@@ -44,4 +46,11 @@
       </div>
     </div>
   </div>
+{% endblock %}
+{% block filtro %}
+{% for sen in sensor%}
+<table>
+  <td>{{sen.consumo_actual}}</td>
+</table>
+{% endfor %}
 {% endblock %}
