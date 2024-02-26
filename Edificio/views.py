@@ -275,3 +275,6 @@ def accederEdificio(request):
 def control(request):
     return render(request, 'control.html')
 
+def contador(request):
+    return render(request, 'contador.html')
+
