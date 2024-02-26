@@ -1,0 +1,50 @@
+{% extends "./base.html" %}
+
+{% block title %}Control del edificio{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="table-responsive">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success fade show" role="alert">
+            <button type="button" class="btn-close"  data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+        <h1>Control del edificio</h1>
+        <div class="table-responsive py-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Numero(id)</th>
+                        <th>Ubicacion</th>
+                        <th>Numero de pisos</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for edificio in edificio %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{edificio.nombre}}</td>
+                        <td>{{edificio.codigo}}</td>
+                        <td>{{edificio.ubicacion}}</td>
+                        <td>{{edificio.numero_pisos}}</td>
+                        <td><a href="/ControlarEdificio/{{edificio.codigo}}" class="btn btn-info">Accceder al edificio </a></td>
+                        <td><a href="/EliminarEdificio/{{edificio.codigo}}" class="btn btn-danger btnEliminacion">Eliminar Edificio</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

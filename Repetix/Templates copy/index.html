@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'imagenes/repetix.ico.png' %}" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css">
+
+  </head>
+
+  <body>
+    <video aria-hidden="true" muted="" loop="" playsinline="" id="video" class="video" autoplay="autoplay" style="z-index: -1; position: absolute; opacity: .5;    width: 100%;
+    min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
+      <source src="{% static 'imagenes/Atras.mp4' %}" type="video/mp4" />
+    </video>
+
+    <!-- Inicio Menu -->
+    <header class="header">
+        <a href="#" class="header__logo">REPETIX</a>
+
+        <i class='bx bx-menu header__toggle' id="header-toggle"></i>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+                <a href="" class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="{% static 'imagenes/repetix.ico.png' %}"/>
+                    </div>
+
+                    <div>
+                        <span class="nav__name">REPETIX</span>
+                    </div>
+                </a>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="/index/" class="nav__link active">Inicio</a></li>
+                        <li class="nav__item"><a href="/Nosotros/" class="nav__link">Nosotros</a></li>
+                        <li class="nav__item"><a href="/Servicio/" class="nav__link">Servicios</a></li>
+                        <li class="nav__item"><a href="/contacto/" class="nav__link">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Fin menu -->
+
+    <div class="texto-encabezado text-xs-center">
+      <div class="container">
+        <h1 class="display-4 wow bounceIn">SISTEMA DE CONSUMO ELECTRICO</h1>
+        {% if user.is_authenticated %}
+          <a href="/logout/" class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Cerrar Sesión</a>
+          <a href="/Sistema/" class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Acceder al Sistema</a>
+        {% else %}
+          <a href="/iniciarSesion/" class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Iniciar Sesión</a>
+          <a href="/registro/" class="btn btn-primary btn-lg wow bounceIn" data-wow-delay=".3s">Registrarse</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <script src=" {% static 'js/menu.js' %}"></script>
+
+  </body>
+</html>

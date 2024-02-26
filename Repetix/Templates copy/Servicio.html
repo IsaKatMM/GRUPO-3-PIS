@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/servicio.css' %}" />
+    <link rel="icon" href="{% static '/imagenes/repetix.ico.png' %}" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"/>
+
+    <title>SERVICIOS</title>
+  </head>
+
+  <body>
+
+  <!-- Inicio Menu -->
+  <header class="header">
+      <a href="#" class="header__logo">REPETIX</a>
+
+      <i class='bx bx-menu header__toggle' id="header-toggle"></i>
+
+      <nav class="nav" id="nav-menu">
+          <div class="nav__content bd-grid">
+              <a href="" class="nav__perfil">
+                  <div class="nav__img">
+                      <img src="{% static 'imagenes/repetix.ico.png' %}"/>
+                  </div>
+
+                  <div>
+                      <span class="nav__name">REPETIX</span>
+                  </div>
+              </a>
+
+              <div class="nav__menu">
+                  <ul class="nav__list">
+                      <li class="nav__item"><a href="/index/" class="nav__link active">Inicio</a></li>
+                      <li class="nav__item"><a href="/Nosotros/" class="nav__link">Nosotros</a></li>
+                      <li class="nav__item"><a href="/Servicio/" class="nav__link">Servicios</a></li>
+                      <li class="nav__item"><a href="/contacto/" class="nav__link">Contacto</a></li>
+                      <li class="nav__item"><a href="/iniciarSesion/" class="nav__link">Iniciar Sesión</a></li>
+                      <li class="nav__item"><a href="/registro/" class="nav__link">Registrarse</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+  <!-- Fin menu -->
+
+    <h1>SERVICIOS DE SISTEMA DE CONSUMO</h1>
+
+    <section>
+      <h2>MONITOREO Y ANALISIS DE PISO</h2>
+      <p>En esta seccion puede obtener informacion en tiempo real sobre tu consumo de energia electrica y realizar analisis detallados.</p>
+      <img src="https://www.manageengine.com/latam/it-operations-management/images/Unified-infrastructure-monitoring.jpg" />
+    </section>
+
+    <section>
+      <h2>ULTIMOS DATOS DEL CONSUMO</h2>
+      <p>Observe los últimos datos de consumo eléctrico registrados, incluyendo información sobre voltaje, corriente y potencia.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR38KhEYAWSxw3OfpyafIy00GoGSImKD_SU9jP9bSz5tBC3imnAsbr6uP7QDcq5O6lelM&usqp=CAU" />
+    </section>
+
+    <section>
+      <h2>ANALISIS DE CONSUMO MENSUAL O SEMANAL</h2>
+      <p>Realiza un analisis detallado de tu consumo electrico a lo largo del tiempo.</p>
+      <p>Visualiza graficos y patrones para tomar decisiones informadas sobre la eficiencia energetica.</p>
+      <img src="https://www.sfe-solar.com/wp-content/uploads/2020/04/Consumo-domestico-energia.jpg" />
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Sistema de Consumo Eléctrico</p>
+    </footer>
+
+  <script src=" {% static 'js/menu.js' %}"></script>
+
+  </body>
+</html>

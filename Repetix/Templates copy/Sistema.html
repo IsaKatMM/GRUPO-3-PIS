@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="stylesheet" href="{% static '/css/sistema/swiper.css' %}">
+
+      <link rel="stylesheet" href="{% static '/css/sistema/principal.css' %}">
+
+      <title>Responsive card slider - Bedimcode</title>
+      <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
+</head>
+<video aria-hidden="true" muted="" loop="" playsinline="" id="video" class="video" autoplay="autoplay" style="z-index: -1; position: absolute; opacity: 1;    width: 100%;
+min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
+</video>
+   <body>
+      <section class="container">
+         <div class="card__container swiper">
+            <div class="card__content">
+               <div class="swiper-wrapper">
+
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="{% static '/imagenes/sistema/Edificio.jpg' %}" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Registrar Edificio</h3>
+                        <p class="card__description">
+                        Registra el edificio, si aun no se encuentra registrado.
+                        </p>
+      
+                        <a href="/RegistrarEdificio2/" class="card__button">Ingresar</a>
+                     </div>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="{% static '/imagenes/sistema/Sensor.png' %}" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Acceder al Edificio</h3>
+                        <p class="card__description">
+                        Accede al edificio que quieres supervisar su consumo energetico.
+                        </p>
+      
+                        <a href="/AccederEdificio/" class="card__button">Ingresar</a>
+                     </div>
+                  </article>
+                  
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="{% static '/imagenes/sistema/Informe.jpg' %}" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Informe</h3>
+                        <p class="card__description">
+                        Genera un informe de los datos obtenidos
+                        </p>
+      
+                        <a href="/Informe/" class="card__button">Ingresar</a>
+                     </div>
+                  </article>
+               </div>
+            </div>
+
+            <div class="swiper-button-next">
+               <i class="ri-arrow-right-s-line"></i>
+            </div>
+            
+            <div class="swiper-button-prev">
+               <i class="ri-arrow-left-s-line"></i>
+            </div>
+
+            <div class="swiper-pagination"></div>
+         </div>
+      </section>
+      
+      <script src="{% static '/js/sistema/swimper.js' %}"></script>
+      <script src="{% static '/js/sistema/principal.js' %}"></script>
+</html>

@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <link rel="stylesheet" href="{% static 'css/Contacto.css' %}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"/>
+    <title>Contactanos</title>
+</head>
+<body>
+
+<!-- Inicio Menu -->
+<header class="header">
+    <a href="#" class="header__logo">REPETIX</a>
+
+    <i class='bx bx-menu header__toggle' id="header-toggle"></i>
+
+    <nav class="nav" id="nav-menu">
+        <div class="nav__content bd-grid">
+            <a href="" class="nav__perfil">
+                <div class="nav__img">
+                    <img src="{% static 'imagenes/repetix.ico.png' %}"/>
+                </div>
+
+                <div>
+                    <span class="nav__name">REPETIX</span>
+                </div>
+            </a>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/index/" class="nav__link active">Inicio</a></li>
+                    <li class="nav__item"><a href="/Nosotros/" class="nav__link">Nosotros</a></li>
+                    <li class="nav__item"><a href="/Servicio/" class="nav__link">Servicios</a></li>
+                    <li class="nav__item"><a href="/contacto/" class="nav__link">Contacto</a></li>
+                    <li class="nav__item"><a href="/iniciarSesion/" class="nav__link">Iniciar Sesión</a></li>
+                    <li class="nav__item"><a href="/registro/" class="nav__link">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Fin menu -->
+
+<section>
+
+    <div class="section-header">
+        <div class="container">
+            <h2>Contactanos</h2>
+            <p>¿Tienes alguna pregunta o comentario? ¡No dudes en contactarnos! Estamos aquí para ayudarte. Completa el formulario a continuación y te responderemos lo antes posible.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+
+                    <div class="contact-info-content">
+                        <h4>Dirección</h4>
+                        <p>Dirección 1,<br/> Dirección 2, <br/>55060</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+
+                    <div class="contact-info-content">
+                        <h4>Telefono</h4>
+                        <p>+593 987654321</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div class="contact-info-content">
+                        <h4>Email</h4>
+                        <p>repetix@soporte.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form action="" id="contact-form">
+                    <h2>¡Déjanos tu mensaje!</h2>
+                    <div class="input-box">
+                        <input type="text" required="true" name="">
+                        <span>Nombres Completos</span>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" required="true" name="">
+                        <span>Email</span>
+                    </div>
+
+                    <div class="input-box">
+                        <textarea required="true" name=""></textarea>
+                        <span>Comparte tus pensamientos...</span>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="submit" value="Enviar" name="">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2023 Sistema de Consumo Eléctrico</p>
+</footer>
+
+<script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+<script src=" {% static 'js/menu.js' %}"></script>
+
+
+</body>
+</html>
+

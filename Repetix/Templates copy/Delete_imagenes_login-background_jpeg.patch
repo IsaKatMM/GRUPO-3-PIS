@@ -1,0 +1,9 @@
+Subject: [PATCH] Delete imagenes/login-background.jpeg
+---
+diff --git a/imagenes/login-background.jpeg b/imagenes/login-background.jpeg
+deleted file mode 100644
+index 7cce96ffc7b27ca791cda502db68f4ee4dbeff2f..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
