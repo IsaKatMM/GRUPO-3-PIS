@@ -1,32 +1,18 @@
 from django.db import models
 
-# Create your models here.
-
-class Departamento(models.Model):
-    nombre_departamento = models.CharField(max_length=100)
-    sensor_departamento = models.IntegerField()
-
-    def __str__(self):
-        return self.nombre_departamento
-
 class Edificio(models.Model):
     nombre = models.CharField(max_length=100)
-    codigo = models.IntegerField()
-    ubicacion = models.CharField(max_length=255)
-    numero_pisos = models.IntegerField()
+    codigo = models.CharField(max_length=20, unique=True)
+    ubicacion = models.CharField(max_length=100)
 
     def __str__(self):
-        texto = "{0} ({1})"
-        return texto.format(self.nombre, self.codigo)
+        return self.nombre
 
 class Piso(models.Model):
-#    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, default=None)
-    numero_piso = models.IntegerField()
-    contador_piso = models.IntegerField()
+    consumo_anterior = models.DecimalField(max_digits=10, decimal_places=2)
+    consumo_actual = models.DecimalField(max_digits=10, decimal_places=2)
+    consumo_sensor = models.DecimalField(max_digits=10, decimal_places=2)
+    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name='pisos')
 
-class Sensor(models.Model):
-    consumo_anterior = models.FloatField()
-    consumo_actual = models.FloatField()
-    consumo_sensor = models.FloatField()
-#    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE, default=None)
-
+    def __str__(self):
+        return f"Piso de {self.edificio.nombre}"
