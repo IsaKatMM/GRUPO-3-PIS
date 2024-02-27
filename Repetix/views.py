@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from Edificio.models import Sensor, Departamento, Piso, Edificio
+from Repetix.models import Sensor, Departamento, Piso, Edificio
 from django.contrib import messages
 
 # Create your views here.
@@ -173,16 +173,12 @@ def eliminacion(request, codigo):
 
 def registrarPiso(request):
     num_pisos = request.GET.get('num_pisos')
-    edificio = Edificio.objects.all()
     if request.method == 'POST':
         # Si el formulario se envía
-        nombre_edificio = request.POST['nombre_edificio']
-        codigo = request.POST['numero_edificio']
         numero_piso = request.POST[f'numero_piso']
         contador_piso = request.POST[f'contador_piso']
 
         # Guardar los datos en la base de datos
-        piso = Edificio.objects.get(codigo=codigo, nombre=nombre_edificio)
         piso = Piso(
             numero_piso=numero_piso,
             contador_piso=contador_piso
@@ -190,8 +186,8 @@ def registrarPiso(request):
         piso.save()
 
         # Redireccionar a alguna página después de guardar los datos
-        return redirect('RegistrarEdificio')
-    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos, 'edificio': edificio})
+        return redirect('RegistrarEdificio2')
+    return render(request, 'registrar_pisos.html', {'num_pisos': num_pisos, })
 
 
 def registrarDepartamento(request):
@@ -212,49 +208,20 @@ def registrarDepartamento(request):
         return redirect('registrar_pisos')
     return render(request, 'registrar_departamentos.html', {'num_departamentos': num_departamentos})
 
-#def registrarDepartamento(request):
-    if request.method == 'POST':
-        # Si el formulario se envía
-        num_departamentos = request.POST['num_departamentos']
+def registrarSensor2(request, id):
+    departamento = Departamento.objects.get(sensor_departamento=id)
+    return render(request, "registrar_sensor.html", {"departamento": departamento})
 
-        for i in range(1, int(num_departamentos) + 1):
-            nombre_departamento = request.POST[f'nombre_departamento_{i}']
-            numero_sensor = request.POST[f'numero_sensor_{i}']
-
-            # Guardar los datos en la base de datos
-            departamento = Departamento(
-                nombre_departamento=nombre_departamento,
-                numero_sensor=numero_sensor
-            )
-            departamento.save()
-
-        # Redireccionar a alguna página después de guardar los datos
-        return redirect('registrar_pisos')  
-        
-    return render(request, 'registrar_departamentos.html')
-
-
-def registrarSensor(request):
+def registrarSensor(request, id):
     
-    edificio = Edificio.objects.all()
-    pisos = Piso.objects.all()
-    sensores = Sensor.objects.all()
-    departamentos = Departamento.objects.all()
+    departamento = Departamento.objects.get(sensor_departamento=id)
     
     if request.method == 'POST':
         # Si el formulario se envía
-        
-        nombre_edificio = request.POST['nombre_edificio']
-        codigo = request.POST['numero_edificio']
-        numero_piso = request.POST[f'numero_piso']
-        nombre_departamento = request.POST[f'nombre_departamento']
         consumo_anterior = request.POST['consumo_actual']
         consumo_actual = request.POST['consumo_actual']
         consumo_sensor = request.POST['consumo_sensor']
         
-        sensor = Edificio.objects.get(codigo=codigo, nombre_edificio=nombre_edificio)
-        sensor = Piso.objects.get(numero_piso=numero_piso)
-        sensor = Departamento.objects.get(nombre_departamento=nombre_departamento)
         sensor = Sensor(
             consumo_anterior=consumo_anterior,
             consumo_actual=consumo_actual,
@@ -265,13 +232,7 @@ def registrarSensor(request):
         # Redireccionar a alguna página después de guardar los datos
         return redirect('registrar_departamentos')  
     
-    return render(request, 'registrar_sensor.html', {
-        'edificio': edificio,
-        'pisos': pisos,
-        'sensores': sensores,
-        'departamentos': departamentos,
-        'sesor': Sensor.objects.all()
-    })
+    return render(request, 'registrar_sensor.html' , {"departamento": departamento})
 
 def accederEdificio(request):
     # Recupera los datos de cada clase desde la base de datos

@@ -6,7 +6,7 @@
 
 {% block body %}
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-md-4 offset-md-4">
       {% if messages %}
         {% for message in messages %}
           <div class="alert alert-dismissible alert-success fade show" role="alert">
@@ -43,41 +43,6 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-      <h1>Control del edificio</h1>
-      <div class="table-responsive py-3">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nombre</th>
-              <th>Numero(id)</th>
-              <th>Ubicacion</th>
-              <th>Numero de pisos</th>
-              <th colspan="2">Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for edificio in edificio %}
-              <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ edificio.nombre }}</td>
-                <td>{{ edificio.codigo }}</td>
-                <td>{{ edificio.ubicacion }}</td>
-                <td>{{ edificio.numero_pisos }}</td>
-                <td>
-<!--              <a href="/EdicionEdificio/{{ edificio.codigo }}" class="btn btn-info">Editar</a>--> 
-                  <a href="/AccederEdificio/{{ edificio.codigo }}" class="btn btn-info">Editar</a>
-                </td>
-                <td>
-                  <a href="/EliminarEdificio2/{{ edificio.codigo }}" class="btn btn-danger btnEliminacion">Eliminar Edificio</a>
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>
   <script>
     function mostrarRegistrarPisos() {
@@ -86,21 +51,52 @@
       container.innerHTML = ''
     
       for (let i = 1; i <= numPisos; i++) {
-        const label = document.createElement('label')
-        label.textContent = `Registrar piso ${i}: `
+        const form = document.createElement('form');
+        form.setAttribute('action', '/RegistrarPiso/');
+        form.setAttribute('method', 'POST');
+        form.setAttribute('class', 'py-2');
+        
+        const label = document.createElement('label');
+        label.textContent = `Datos del piso ${i}: `;
     
-        const button = document.createElement('button')
-        button.textContent = 'Registrar piso'
-        button.className = 'btn btn-info' 
-        button.onclick = function () {
-              window.open(`{% url 'registrar_pisos' %}?num_pisos=${numPisos}`, '_blank')
-        }
-    
-        container.appendChild(label)
-        container.appendChild(button)
+        const inputNombrePiso = document.createElement('input');
+        inputNombrePiso.setAttribute('type', 'text');
+        inputNombrePiso.setAttribute('name', 'nombre_piso');
+        inputNombrePiso.setAttribute('class', 'form-control');
+        inputNombrePiso.setAttribute('placeholder', 'Nombre del piso');
+        inputNombrePiso.setAttribute('required', 'true');
+        
+        const inputDescripcionPiso = document.createElement('input');
+        inputDescripcionPiso.setAttribute('type', 'text');
+        inputDescripcionPiso.setAttribute('name', 'descripcion_piso');
+        inputDescripcionPiso.setAttribute('class', 'form-control');
+        inputDescripcionPiso.setAttribute('placeholder', 'Descripción del piso');
+        inputDescripcionPiso.setAttribute('required', 'true');
+        
+        const inputEdificioCodigo = document.createElement('input');
+        inputEdificioCodigo.setAttribute('type', 'hidden');
+        inputEdificioCodigo.setAttribute('name', 'codigo_edificio');
+        inputEdificioCodigo.setAttribute('value', '{{ edificio.codigo }}');
+        
+        const submitButton = document.createElement('button');
+        submitButton.setAttribute('type', 'submit');
+        submitButton.setAttribute('class', 'btn btn-info');
+        submitButton.textContent = 'Registrar piso';
+        
+        form.appendChild(label);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(inputNombrePiso);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(inputDescripcionPiso);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(inputEdificioCodigo);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(submitButton);
+        
+        container.appendChild(form);
         container.appendChild(document.createElement('br'));
-        container.appendChild(document.createElement('br'));        
       }
     }
-  </script>
+</script>
+
 {% endblock %}

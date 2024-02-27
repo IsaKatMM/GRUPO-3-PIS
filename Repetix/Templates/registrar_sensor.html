@@ -1,0 +1,35 @@
+{% extends './base.html' %}
+
+{% block title %}
+  Registrar pisos
+{% endblock %}
+
+
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1>Registrar Sensor</h1>
+      <div class="card">
+        <div class="card-body py-2">
+          <form  method="POST">
+            {% csrf_token %}
+
+            <div class="form-group py-2">
+                <input type="text" id="consumo_anterior" name="consumo_anterior" class="form-control" placeholder="Consumo anterior del sensor" required />
+            </div>
+            <div class="form-group py-2">
+                <input type="text" id="consumo_actual" name="consumo_actual" class="form-control" placeholder="Consumo actual del sensor" required />
+            </div>
+            <div class="form-group py-2">
+                <input type="text" id="consumo_sensor" name="consumo_sensor" class="form-control" placeholder="Consumo del sensor en kilowatts por hora" required />
+            </div>
+            <div class="form-group py-2">
+              <button type="submit" class="btn btn-success btn-block text-white">Enviar datos del sensor</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

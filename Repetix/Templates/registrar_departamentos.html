@@ -13,15 +13,6 @@
           <form action="/registrar_departamentos/" method="POST">
             {% csrf_token %}
             <div class="form-group py-2">
-              <input type="text" id="nombre_edificio" name="nombre_edificio" value="{{ edificio.nombre }}" class="form-control" placeholder="nombre_edificio" readonly required />
-            </div>
-            <div class="form-group py-2">
-              <input type="text" id="numero_edificio" name="numero_edificio" value="{{ edificio.codigo }}" class="form-control" placeholder="numero_edificio" readonly required />
-            </div>
-            <div class="form-group py-2">
-              <input type="text" id="numero_piso" name="numero_piso" value="{{ edificio.numero_piso }}" class="form-control" placeholder="Ubicacion" readonly required />
-            </div>
-            <div class="form-group py-2">
               <input type="text" id="nombre_departamento" name="nombre_departamento" class="form-control" placeholder="Nombre del departamento" required />
             </div>
             <div class="form-group py-2">
@@ -29,7 +20,7 @@
               </div>
             <div class="form-group py-2">
               <label for="sensores">Registrar sensor:</label>
-              <a href="/registrar_sensor/{{edificio.codigo}}" target="_blank" class="btn btn-info">Registrar sensor</a><br><br>
+              <a href="/registrar_sensor/{{departamento.sensor_departamento}}" target="_blank" class="btn btn-info">Registrar sensor</a><br><br>
             </div>
 
             <div class="form-group py-2">

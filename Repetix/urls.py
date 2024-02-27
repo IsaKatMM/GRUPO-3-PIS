@@ -1,5 +1,5 @@
 from django.urls import path
-from Edificio import views
+from Repetix import views
 
 urlpatterns = [
     path('', views.index, name='Index'),
@@ -21,7 +21,8 @@ urlpatterns = [
     path('RegistrarEdificio/', views.registrarEdificio, name='RegistrarEdificio'),
     path('registrar_pisos/', views.registrarPiso, name='registrar_pisos'),
     path('registrar_departamentos/', views.registrarDepartamento, name='registrar_departamentos'),
-    path('registrar_sensor/', views.registrarSensor, name='registrar_sensor'),
+    path('registrar_sensor/<id>', views.registrarSensor, name='registrar_sensor'),
+    path('registrarSensor/', views.registrarSensor2, name='registrarSensor'),
     path('AccederEdificio/', views.accederEdificio, name='AccederEdificio'),
     path('control/', views.control, name='control'),
     path('EdicionEdificio/<codigo>', views.edicion, name='EdicionEdificio'),
