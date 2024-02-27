@@ -36,6 +36,15 @@
 
             <div id="pisos_container"></div>
 
+            <!-- Mensaje de "Piso registrado" -->
+            <div id="mensaje">Piso registrado</div>
+
+            <!-- Botón para registrar piso -->
+            <button type="button" class="btn btn-info" onclick="registrarPiso()">Registrar piso</button>
+
+            <!-- Botón para registrar edificio -->
+            <button type="submit" class="btn btn-success btn-block text-white">Registrar Edificio</button>
+
             <div class="form-group py-2">
               <button type="submit" class="btn btn-success btn-block text-white">Registrar Edificio</button>
             </div>
@@ -46,57 +55,149 @@
   </div>
   <script>
     function mostrarRegistrarPisos() {
-      const numPisos = document.getElementById('numero_pisos').value
-      const container = document.getElementById('pisos_container')
-      container.innerHTML = ''
+        const numPisos = document.getElementById('numero_pisos').value;
+        const container = document.getElementById('pisos_container');
+        container.innerHTML = '';
     
-      for (let i = 1; i <= numPisos; i++) {
-        const form = document.createElement('form');
-        form.setAttribute('action', '/RegistrarPiso/');
-        form.setAttribute('method', 'POST');
-        form.setAttribute('class', 'py-2');
-        
-        const label = document.createElement('label');
-        label.textContent = `Datos del piso ${i}: `;
+        for (let i = 1; i <= numPisos; i++) {
+            const form = document.createElement('form');
+            form.setAttribute('method', 'POST');
+            form.setAttribute('class', 'py-2');
     
-        const inputNombrePiso = document.createElement('input');
-        inputNombrePiso.setAttribute('type', 'text');
-        inputNombrePiso.setAttribute('name', 'nombre_piso');
-        inputNombrePiso.setAttribute('class', 'form-control');
-        inputNombrePiso.setAttribute('placeholder', 'Nombre del piso');
-        inputNombrePiso.setAttribute('required', 'true');
-        
-        const inputDescripcionPiso = document.createElement('input');
-        inputDescripcionPiso.setAttribute('type', 'text');
-        inputDescripcionPiso.setAttribute('name', 'descripcion_piso');
-        inputDescripcionPiso.setAttribute('class', 'form-control');
-        inputDescripcionPiso.setAttribute('placeholder', 'Descripción del piso');
-        inputDescripcionPiso.setAttribute('required', 'true');
-        
-        const inputEdificioCodigo = document.createElement('input');
-        inputEdificioCodigo.setAttribute('type', 'hidden');
-        inputEdificioCodigo.setAttribute('name', 'codigo_edificio');
-        inputEdificioCodigo.setAttribute('value', '{{ edificio.codigo }}');
-        
-        const submitButton = document.createElement('button');
-        submitButton.setAttribute('type', 'submit');
-        submitButton.setAttribute('class', 'btn btn-info');
-        submitButton.textContent = 'Registrar piso';
-        
-        form.appendChild(label);
-        form.appendChild(document.createElement('br'));
-        form.appendChild(inputNombrePiso);
-        form.appendChild(document.createElement('br'));
-        form.appendChild(inputDescripcionPiso);
-        form.appendChild(document.createElement('br'));
-        form.appendChild(inputEdificioCodigo);
-        form.appendChild(document.createElement('br'));
-        form.appendChild(submitButton);
-        
-        container.appendChild(form);
-        container.appendChild(document.createElement('br'));
-      }
+            const csrfToken = document.createElement('input');
+            csrfToken.setAttribute('type', 'hidden');
+            csrfToken.setAttribute('name', 'csrfmiddlewaretoken');
+            csrfToken.setAttribute('value', '{{ csrf_token }}');
+    
+            const label = document.createElement('label');
+            label.textContent = `Datos del piso ${i}: `;
+    
+            const inputNombrePiso = document.createElement('input');
+            inputNombrePiso.setAttribute('type', 'text');
+            inputNombrePiso.setAttribute('name', 'nombre_piso');
+            inputNombrePiso.setAttribute('class', 'form-control');
+            inputNombrePiso.setAttribute('placeholder', 'Nombre del piso');
+            inputNombrePiso.setAttribute('required', 'true');
+    
+            const inputDescripcionPiso = document.createElement('input');
+            inputDescripcionPiso.setAttribute('type', 'text');
+            inputDescripcionPiso.setAttribute('name', 'descripcion_piso');
+            inputDescripcionPiso.setAttribute('class', 'form-control');
+            inputDescripcionPiso.setAttribute('placeholder', 'Descripción del piso');
+            inputDescripcionPiso.setAttribute('required', 'true');
+    
+            const inputEdificioCodigo = document.createElement('input');
+            inputEdificioCodigo.setAttribute('type', 'hidden');
+            inputEdificioCodigo.setAttribute('name', 'codigo_edificio');
+            inputEdificioCodigo.setAttribute('value', '{{ edificio.codigo }}');
+    
+            const submitButton = document.createElement('button');
+            submitButton.setAttribute('type', 'button');
+            submitButton.setAttribute('class', 'btn btn-info');
+            submitButton.textContent = 'Registrar piso';
+            submitButton.addEventListener('click', function() {
+                // Enviar los datos del piso al servidor usando fetch API
+                fetch('/RegistrarPiso/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({
+                        nombre_piso: inputNombrePiso.value,
+                        descripcion_piso: inputDescripcionPiso.value,
+                        codigo_edificio: '{{ edificio.codigo }}'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Mostrar el mensaje de "Piso registrado"
+                    const mensaje = document.createElement('div');
+                    mensaje.textContent = 'Piso registrado con éxito';
+                    form.appendChild(mensaje);
+                    
+                    // Limpiar los campos para que el usuario pueda ingresar nuevos datos
+                    inputNombrePiso.value = '';
+                    inputDescripcionPiso.value = '';
+                })
+                .catch(error => console.error('Error:', error));
+            });
+    
+            form.appendChild(csrfToken);
+            form.appendChild(label);
+            form.appendChild(document.createElement('br'));
+            form.appendChild(inputNombrePiso);
+            form.appendChild(document.createElement('br'));
+            form.appendChild(inputDescripcionPiso);
+            form.appendChild(document.createElement('br'));
+            form.appendChild(inputEdificioCodigo);
+            form.appendChild(document.createElement('br'));
+            form.appendChild(submitButton);
+    
+            container.appendChild(form);
+            container.appendChild(document.createElement('br'));
+        }
     }
 </script>
 
 {% endblock %}
+<!--<script>
+/*  function mostrarRegistrarPisos() {
+    const numPisos = document.getElementById('numero_pisos').value
+    const container = document.getElementById('pisos_container')
+    container.innerHTML = ''
+  
+    for (let i = 1; i <= numPisos; i++) {
+      const form = document.createElement('form')
+      form.setAttribute('action', '/RegistrarPiso/')
+      form.setAttribute('method', 'POST')
+      form.setAttribute('class', 'py-2')
+  
+      const csrfToken = document.createElement('input')
+      csrfToken.setAttribute('type', 'hidden')
+      csrfToken.setAttribute('name', 'csrfmiddlewaretoken')
+      csrfToken.setAttribute('value', '{{ csrf_token }}')
+  
+      const label = document.createElement('label')
+      label.textContent = `Datos del piso ${i}: `
+  
+      const inputNombrePiso = document.createElement('input')
+      inputNombrePiso.setAttribute('type', 'text')
+      inputNombrePiso.setAttribute('name', 'nombre_piso')
+      inputNombrePiso.setAttribute('class', 'form-control')
+      inputNombrePiso.setAttribute('placeholder', 'Nombre del piso')
+      inputNombrePiso.setAttribute('required', 'true')
+  
+      const inputDescripcionPiso = document.createElement('input')
+      inputDescripcionPiso.setAttribute('type', 'text')
+      inputDescripcionPiso.setAttribute('name', 'descripcion_piso')
+      inputDescripcionPiso.setAttribute('class', 'form-control')
+      inputDescripcionPiso.setAttribute('placeholder', 'Descripción del piso')
+      inputDescripcionPiso.setAttribute('required', 'true')
+  
+      const inputEdificioCodigo = document.createElement('input')
+      inputEdificioCodigo.setAttribute('type', 'hidden')
+      inputEdificioCodigo.setAttribute('name', 'codigo_edificio')
+      inputEdificioCodigo.setAttribute('value', '{{ edificio.codigo }}')
+  
+      const submitButton = document.createElement('button')
+      submitButton.setAttribute('type', 'submit')
+      submitButton.setAttribute('class', 'btn btn-info')
+      submitButton.textContent = 'Registrar piso'
+  
+      form.appendChild(csrfToken)
+      form.appendChild(label)
+      form.appendChild(document.createElement('br'))
+      form.appendChild(inputNombrePiso)
+      form.appendChild(document.createElement('br'))
+      form.appendChild(inputDescripcionPiso)
+      form.appendChild(document.createElement('br'))
+      form.appendChild(inputEdificioCodigo)
+      form.appendChild(document.createElement('br'))
+      form.appendChild(submitButton)
+  
+      container.appendChild(form)
+      container.appendChild(document.createElement('br'))
+    }
+  }
+</script>

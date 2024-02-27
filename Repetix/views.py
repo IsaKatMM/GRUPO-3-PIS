@@ -109,6 +109,9 @@ def registrarEdificio2(request):
     # Si no es un POST, solo renderiza el formulario
     return render(request, 'RegistrarEdificio2.html', {"edificio": edificio})
 
+def registrarPiso2(request):
+    return render(request, 'RegistrarEdificio2.html')
+
 def registrarEdificio(request):
     
     edificio = Edificio.objects.all()

@@ -18,6 +18,7 @@ urlpatterns = [
     path('logout/', views.cerrarSesion, name='logout'),
     path('recuperarContrasena/', views.recuperacion, name='recuperarContrasena'), 
     path('RegistrarEdificio2/', views.registrarEdificio2, name='RegistrarEdificio2'),
+    path('RegistrarPiso/', views.registrarPiso2, name='RegistrarPiso'),
     path('RegistrarEdificio/', views.registrarEdificio, name='RegistrarEdificio'),
     path('registrar_pisos/', views.registrarPiso, name='registrar_pisos'),
     path('registrar_departamentos/', views.registrarDepartamento, name='registrar_departamentos'),
