@@ -4,7 +4,8 @@ class Edificio(models.Model):
     nombre = models.CharField(max_length=100)
     codigo = models.CharField(max_length=20, unique=True)
     ubicacion = models.CharField(max_length=100)
-
+    numero_pisos = models.FloatField()
+    
     def __str__(self):
         return self.nombre
 

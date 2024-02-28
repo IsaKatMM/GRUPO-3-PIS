@@ -1,11 +1,10 @@
-{% extends './base.html' %}
+{% extends "./base.html" %}
 
-{% block title %}
-  Registrar edificio
-{% endblock %}
+{% block title %}Registrar Edificio{% endblock %}
 
 {% block body %}
-  <div class="row">
+
+<div class="row">
     <div class="col-md-4 offset-md-4">
       {% if messages %}
         {% for message in messages %}
@@ -18,7 +17,7 @@
       <h1>Registro del edificio</h1>
       <div class="card">
         <div class="card-body py-2">
-          <form action="/RegistrarEdificio2/" method="POST">
+          <form id="registroEdificioForm" method="POST">
             {% csrf_token %}
             <div class="form-group py-2">
               <input type="text" id="nombre_edificio" name="nombre_edificio" class="form-control" placeholder="Nombre del edificio" required />
@@ -35,7 +34,7 @@
             </div>
 
             <div id="pisos_container"></div>
-            
+
             <!-- Botón para registrar edificio -->
             <button type="submit" class="btn btn-success btn-block text-white">Registrar Edificio</button>
           </form>
@@ -43,105 +42,114 @@
       </div>
     </div>
   </div>
+  <div id="mensajeRegistroPiso" class="alert alert-dismissible alert-success fade" role="alert" style="display: none;">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <strong class="text-dark">Piso registrado con éxito</strong>
+  </div>
   <script>
     function mostrarRegistrarPisos() {
-      const numPisos = document.getElementById('numero_pisos').value;
-      const container = document.getElementById('pisos_container');
-      container.innerHTML = '';
-  
+      const numPisos = document.getElementById('numero_pisos').value
+      const container = document.getElementById('pisos_container')
+      container.innerHTML = ''
+    
       for (let i = 1; i <= numPisos; i++) {
-          const form = document.createElement('form');
-          form.setAttribute('method', 'POST');
-          form.setAttribute('class', 'py-2');
-  
-          const csrfToken = document.createElement('input');
-          csrfToken.setAttribute('type', 'hidden');
-          csrfToken.setAttribute('name', 'csrfmiddlewaretoken');
-          csrfToken.setAttribute('value', '{{ csrf_token }}');
-  
-          const label = document.createElement('label');
-          label.textContent = `Datos del piso ${i}: `;
-  
-          const inputConsumoAnterior = document.createElement('input');
-          inputConsumoAnterior.setAttribute('type', 'number');
-          inputConsumoAnterior.setAttribute('name', 'consumo_anterior');
-          inputConsumoAnterior.setAttribute('id', 'consumo_anterior');
-          inputConsumoAnterior.setAttribute('class', 'form-control');
-          inputConsumoAnterior.setAttribute('placeholder', 'Consumo anterior del piso en kilowatts');
-          inputConsumoAnterior.setAttribute('required', 'true');
-  
-          const inputConsumoActual = document.createElement('input');
-          inputConsumoActual.setAttribute('type', 'number');
-          inputConsumoActual.setAttribute('name', 'consumo_actual');
-          inputConsumoActual.setAttribute('id', 'consumo_actual');
-          inputConsumoActual.setAttribute('class', 'form-control');
-          inputConsumoActual.setAttribute('placeholder', 'Consumo actual del piso en kilowatts');
-          inputConsumoActual.setAttribute('required', 'true');
-
-          const inputConsumoSensor = document.createElement('input');
-          inputConsumoSensor.setAttribute('type', 'number');
-          inputConsumoSensor.setAttribute('name', 'consumo_sensor');
-          inputConsumoSensor.setAttribute('id', 'consumo_sensor');
-          inputConsumoSensor.setAttribute('class', 'form-control');
-          inputConsumoSensor.setAttribute('placeholder', 'Consumo del sensor del piso en kilowatts por hora');
-          inputConsumoSensor.setAttribute('required', 'true');
-  
-          const inputEdificioCodigo = document.createElement('input');
-          inputEdificioCodigo.setAttribute('type', 'hidden');
-          inputEdificioCodigo.setAttribute('name', 'codigo_edificio');
-          inputEdificioCodigo.setAttribute('value', '{{ edificio.codigo }}');
-  
-          const submitButton = document.createElement('button');
-          submitButton.setAttribute('type', 'button');
-          submitButton.setAttribute('class', 'btn btn-info');
-          submitButton.textContent = 'Registrar piso';
-          submitButton.addEventListener('click', function() {
-              // Enviar los datos del piso al servidor usando fetch API
-              fetch('/registrar_piso/', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                      'X-CSRFToken': '{{ csrf_token }}'
-                  },
-                  body: JSON.stringify({
-                      consumo_anterior: inputConsumoAnterior.value,
-                      consumo_actual: inputConsumoActual.value,
-                      consumo_sensor: inputConsumoSensor.value,
-                      codigo_edificio: '{{ edificio.codigo }}'
-                  })
-              })
-              .then(response => response.json())
-              .then(data => {
-                  // Mostrar el mensaje de "Piso registrado"
-                  const mensaje = document.createElement('div');
-                  mensaje.textContent = 'Piso registrado con éxito';
-                  form.appendChild(mensaje);
-                  
-                  // Deshabilitar los campos para que el usuario no pueda ingresar nuevos datos
-                  inputConsumoAnterior.disabled = true;
-                  inputConsumoActual.disabled = true;
-                  inputConsumoSensor.disabled = true;
-                  submitButton.disabled = true;
-              })
-              .catch(error => console.error('Error:', error));
-          });
-  
-          form.appendChild(csrfToken);
-          form.appendChild(label);
-          form.appendChild(document.createElement('br'));
-          form.appendChild(inputConsumoAnterior);
-          form.appendChild(document.createElement('br'));
-          form.appendChild(inputConsumoActual);
-          form.appendChild(document.createElement('br'));
-          form.appendChild(inputConsumoSensor);
-          form.appendChild(document.createElement('br'));
-          form.appendChild(inputEdificioCodigo);
-          form.appendChild(document.createElement('br'));
-          form.appendChild(submitButton);
-  
-          container.appendChild(form);
-          container.appendChild(document.createElement('br'));
+        const form = document.createElement('form')
+        form.setAttribute('method', 'POST')
+        form.setAttribute('class', 'py-2')
+    
+        const csrfToken = document.createElement('input')
+        csrfToken.setAttribute('type', 'hidden')
+        csrfToken.setAttribute('name', 'csrfmiddlewaretoken')
+        csrfToken.setAttribute('value', '{{ csrf_token }}')
+    
+        const label = document.createElement('label')
+        label.textContent = `Datos del piso ${i}: `
+    
+        const inputConsumoAnterior = document.createElement('input')
+        inputConsumoAnterior.setAttribute('type', 'number')
+        inputConsumoAnterior.setAttribute('name', 'consumo_anterior')
+        inputConsumoAnterior.setAttribute('class', 'form-control')
+        inputConsumoAnterior.setAttribute('placeholder', 'Consumo anterior del piso en kilowatts')
+        inputConsumoAnterior.setAttribute('required', 'true')
+    
+        const inputConsumoActual = document.createElement('input')
+        inputConsumoActual.setAttribute('type', 'number')
+        inputConsumoActual.setAttribute('name', 'consumo_actual')
+        inputConsumoActual.setAttribute('class', 'form-control')
+        inputConsumoActual.setAttribute('placeholder', 'Consumo actual del piso en kilowatts')
+        inputConsumoActual.setAttribute('required', 'true')
+    
+        const inputConsumoSensor = document.createElement('input')
+        inputConsumoSensor.setAttribute('type', 'number')
+        inputConsumoSensor.setAttribute('name', 'consumo_sensor')
+        inputConsumoSensor.setAttribute('class', 'form-control')
+        inputConsumoSensor.setAttribute('placeholder', 'Consumo del sensor del piso en kilowatts por hora')
+        inputConsumoSensor.setAttribute('required', 'true')
+    
+        const inputEdificioCodigo = document.createElement('input')
+        inputEdificioCodigo.setAttribute('type', 'hidden')
+        inputEdificioCodigo.setAttribute('name', 'codigo_edificio')
+        inputEdificioCodigo.setAttribute('value', '{{ edificio.codigo }}')
+    
+        const submitButton = document.createElement('button')
+        submitButton.setAttribute('type', 'submit')
+        submitButton.setAttribute('class', 'btn btn-info')
+        submitButton.textContent = 'Registrar piso'
+    
+        form.addEventListener('submit', function (event) {
+          event.preventDefault() // Prevenir el comportamiento predeterminado del formulario
+    
+          const formData = new FormData(form)
+          const consumoAnterior = formData.get('consumo_anterior')
+          const consumoActual = formData.get('consumo_actual')
+          const consumoSensor = formData.get('consumo_sensor')
+    
+          fetch('{% url "registrar_piso" %}', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+              consumo_anterior: consumoAnterior,
+              consumo_actual: consumoActual,
+              consumo_sensor: consumoSensor,
+              codigo_edificio: '{{ edificio.codigo }}'
+            })
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Si el registro fue exitoso, mostrar el mensaje y deshabilitar el formulario
+              if (data.success) {
+                document.getElementById('mensajeRegistroPiso').style.display = 'block'
+                form.reset()
+                inputConsumoAnterior.disabled = true
+                inputConsumoActual.disabled = true
+                inputConsumoSensor.disabled = true
+                submitButton.disabled = true
+              } else {
+                console.error('Error:', data.error)
+              }
+            })
+            .catch((error) => console.error('Error:', error))
+        })
+    
+        form.appendChild(csrfToken)
+        form.appendChild(label)
+        form.appendChild(document.createElement('br'))
+        form.appendChild(inputConsumoAnterior)
+        form.appendChild(document.createElement('br'))
+        form.appendChild(inputConsumoActual)
+        form.appendChild(document.createElement('br'))
+        form.appendChild(inputConsumoSensor)
+        form.appendChild(document.createElement('br'))
+        form.appendChild(inputEdificioCodigo)
+        form.appendChild(document.createElement('br'))
+        form.appendChild(submitButton)
+    
+        container.appendChild(form)
+        container.appendChild(document.createElement('br'))
       }
-  }
+    }
   </script>
 {% endblock %}
