@@ -25,11 +25,43 @@
               <input type="text" id="numero_pisos" name="numero_pisos" value="{{edificio.numero_pisos}}" class="form-control" placeholder="Numero de pisos del edificio" readonly required />
             </div>
             <div class="form-group py-2">
-              <button type="submit" class="btn btn-success btn-block text-white">Registrar Edificio</button>
+              <button type="submit" class="btn btn-success btn-block text-white">Calcular datos Edificio</button>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div> 
+  <div class="table-responsive">
+    <h1>Control del edificio</h1>
+    <div class="table-responsive py-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Piso</th>
+            <th>Consumo actual del piso</th>
+            <th>Consumo anterior del piso</th>
+            <th>Datos del sensor en kilowatts por hora</th>
+            <th colspan="2">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for piso in pisos %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ piso.consumo_anterior }}</td>
+              <td>{{ piso.consumo_actual }}</td>
+              <td>{{ piso.consumo_sensor }}</td>
+              <td>
+                <a href="/control/{{ edificio.codigo }}" class="btn btn-info">Acceder al edificio</a>
+              </td>
+              <td>
+                <a href="/EliminarEdificio/{{ edificio.codigo }}" class="btn btn-danger btnEliminacion">Eliminar Edificio</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 {% endblock %}

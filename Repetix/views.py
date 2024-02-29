@@ -5,7 +5,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from Repetix.models import  Piso, Edificio
 from django.contrib import messages
-#from django.http import JsonResponse
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
@@ -135,26 +136,23 @@ def ControlarEdificio(request, codigo):
     return redirect('AccederEdificio')
 
 def registrar_piso(request):
-    
-    piso = Piso.objects.all()
-    
-    if request.method == 'POST':
-    
-        consumo_anterior = request.POST.get('consumo_anterior')
-        consumo_actual = request.POST.get('consumo_actual')
-        consumo_sensor = request.POST.get('consumo_sensor')
-        codigo_edificio = request.POST.get('codigo_edificio')
-    
-        piso = Piso.objects.create(
-            consumo_anterior=consumo_anterior,
-            consumo_actual=consumo_actual,
-            consumo_sensor=consumo_sensor,
-            edificio=codigo_edificio
-        )
-    
-        piso.save()
-    
-        messages.success(request, 'Piso Registrados!')
-    
-        return redirect('RegistrarEdificio')
-    return render(request, 'RegistrarEdificio2.html', {"piso": piso})
+    consumo_anterior = request.POST.get('consumo_anterior')
+    consumo_actual = request.POST.get('consumo_actual')
+    consumo_sensor = request.POST.get('consumo_sensor')
+    codigo_edificio = request.POST.get('codigo_edificio')
+    piso_id = request.POST.get('piso_id')
+
+    # Guardar los datos en la base de datos
+    piso = Piso.objects.create(consumo_anterior=consumo_anterior,
+                               consumo_actual=consumo_actual,
+                               consumo_sensor=consumo_sensor,
+                               codigo_edificio=codigo_edificio,
+                               piso_id=piso_id)
+
+    # Devolver una respuesta JSON indicando si el registro fue exitoso
+    if piso:
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'Error al registrar el piso'})
+
+
