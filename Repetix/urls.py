@@ -16,8 +16,7 @@ urlpatterns = [
     path('registrar_piso/', views.registrar_piso, name='registrar_piso'),
     path('RegistrarEdificio2/', views.registrarEdificio, name='RegistrarEdificio2'),
     path('AccederEdificio/', views.accederEdificio, name='AccederEdificio'),
-    path('control/', views.control, name='control'),
-    path('EdicionEdificio/<codigo>', views.edicion, name='EdicionEdificio'),
-    path('EditarEdificio/', views.editarEdificio, name='EditarEdificio'),
+    path('control/<codigo>', views.control, name='ControlarEdificio'),    
+    path('ControlarEdificio/', views.ControlarEdificio, name='ControlarEdificio'),
     path('EliminarEdificio/<codigo>', views.eliminacion, name='EliminarEdificio'),
 ]

@@ -10,10 +10,10 @@ class Edificio(models.Model):
         return self.nombre
 
 class Piso(models.Model):
-    consumo_anterior = models.DecimalField(max_digits=10, decimal_places=2)
-    consumo_actual = models.DecimalField(max_digits=10, decimal_places=2)
-    consumo_sensor = models.DecimalField(max_digits=10, decimal_places=2)
- #   edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name='pisos')
+    consumo_anterior = models.FloatField()
+    consumo_actual = models.FloatField()
+    consumo_sensor = models.FloatField()
+#    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name='numero_pisos')
 
-    def __str__(self):
-        return f"Piso de {self.edificio.nombre}"
+#    def __str__(self):
+#        return f"Piso de {self.edificio.nombre}"

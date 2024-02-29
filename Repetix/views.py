@@ -93,30 +93,9 @@ def registrarEdificio(request):
         return redirect('AccederEdificio')
     return render(request, 'RegistrarEdificio2.html', {"edificios": edificio})
 
-def edicion(request, codigo):
-    edificio = Edificio.objects.get(codigo=codigo)
-    return render(request, "EdicionEdificio.html", {"edificio": edificio})
-
-def editarEdificio(request):
-    
-    nombre_edificio = request.POST['nombre_edificio']
-    codigo = request.POST['numero_edificio']
-    ubicacion_edificio = request.POST['ubicacion_edificio']
-    numero_pisos = request.POST['numero_pisos']
-    
-    edificio = Edificio.objects.get(codigo=codigo)
-    edificio.nombre = nombre_edificio
-    edificio.ubicacion = ubicacion_edificio
-    edificio.numero_pisos = numero_pisos
-    edificio.save()
-    
-    messages.success(request, 'Edificios Editados!')
-    
-    return redirect('AccederEdificio')
-
 def eliminacion(request, codigo):
-    edificio1 = Edificio.objects.get(codigo=codigo)
-    edificio1.delete()
+    edificio = Edificio.objects.get(codigo=codigo)
+    edificio.delete()
     
     messages.success(request, 'Edificio Eliminados!')
     
@@ -135,8 +114,25 @@ def accederEdificio(request):
         'pisos': pisos,
     })
 
-def control(request):
-    return render(request, 'control.html')
+def control(request, codigo):
+    edificio = Edificio.objects.get(codigo=codigo)
+    return render(request, "ControlarEdificio.html", {"edificio": edificio})
+
+def ControlarEdificio(request, codigo):
+    nombre_edificio = request.POST['nombre_edificio']
+    codigo = request.POST['numero_edificio']
+    ubicacion_edificio = request.POST['ubicacion_edificio']
+    numero_pisos = request.POST['numero_pisos']
+    
+    edificio = Edificio.objects.get(codigo=codigo)
+    edificio.nombre = nombre_edificio
+    edificio.ubicacion = ubicacion_edificio
+    edificio.numero_pisos = numero_pisos
+    edificio.save()
+    
+    messages.success(request, 'Edificios Editados!')
+    
+    return redirect('AccederEdificio')
 
 def registrar_piso(request):
     
