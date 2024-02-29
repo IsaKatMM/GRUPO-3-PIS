@@ -77,7 +77,13 @@
         inputConsumoSensor.setAttribute('class', 'form-control')
         inputConsumoSensor.setAttribute('placeholder', 'Consumo del sensor del piso en kilowatts por hora')
         inputConsumoSensor.setAttribute('required', 'true')
-    
+        
+        // Hidden input for unique ID of the floor
+        const inputPisoId = document.createElement('input')
+        inputPisoId.setAttribute('type', 'hidden')
+        inputPisoId.setAttribute('name', 'piso_id')
+        inputPisoId.setAttribute('value', '{{ uuid.uuid4 }}')
+
         const inputEdificioCodigo = document.createElement('input')
         inputEdificioCodigo.setAttribute('type', 'hidden')
         inputEdificioCodigo.setAttribute('name', 'codigo_edificio')
@@ -96,7 +102,7 @@
           const consumoActual = formData.get('consumo_actual')
           const consumoSensor = formData.get('consumo_sensor')
     
-          fetch('/', {
+          fetch('/registrar_piso/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -106,7 +112,8 @@
               consumo_anterior: consumoAnterior,
               consumo_actual: consumoActual,
               consumo_sensor: consumoSensor,
-              codigo_edificio: '{{ edificio.codigo }}'
+              codigo_edificio: '{{ edificio.codigo }}',
+              piso_id: '{{ uuid.uuid4 }}'
             })
           })
             .then((response) => response.json())
@@ -127,6 +134,7 @@
         })
     
         form.appendChild(csrfToken)
+        form.appendChild(inputPisoId) // Append hidden input for piso ID
         form.appendChild(label)
         form.appendChild(document.createElement('br'))
         form.appendChild(inputConsumoAnterior)

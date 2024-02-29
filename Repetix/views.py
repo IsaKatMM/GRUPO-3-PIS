@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from Repetix.models import  Piso, Edificio
 from django.contrib import messages
-from django.http import JsonResponse
+#from django.http import JsonResponse
 
 # Create your views here.
 
@@ -13,14 +13,11 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'index.html')
 
-
 def nosotros(request):
     return render(request, 'Nosotros.html')
 
-
 def servicio(request):
     return render(request, 'Servicio.html')
-
 
 def contacto(request):
     return render(request, 'contacto.html')
@@ -65,27 +62,12 @@ def iniciarSesion(request):
         else:
             login(request, user)
             return redirect('Sistema')
-        
-def sensor(request):
-    return render(request, 'Sensor.html')
-
-def actuador(request):
-    return render(request, 'Actuador.html')
-
-def edificio(request):
-    return render(request, 'Edificio.html')
-
-def piso(request):
-    return render(request, 'Piso.html')
 
 def informe(request):
     return render(request, 'Informe.html')
 
 def recuperacion(request):
     return render(request, 'recuperarContrasena.html')
-
-def registrarPiso2(request):
-    return render(request, 'RegistrarEdificio2.html')
 
 def registrarEdificio(request):
     edificio = Edificio.objects.all()
@@ -109,9 +91,7 @@ def registrarEdificio(request):
         messages.success(request, 'Edificios Registrados!')
     
         return redirect('AccederEdificio')
-    return render(request, 'RegistrarEdificio2.html', {"edificio": edificio})
-
-
+    return render(request, 'RegistrarEdificio2.html', {"edificios": edificio})
 
 def edicion(request, codigo):
     edificio = Edificio.objects.get(codigo=codigo)
@@ -134,17 +114,9 @@ def editarEdificio(request):
     
     return redirect('AccederEdificio')
 
-def eliminacion2(request, codigo):
-    edificio = Edificio.objects.get(codigo=codigo)
-    edificio.delete()
-    
-    messages.success(request, 'Edificio Eliminados!')
-    
-    return redirect('RegistrarEdificio2')
-
 def eliminacion(request, codigo):
-    edificio = Edificio.objects.get(codigo=codigo)
-    edificio.delete()
+    edificio1 = Edificio.objects.get(codigo=codigo)
+    edificio1.delete()
     
     messages.success(request, 'Edificio Eliminados!')
     
@@ -159,42 +131,34 @@ def accederEdificio(request):
 
     # Pasa los datos recuperados a la plantilla mediante el contexto de renderización
     return render(request, 'AccederEdificio.html', {
-        'edificio': edificio,
+        'edificios': edificio,
         'pisos': pisos,
     })
-
 
 def control(request):
     return render(request, 'control.html')
 
-def contador(request):
-    return render(request, 'contador.html')
-
-
 def registrar_piso(request):
+    
+    piso = Piso.objects.all()
+    
     if request.method == 'POST':
+    
         consumo_anterior = request.POST.get('consumo_anterior')
         consumo_actual = request.POST.get('consumo_actual')
         consumo_sensor = request.POST.get('consumo_sensor')
         codigo_edificio = request.POST.get('codigo_edificio')
-        edificio = get_object_or_404(Edificio, codigo=codigo_edificio)
-        
-        # Crear un nuevo objeto Piso
-        nuevo_piso = Piso(
+    
+        piso = Piso.objects.create(
             consumo_anterior=consumo_anterior,
             consumo_actual=consumo_actual,
             consumo_sensor=consumo_sensor,
-            edificio=edificio
+            edificio=codigo_edificio
         )
-        
-        # Guardar el nuevo piso en la base de datos
-        nuevo_piso.save()
-        
-        # Envía un mensaje de éxito
-        messages.success(request, 'Piso registrado con éxito.')
-
-        # Devolver una respuesta JSON indicando que el piso se registró con éxito
-        return JsonResponse({'success': True})
-    else:
-        # Si la solicitud no es POST, devolver un error
-        return JsonResponse({'error': 'Método no permitido'}, status=405)
+    
+        piso.save()
+    
+        messages.success(request, 'Piso Registrados!')
+    
+        return redirect('RegistrarEdificio')
+    return render(request, 'RegistrarEdificio2.html', {"piso": piso})
