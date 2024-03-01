@@ -18,6 +18,33 @@ function calcularEnergiaEolica() {
     // Mostrar el resultado en el elemento con id "resultado-generacion-eolica"
     const resultado = document.getElementById('resultado-generacion-eolica');
     resultado.innerHTML = `<p>Energía eólica generada: ${energiaEolica.toFixed(2)} vatios</p>`;
+
+    // Crear gráfico
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Energía Eólica Generada"],
+            datasets: [{
+                label: 'Energía Eólica (vatios)',
+                data: [energiaEolica],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
 
 function calcularEnergia(velocidadViento, areaBarrido, densidadAire, eficienciaSistema) {
