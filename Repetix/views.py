@@ -178,11 +178,6 @@ def actualizar_tabla_pisos(request):
     }
     return JsonResponse(data)
 
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .models import GeneracionEolica  # Importamos el modelo GeneracionEolica
-
 def informe(request):
     if request.method == 'POST':
         velocidad_viento = float(request.POST.get('velocidad_viento'))  # Obtenemos la velocidad del viento del formulario
@@ -192,15 +187,6 @@ def informe(request):
         messages.success(request, f'Se ha generado {energia_generada} vatios de energía eólica.')
         return redirect('informe')
     return render(request, 'Informe.html')
-
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from .models import GeneracionEolica
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from .models import GeneracionEolica
 
 def generar_energia_eolica(request):
     if request.method == 'POST':
@@ -223,8 +209,12 @@ def generar_energia_eolica(request):
     return render(request, 'generar_energia_eolica.html')
 
 
+def energiaSolar(request):
+    return render(request, 'energiaSolar.html')
+
 def energia_eolica(request):
     return render(request, 'energia_eolica.html')
 
 class GenerarEnergiaEolica:
     pass
+

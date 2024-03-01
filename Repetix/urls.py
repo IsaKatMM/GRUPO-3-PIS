@@ -23,6 +23,6 @@ urlpatterns = [
     path('actualizar_tabla_pisos/', views.actualizar_tabla_pisos, name='actualizar_tabla_pisos'),
     path('energia_eolica/', views.energia_eolica, name='energia_eolica'),
     path('generar_energia_eolica/',views.GenerarEnergiaEolica, name='generar_energia_eolica'),
-
+    path('energiaSolar/', views.energiaSolar, name='energiaSolar'),
 ]
 
