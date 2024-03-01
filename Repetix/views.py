@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-#from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from Repetix.models import  Piso, Edificio
 from django.contrib import messages
 from django.http import JsonResponse
+from .models import GeneracionEolica
+
+
 from django.views.decorators.http import require_POST
 
 # Create your views here.
@@ -72,34 +75,34 @@ def recuperacion(request):
 
 def registrarEdificio(request):
     edificio = Edificio.objects.all()
-    
+
     if request.method == 'POST':
-    
+
         nombre_edificio = request.POST['nombre_edificio']
         codigo_edificio = request.POST['codigo_edificio']
         ubicacion_edificio = request.POST['ubicacion_edificio']
         numero_pisos = request.POST['numero_pisos']
-    
+
         edificio = Edificio.objects.create(
             nombre=nombre_edificio,
             codigo=codigo_edificio,
             ubicacion=ubicacion_edificio,
             numero_pisos=numero_pisos
         )
-    
+
         edificio.save()
-    
+
         messages.success(request, 'Edificios Registrados!')
-    
+
         return redirect('AccederEdificio')
     return render(request, 'RegistrarEdificio2.html', {"edificios": edificio})
 
 def eliminacion(request, codigo):
     edificio = Edificio.objects.get(codigo=codigo)
     edificio.delete()
-    
+
     messages.success(request, 'Edificio Eliminados!')
-    
+
     return redirect('AccederEdificio')
 
 
@@ -126,16 +129,16 @@ def ControlarEdificio(request, codigo):
         codigo = request.POST['numero_edificio']
         ubicacion_edificio = request.POST['ubicacion_edificio']
         numero_pisos = request.POST['numero_pisos']
-    
+
         edificio = Edificio.objects.get(codigo=codigo)
         edificio.nombre = nombre_edificio
         edificio.ubicacion = ubicacion_edificio
         edificio.numero_pisos = numero_pisos
         edificio.save()
-    
+
         messages.success(request, 'Edificios Editados!')
-    
-        return redirect('AccederEdificio')  
+
+        return redirect('AccederEdificio')
     return render(request, 'ControlarEdificio.html', {"pisos":pisos})
 
 def registrar_piso(request):
@@ -151,7 +154,7 @@ def registrar_piso(request):
                                consumo_sensor=consumo_sensor,
                                codigo_edificio=codigo_edificio,
                                piso_id=piso_id)
-    
+
     nuevo_piso = Piso(consumo_anterior=consumo_anterior, consumo_actual=consumo_actual, consumo_sensor=consumo_sensor, codigo_edificio=codigo_edificio)
     nuevo_piso.save()
 
@@ -174,3 +177,54 @@ def actualizar_tabla_pisos(request):
         } for piso in pisos]
     }
     return JsonResponse(data)
+
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import GeneracionEolica  # Importamos el modelo GeneracionEolica
+
+def informe(request):
+    if request.method == 'POST':
+        velocidad_viento = float(request.POST.get('velocidad_viento'))  # Obtenemos la velocidad del viento del formulario
+        generacion_eolica = GeneracionEolica.objects.create(velocidad_viento=velocidad_viento)  # Creamos una instancia de GeneracionEolica
+        energia_generada = generacion_eolica.generar_energia()  # Calculamos la energía generada
+        # Puedes hacer lo que quieras con la energía generada, como mostrarla en el template o guardarla en la base de datos
+        messages.success(request, f'Se ha generado {energia_generada} vatios de energía eólica.')
+        return redirect('informe')
+    return render(request, 'Informe.html')
+
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from .models import GeneracionEolica
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from .models import GeneracionEolica
+
+def generar_energia_eolica(request):
+    if request.method == 'POST':
+        velocidad_viento = float(request.POST.get('velocidad_viento', 0))
+
+        # Constantes
+        densidad_aire = 1.225  # kg/m^3 (densidad del aire a temperatura y presión estándar)
+        area_palas = 10  # m^2 (área barrida por las palas del aerogenerador)
+        eficiencia_sistema = 0.35  # eficiencia del sistema (valor entre 0 y 1)
+
+        # Cálculo de la energía generada
+        energia_generada = 0.5 * densidad_aire * area_palas * velocidad_viento**3 * eficiencia_sistema
+
+        # Creamos una instancia de GeneracionEolica y guardamos la velocidad del viento
+        generador_eolico = GeneracionEolica(velocidad_viento=velocidad_viento)
+        generador_eolico.save()
+
+        return JsonResponse({'energia_generada': energia_generada})
+
+    return render(request, 'generar_energia_eolica.html')
+
+
+def energia_eolica(request):
+    return render(request, 'energia_eolica.html')
+
+class GenerarEnergiaEolica:
+    pass
