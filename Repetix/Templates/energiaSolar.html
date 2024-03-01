@@ -1,0 +1,52 @@
+{% extends "./base.html" %}
+
+{% block title %}
+Generación de energía solar
+{% endblock title %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1>Generación de energía solar</h1>
+      <div class="card">
+        <div class="card-body py-2">
+          <form id="solarForm">
+            {% csrf_token %}
+            <div class="form-group py-2">
+                <input type="number" id="a" name="a"  class="form-control" placeholder="Área de la superficie receptora (en m²)" required />
+              </div>
+              <div class="form-group py-2">
+                <input type="number" id="n" name="n"  class="form-control" placeholder="Eficiencia del sistema de conversión de energía" required />
+              </div>
+              <div class="form-group py-2">
+                <input type="number" id="h" name="h"  class="form-control" placeholder="Irradiación solar incidente promedio en el área (en kWh/m²/día)" required />
+              </div>
+              <div class="form-group py-2">
+                <input type="number" id="pr" name="pr"  class="form-control" placeholder="Factor de rendimiento del sistema" required />
+              </div>
+
+            <div class="form-group py-2">
+              <button type="button" onclick="calcularEnergia()" class="btn btn-success btn-block text-white">Calcular la energía solar</button>
+            </div>
+          </form>
+          <div id="resultado" class="py-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+function calcularEnergia() {
+    var a = parseFloat(document.getElementById('a').value);
+    var n = parseFloat(document.getElementById('n').value);
+    var h = parseFloat(document.getElementById('h').value);
+    var pr = parseFloat(document.getElementById('pr').value);
+
+    var energiaSolar =  a * n * h * pr;
+    document.getElementById('resultado').innerHTML = "Energía solar calculada: " + energiaSolar.toFixed(2) + " kWh";
+}
+</script>
+
+{% endblock body %}
+{% load static %}
