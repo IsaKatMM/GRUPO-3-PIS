@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Energía Eólica</title>
+    <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+</head>
+<body>
+<div id="contenedor">
+    <h1>Generación de Energía Eólica</h1>
+    <p>La generación de energía eólica se basa en la conversión de la energía cinética del viento en energía eléctrica mediante un aerogenerador. Para calcular la energía generada, se utiliza la siguiente fórmula:</p>
+    <p>Energía generada (W) = 0.5 * densidad del aire * área barrida por las palas * velocidad del viento<sup>3</sup> * eficiencia del sistema</p>
+    <p>Donde:</p>
+    <ul>
+        <li>Densidad del aire: 1.225 kg/m<sup>3</sup> (a temperatura y presión estándar)</li>
+        <li>Área barrida por las palas: 10 m<sup>2</sup> (valor aproximado para un aerogenerador típico)</li>
+        <li>Velocidad del viento: la velocidad del viento en metros por segundo (m/s)</li>
+        <li>Eficiencia del sistema: un valor entre 0 y 1 que representa la eficiencia de conversión de la energía cinética del viento en energía eléctrica</li>
+    </ul>
+    <form id="generar-eolica-form" method="POST">
+        {% csrf_token %}
+        <label for="velocidad_viento">Velocidad del Viento (m/s):</label>
+        <input type="number" id="velocidad_viento" name="velocidad_viento" step="0.01" required><br>
+        <button type="submit">Generar Energía Eólica</button>
+    </form>
+    <div id="resultado-generacion-eolica">
+        {% if energia_generada %}
+            <p>Se ha generado {{ energia_generada }} vatios de energía eólica.</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

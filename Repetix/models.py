@@ -20,3 +20,17 @@ class Piso(models.Model):
     
     def __str__(self):
         return f"Piso de {self.edificio.nombre}"
+
+    from django.db import models
+
+class GeneracionEolica(models.Model):
+    velocidad_viento = models.FloatField()
+
+    def generar_energia(self):
+        # Implementa la lógica para calcular la energía generada aquí
+        # Por ejemplo, multiplicamos la velocidad del viento por un factor constante
+        factor_conversion = 10  # Este es solo un ejemplo, ajusta según sea necesario
+        energia_generada = self.velocidad_viento * factor_conversion
+        return energia_generada
+
+
