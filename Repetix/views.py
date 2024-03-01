@@ -202,25 +202,47 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import GeneracionEolica
 
+from django.shortcuts import render
+from django.http import JsonResponse
+from .models import GeneracionEolica
+
+def index(request):
+    return render(request, 'index.html')
+
 def generar_energia_eolica(request):
     if request.method == 'POST':
-        velocidad_viento = float(request.POST.get('velocidad_viento', 0))
+        # Obtener los valores del formulario
+        velocidad_viento = float(request.POST.get('velocidad_viento'))
+        area_barrido = float(request.POST.get('area_barrido'))
+        densidad_aire = float(request.POST.get('densidad_aire'))
+        eficiencia_sistema = float(request.POST.get('eficiencia_sistema'))
 
-        # Constantes
-        densidad_aire = 1.225  # kg/m^3 (densidad del aire a temperatura y presión estándar)
-        area_palas = 10  # m^2 (área barrida por las palas del aerogenerador)
-        eficiencia_sistema = 0.35  # eficiencia del sistema (valor entre 0 y 1)
+        # Calcular la energía generada y la unidad
+        energia_generada, unidad = calcular_energia_eolica(velocidad_viento, area_barrido, densidad_aire, eficiencia_sistema)
 
-        # Cálculo de la energía generada
-        energia_generada = 0.5 * densidad_aire * area_palas * velocidad_viento**3 * eficiencia_sistema
-
-        # Creamos una instancia de GeneracionEolica y guardamos la velocidad del viento
-        generador_eolico = GeneracionEolica(velocidad_viento=velocidad_viento)
-        generador_eolico.save()
-
-        return JsonResponse({'energia_generada': energia_generada})
+        # Retornar la energía generada y la unidad como respuesta JSON
+        return JsonResponse({'energia_generada': energia_generada, 'unidad': unidad})
 
     return render(request, 'generar_energia_eolica.html')
+
+def calcular_energia_eolica(velocidad_viento, area_barrido, densidad_aire, eficiencia_sistema):
+    # Constantes para el cálculo de energía eólica
+    densidad_aire_estandar = 1.225  # kg/m^3
+    area_barrido_estandar = 10  # m^2
+
+    # Calcular la energía generada en vatios
+    energia_generada = 0.5 * densidad_aire * area_barrido * velocidad_viento**3 * eficiencia_sistema
+
+    # Convertir la energía generada a kilovatios (kW) o megavatios (MW) según corresponda
+    if energia_generada >= 1000000:  # Si la energía es mayor o igual a 1 MW
+        energia_generada = energia_generada / 1000000  # Convertir a MW
+        unidad = "MW"
+    else:
+        energia_generada = energia_generada / 1000  # Convertir a kW
+        unidad = "kW"
+
+    return energia_generada, unidad
+
 
 
 def energia_eolica(request):

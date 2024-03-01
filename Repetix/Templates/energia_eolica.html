@@ -11,19 +11,18 @@
 <div id="contenedor">
     <h1>Generación de Energía Eólica</h1>
 
-    <form id="generar-eolica-form" method="POST">
+    <form id="generar-eolica-form">
+        {% csrf_token %}
         <div class="input_energia">
-            {% csrf_token %}
-        <label for="velocidad_viento">Velocidad del Viento (m/s):</label>
-        <input type="number" id="velocidad_viento" name="velocidad_viento" step="0.01" required><br>
+            <label for="velocidad_viento">Velocidad del Viento (m/s):</label>
+            <input type="number" id="velocidad_viento" name="velocidad_viento" step="0.01" required><br>
         </div>
         <div class="input_energia">
-            {% csrf_token %}
-            <label for="area_barrido">Área barrida por las pala</label>
+            <label for="area_barrido">Área barrida por las palas (m²):</label>
             <input type="number" id="area_barrido" name="area_barrido" step="0.01" required><br>
         </div>
         <div class="input_energia">
-            <label for=densidad_aire>Densidad de aire:</label>
+            <label for="densidad_aire">Densidad del aire (kg/m³):</label>
             <input type="number" id="densidad_aire" name="densidad_aire" step="0.01" required><br>
         </div>
         <div class="input_energia">
@@ -31,14 +30,13 @@
             <input type="number" id="eficiencia_sistema" name="eficiencia_sistema" step="0.01" required><br>
         </div>
         <div class="input_energia">
-            <input type="submit" value="Calcular">
+            <button type="button" onclick="calcularEnergiaEolica()" class="button">Calcular</button>
         </div>
     </form>
     <div id="resultado-generacion-eolica">
-        {% if energia_generada %}
-            <p>Se ha generado {{ energia_generada }} vatios de energía eólica.</p>
-        {% endif %}
+        <!-- Aquí se mostrará el resultado -->
     </div>
 </div>
+<script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
