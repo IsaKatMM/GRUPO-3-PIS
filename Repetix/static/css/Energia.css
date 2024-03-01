@@ -1,4 +1,15 @@
-/* Energia.css */
+header { background-color:#000000; color: #ffffff; font-family: 'Abel', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
+a:link, a:visited, a:active{ color:inherit; text-decoration: none; }
+a:hover {color: #000; }
+
+body {
+    background-color: #ffffff;
+    font-family: 'Abel';
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
 /*inicio menu responsive*/
 
 /*===== VARIABLES CSS =====*/
@@ -134,7 +145,7 @@ a {
 
 .nav__link {
     color: var(--first-color-light);
-    font-size: 1.3rem; /* Tamaño de fuente normal */
+    font-size: 1.1rem; /* Tamaño de fuente normal */
 }
 
 
@@ -265,17 +276,17 @@ a {
 
 }
 /*Fin menu responsive*/
-/* 
+
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     margin: 0;
     padding: 0;
-} */
+}
 
 #contenedor {
     width: 80%;
-    margin: 0 auto;
+    margin: 5.9rem  auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
@@ -301,7 +312,7 @@ label {
 }
 
 input[type="number"] {
-    width: 100%;
+    width: 200px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -332,14 +343,4 @@ button:hover {
     border-radius: 5px;
 }
 
-header { background-color:#000000; color: #ffffff; font-family: 'Abel', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
-a:link, a:visited, a:active{ color:inherit; text-decoration: none; }
-a:hover {color: #000; }
 
-body {
-    background-color: #ffffff;
-    font-family: 'Abel';
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-}

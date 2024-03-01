@@ -211,11 +211,12 @@ def index(request):
 
 def generar_energia_eolica(request):
     if request.method == 'POST':
-        # Obtener los valores del formulario
-        velocidad_viento = float(request.POST.get('velocidad_viento'))
-        area_barrido = float(request.POST.get('area_barrido'))
-        densidad_aire = float(request.POST.get('densidad_aire'))
-        eficiencia_sistema = float(request.POST.get('eficiencia_sistema'))
+        piso_id = request.POST.get('piso_id')
+        piso = Piso.objects.get(piso_id=piso_id)
+        velocidad_viento = piso.velocidad_viento
+        area_barrido = piso.area_barrido
+        densidad_aire = piso.densidad_aire
+        eficiencia_sistema = piso.eficiencia_sistema
 
         # Calcular la energía generada y la unidad
         energia_generada, unidad = calcular_energia_eolica(velocidad_viento, area_barrido, densidad_aire, eficiencia_sistema)
@@ -225,21 +226,25 @@ def generar_energia_eolica(request):
 
     return render(request, 'generar_energia_eolica.html')
 
-def calcular_energia_eolica(velocidad_viento, area_barrido, densidad_aire, eficiencia_sistema):
-    # Constantes para el cálculo de energía eólica
-    densidad_aire_estandar = 1.225  # kg/m^3
-    area_barrido_estandar = 10  # m^2
 
-    # Calcular la energía generada en vatios
+    return render(request, 'generar_energia_eolica.html')
+
+def calcular_energia_eolica(velocidad_viento, area_barrido, densidad_aire, eficiencia_sistema):
+    # Realizar los cálculos de energía eólica
     energia_generada = 0.5 * densidad_aire * area_barrido * velocidad_viento**3 * eficiencia_sistema
 
-    # Convertir la energía generada a kilovatios (kW) o megavatios (MW) según corresponda
-    if energia_generada >= 1000000:  # Si la energía es mayor o igual a 1 MW
-        energia_generada = energia_generada / 1000000  # Convertir a MW
+    # Convertir la energía generada a la unidad adecuada
+    if energia_generada >= 10**9:  # Gigavatios (GW)
+        energia_generada = energia_generada / 10**9
+        unidad = "GW"
+    elif energia_generada >= 10**6:  # Megavatios (MW)
+        energia_generada = energia_generada / 10**6
         unidad = "MW"
-    else:
-        energia_generada = energia_generada / 1000  # Convertir a kW
+    elif energia_generada >= 10**3:  # Kilovatios (kW)
+        energia_generada = energia_generada / 10**3
         unidad = "kW"
+    else:
+        unidad = "vatios"
 
     return energia_generada, unidad
 
