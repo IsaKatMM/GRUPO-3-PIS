@@ -14,12 +14,6 @@ Generación de energía solar
           <form id="solarForm">
             {% csrf_token %}
             <div class="form-group py-2">
-<<<<<<< HEAD
-              <input type="number" id="e" name="e"  class="form-control" placeholder="Energía solar disponible en kW" required />
-            </div>
-            <div class="form-group py-2">
-=======
->>>>>>> b014ae215fa181e87edd23a6742ee71f52360ca5
                 <input type="number" id="a" name="a"  class="form-control" placeholder="Área de la superficie receptora (en m²)" required />
               </div>
               <div class="form-group py-2">
@@ -37,32 +31,12 @@ Generación de energía solar
             </div>
           </form>
           <div id="resultado" class="py-2"></div>
-<<<<<<< HEAD
-=======
           <canvas id="myChart" width="400" height="400"></canvas> <!-- Movido aquí -->
->>>>>>> b014ae215fa181e87edd23a6742ee71f52360ca5
         </div>
       </div>
     </div>
   </div>
 
-<<<<<<< HEAD
-<script>
-function calcularEnergia() {
-    var e = parseFloat(document.getElementById('e').value);
-    var a = parseFloat(document.getElementById('a').value);
-    var n = parseFloat(document.getElementById('n').value);
-    var h = parseFloat(document.getElementById('h').value);
-    var pr = parseFloat(document.getElementById('pr').value);
-
-    var energiaSolar = e * a * n * h * pr;
-    document.getElementById('resultado').innerHTML = "Energía solar calculada: " + energiaSolar.toFixed(2) + " kWh";
-}
-</script>
-
-{% endblock body %}
-
-=======
 
 <script>
     function calcularEnergia() {
@@ -107,4 +81,4 @@ function calcularEnergia() {
 </script>
 
 {% endblock body %}
->>>>>>> b014ae215fa181e87edd23a6742ee71f52360ca5
+
