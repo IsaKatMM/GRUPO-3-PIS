@@ -5,62 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Informe</title>
-    <link rel="stylesheet" href="{% static '/css/Informe.css' %}">
-    <link rel="icon" href ="{% static '/imagenes/repetix.ico.png' %}">
+    <link rel="stylesheet" href="{% static 'css/informe.css' %}">
+    <link rel="icon" href ="{% static 'imagenes/repetix.ico.png' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css">
 </head>
 <body>
 
-    <video aria-hidden="true" muted="" loop="" playsinline="" id="video" class="video" autoplay="autoplay" style="z-index: -1; position: absolute; opacity: 1;    width: 100%;
-    min-height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
-    <source src="{% static '/imagenes/neonFondo.mp4' %}" type="video/mp4">
-    </video>
-    
-    <div id="informe-container">
-        <h2>Generador de Informe</h2>
-        
-        <form id="informe-form">
-            <label for="contenido">Contenido:</label>
-            <textarea id="contenido" name="contenido" rows="2" cols="50" required></textarea><br>
- 
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required>
-            
-            <label for="hora">Hora (HH:MM):</label>
-            <input type="text" id="hora" name="hora" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM" required><br>
+<!-- Inicio Menu -->
+<header class="header">
+    <a href="#" class="header__logo">REPETIX</a>
 
-            <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" placeholder="Nombre y Apellido" required><br>
+    <i class='bx bx-menu header__toggle' id="header-toggle"></i>
 
-            <label for="destinatario">Destinatario:</label>
-            <input type="text" id="destinatario" name="destinatario" placeholder="Nombre y Apellido" required><br>
+    <nav class="nav" id="nav-menu">
+        <div class="nav__content bd-grid">
+            <a href="" class="nav__perfil">
+                <div class="nav__img">
+                    <img src="{% static 'imagenes/repetix.ico.png' %}"/>
+                </div>
 
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ubicación específica"><br>
+                <div>
+                    <span class="nav__name">REPETIX</span>
+                </div>
+            </a>
 
-            <label for="piso">Piso:</label>
-            <select id="piso" name="piso" required>
-                <option value="Piso 1">Piso 1</option>
-                <option value="Piso 2">Piso 2</option>
-                <option value="Piso 3">Piso 3</option>
-            </select><br>
-
-            <label for="datosSensor">Datos del Sensor:</label>
-            <input type="text" id="amperios" name="amperios" placeholder="Amperios" required>
-            <input type="text" id="horas" name="horas" placeholder="Horas" required><br>
-
-            <button type="button" onclick="generarInforme()">Generar Informe</button>
-        </form>
-
-        <div id="informe-result" style="margin-top: 20px;"></div>
-
-        <div id="opciones-generar-informe" style="display: none; margin-top: 20px;">
-            <button type="button" onclick="enviarInforme()">Enviar Informe</button>
-            <button type="button" onclick="archivarInforme()">Archivar Informe</button>
-            <button type="button" onclick="descargarInforme()">Descargar Informe</button>
-            <button type="button" onclick="generarInformePiso()">Generar Informe del Piso</button>
-            <button type="button" onclick="generarInformeEdificio()">Generar Informe del Edificio</button>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/index/" class="nav__link active">Inicio</a></li>
+                    <li class="nav__item"><a href="/Nosotros/" class="nav__link">Nosotros</a></li>
+                    <li class="nav__item"><a href="/Servicio/" class="nav__link">Servicios</a></li>
+                    <li class="nav__item"><a href="/contacto/" class="nav__link">Contacto</a></li>
+                    <li class="nav__item"><a href="/iniciarSesion/" class="nav__link">Iniciar Sesión</a></li>
+                    <li class="nav__item"><a href="/registro/" class="nav__link">Registrarse</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+</header>
+<!-- Fin menu -->
+<div id="informe-container" class="container">
+    <h2 class="titulo">Generador de Informe</h2>
+
+    <form id="informe-form" class="form">
+        <label for="contenido" class="label">Contenido:</label>
+        <textarea id="contenido" name="contenido" class="input textarea" rows="2" cols="50" required></textarea><br>
+
+        <label for="fecha" class="label">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" class="input" required>
+
+        <label for="hora" class="label">Hora (HH:MM):</label>
+        <input type="text" id="hora" name="hora" class="input" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM" required><br>
+
+        <label for="autor" class="label">Autor:</label>
+        <input type="text" id="autor" name="autor" class="input" placeholder="Nombre y Apellido" required><br>
+
+        <label for="destinatario" class="label">Destinatario:</label>
+        <input type="text" id="destinatario" name="destinatario" class="input" placeholder="Nombre y Apellido" required><br>
+
+        <label for="ubicacion" class="label">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" class="input" placeholder="Ubicación específica"><br>
+
+        <label for="piso" class="label">Piso:</label>
+        <select id="piso" name="piso" class="input" required>
+            <option value="Piso 1">Piso 1</option>
+            <option value="Piso 2">Piso 2</option>
+            <option value="Piso 3">Piso 3</option>
+        </select><br>
+
+        <label for="datosSensor" class="label">Datos del Sensor:</label>
+        <input type="text" id="amperios" name="amperios" class="input" placeholder="Amperios" required>
+        <input type="text" id="horas" name="horas" class="input" placeholder="Horas" required><br>
+
+        <button type="button" onclick="generarInforme()" class="button">Generar Informe</button>
+    </form>
+
+    <div id="informe-result" class="result"></div>
+
+    <div id="opciones-generar-informe" class="opciones-container">
+        <button type="button" onclick="enviarInforme()" class="button">Enviar Informe</button>
+        <button type="button" onclick="archivarInforme()" class="button">Archivar Informe</button>
+        <button type="button" onclick="descargarInforme()" class="button">Descargar Informe</button>
+        <button type="button" onclick="generarInformePiso()" class="button">Generar Informe del Piso</button>
+        <button type="button" onclick="generarInformeEdificio()" class="button">Generar Informe del Edificio</button>
     </div>
- <script src="{% static '/js/informe.js' %}"></script>
+</div>
+<script src="{% static 'js/informe.js' %}"></script>
+<script src=" {% static 'js/menu.js' %}"></script>
 </body>
 </html>
