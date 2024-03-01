@@ -19,4 +19,5 @@ urlpatterns = [
     path('control/<codigo>', views.control, name='ControlarEdificio'),    
     path('ControlarEdificio/', views.ControlarEdificio, name='ControlarEdificio'),
     path('EliminarEdificio/<codigo>', views.eliminacion, name='EliminarEdificio'),
+    path('actualizar_tabla_pisos/', views.actualizar_tabla_pisos, name='actualizar_tabla_pisos'),
 ]
