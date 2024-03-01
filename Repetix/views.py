@@ -151,6 +151,9 @@ def registrar_piso(request):
                                consumo_sensor=consumo_sensor,
                                codigo_edificio=codigo_edificio,
                                piso_id=piso_id)
+    
+    nuevo_piso = Piso(consumo_anterior=consumo_anterior, consumo_actual=consumo_actual, consumo_sensor=consumo_sensor, codigo_edificio=codigo_edificio)
+    nuevo_piso.save()
 
     # Devolver una respuesta JSON indicando si el registro fue exitoso
     if piso:
@@ -159,3 +162,15 @@ def registrar_piso(request):
         return JsonResponse({'success': False, 'error': 'Error al registrar el piso'})
 
 
+def actualizar_tabla_pisos(request):
+    pisos = Piso.objects.all()
+    data = {
+        'pisos': [{
+            'numero': piso.id,  # Suponiendo que el ID del piso es único y puede usarse como número de piso
+            'consumo_anterior': piso.consumo_anterior,
+            'consumo_actual': piso.consumo_actual,
+            'consumo_sensor': piso.consumo_sensor,
+            'codigo_edificio': piso.edificio.codigo  # Suponiendo que tienes una relación con el edificio
+        } for piso in pisos]
+    }
+    return JsonResponse(data)
