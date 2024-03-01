@@ -120,20 +120,23 @@ def control(request, codigo):
     return render(request, "ControlarEdificio.html", {"edificio": edificio})
 
 def ControlarEdificio(request, codigo):
-    nombre_edificio = request.POST['nombre_edificio']
-    codigo = request.POST['numero_edificio']
-    ubicacion_edificio = request.POST['ubicacion_edificio']
-    numero_pisos = request.POST['numero_pisos']
+    pisos =  Piso.objects.all()
+    if request.method == 'POST':
+        nombre_edificio = request.POST['nombre_edificio']
+        codigo = request.POST['numero_edificio']
+        ubicacion_edificio = request.POST['ubicacion_edificio']
+        numero_pisos = request.POST['numero_pisos']
     
-    edificio = Edificio.objects.get(codigo=codigo)
-    edificio.nombre = nombre_edificio
-    edificio.ubicacion = ubicacion_edificio
-    edificio.numero_pisos = numero_pisos
-    edificio.save()
+        edificio = Edificio.objects.get(codigo=codigo)
+        edificio.nombre = nombre_edificio
+        edificio.ubicacion = ubicacion_edificio
+        edificio.numero_pisos = numero_pisos
+        edificio.save()
     
-    messages.success(request, 'Edificios Editados!')
+        messages.success(request, 'Edificios Editados!')
     
-    return redirect('AccederEdificio')
+        return redirect('AccederEdificio')  
+    return render(request, 'ControlarEdificio.html', {"pisos":pisos})
 
 def registrar_piso(request):
     consumo_anterior = request.POST.get('consumo_anterior')
