@@ -47,19 +47,20 @@
         {% csrf_token %}
         <div class="input_energia">
             <label for="velocidad_viento">Velocidad del Viento (m/s):</label>
-            <input type="number" id="velocidad_viento" name="velocidad_viento" step="0.01" required><br>
+            <input type="number" id="velocidad_viento" name="velocidad_viento" step="0.01" min="0" required placeholder="m/s"><br>
         </div>
+
         <div class="input_energia">
             <label for="area_barrido">Área barrida por las palas (m²):</label>
-            <input type="number" id="area_barrido" name="area_barrido"  step="0.01" min="0" required><br>
+            <input type="number" id="area_barrido" name="area_barrido"  step="0.01" min="0" required placeholder="Total del area de rotación de las turbinas"><br>
         </div>
         <div class="input_energia">
             <label for="densidad_aire">Densidad del aire (kg/m³):</label>
-            <input type="number" id="densidad_aire" name="densidad_aire" step="0.01" min="0" required><br>
+            <input type="number" id="densidad_aire" name="densidad_aire" step="0.01" min="0" required placeholder="(Densidad del aire en kg/m³)"><br>
         </div>
         <div class="input_energia">
             <label for="eficiencia_sistema">Eficiencia del sistema:</label>
-            <input type="number" id="eficiencia_sistema" name="eficiencia_sistema" step="0.01" min="0" required><br>
+            <input type="number" id="eficiencia_sistema" name="eficiencia_sistema" step="0.01" min="0" required placeholder="Energia del viento en electricidad"><br>
         </div>
         <div class="input_energia">
             <button type="button" onclick="calcularEnergiaEolica()" class="button">Calcular</button>
