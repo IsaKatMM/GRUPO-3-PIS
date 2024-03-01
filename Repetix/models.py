@@ -14,7 +14,10 @@ class Piso(models.Model):
     consumo_anterior = models.FloatField()
     consumo_actual = models.FloatField()
     consumo_sensor = models.FloatField()
-#    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name='numero_pisos')
+ 
+#    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name='pisos')
 
 #    def __str__(self):
 #        return f"Piso de {self.edificio.nombre}"
+
+        
