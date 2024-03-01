@@ -5,6 +5,13 @@ function calcularEnergiaEolica() {
     const densidadAire = parseFloat(document.getElementById('densidad_aire').value);
     const eficienciaSistema = parseFloat(document.getElementById('eficiencia_sistema').value);
 
+    // Verificar si alguno de los valores es negativo
+    if (velocidadViento < 0 || areaBarrido < 0 || densidadAire < 0 || eficienciaSistema < 0) {
+        // Mostrar mensaje de alerta
+        alert('Por favor, ingresa valores no negativos.');
+        return; // Detener la ejecución de la función
+    }
+
     // Calcular la energía eólica
     const energiaEolica = calcularEnergia(velocidadViento, areaBarrido, densidadAire, eficienciaSistema);
 
@@ -14,8 +21,7 @@ function calcularEnergiaEolica() {
 }
 
 function calcularEnergia(velocidadViento, areaBarrido, densidadAire, eficienciaSistema) {
-    // Aquí se realiza el cálculo de la energía eólica
-    // Puedes usar las fórmulas que consideres adecuadas para tu aplicación
+    // Realizar el cálculo de la energía eólica
     const energiaGenerada = 0.5 * densidadAire * areaBarrido * velocidadViento**3 * eficienciaSistema;
     return energiaGenerada;
 }
