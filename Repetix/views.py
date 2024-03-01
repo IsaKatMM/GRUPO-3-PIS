@@ -250,3 +250,7 @@ def energia_eolica(request):
 
 class GenerarEnergiaEolica:
     pass
+
+def energiaSolar(request):
+    return render(request, 'energiaSolar.html')
+
