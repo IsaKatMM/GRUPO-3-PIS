@@ -51,15 +51,15 @@
         </div>
         <div class="input_energia">
             <label for="area_barrido">Área barrida por las palas (m²):</label>
-            <input type="number" id="area_barrido" name="area_barrido" step="0.01" required><br>
+            <input type="number" id="area_barrido" name="area_barrido"  step="0.01" min="0" required><br>
         </div>
         <div class="input_energia">
             <label for="densidad_aire">Densidad del aire (kg/m³):</label>
-            <input type="number" id="densidad_aire" name="densidad_aire" step="0.01" required><br>
+            <input type="number" id="densidad_aire" name="densidad_aire" step="0.01" min="0" required><br>
         </div>
         <div class="input_energia">
             <label for="eficiencia_sistema">Eficiencia del sistema:</label>
-            <input type="number" id="eficiencia_sistema" name="eficiencia_sistema" step="0.01" required><br>
+            <input type="number" id="eficiencia_sistema" name="eficiencia_sistema" step="0.01" min="0" required><br>
         </div>
         <div class="input_energia">
             <button type="button" onclick="calcularEnergiaEolica()" class="button">Calcular</button>
