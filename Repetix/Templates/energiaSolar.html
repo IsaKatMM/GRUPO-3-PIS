@@ -14,6 +14,9 @@ Generación de energía solar
           <form id="solarForm">
             {% csrf_token %}
             <div class="form-group py-2">
+
+
+
                 <input type="number" id="a" name="a"  class="form-control" placeholder="Área de la superficie receptora (en m²)" required />
               </div>
               <div class="form-group py-2">
@@ -31,11 +34,14 @@ Generación de energía solar
             </div>
           </form>
           <div id="resultado" class="py-2"></div>
+
           <canvas id="myChart" width="400" height="400"></canvas> <!-- Movido aquí -->
+
         </div>
       </div>
     </div>
   </div>
+
 
 
 <script>
@@ -76,7 +82,8 @@ Generación de energía solar
                 }
             }
         });
-    }
+  
+        }    
     
 </script>
 
